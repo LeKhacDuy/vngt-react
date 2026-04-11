@@ -50,7 +50,8 @@ export const getImageUrl = (path?: string) => {
     // If path starts with upload/, prepend API URL (or specific image base URL if different)
     // Based on reference: https://lekhacduy.io.vn/api/upload/tour/...
     // Our NEXT_PUBLIC_API_URL is /api (proxy) -> so we can just use /api/ + cleanPath matching the proxy
-    return `${process.env.NEXT_PUBLIC_API_URL}/${cleanPath}`;
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://lekhacduy.io.vn/api';
+    return `${baseUrl}/${cleanPath}`;
 };
 
 export const tourService = {

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/common/FloatingContact";
-import TetDecorations from "@/components/common/TetDecorations";
 import { AuthProvider } from "@/context/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -31,9 +31,9 @@ export default function RootLayout({
             </main>
             <Footer />
             <FloatingContact />
-            <TetDecorations />
           </LanguageProvider>
         </AuthProvider>
+        <Script src="https://chat-plugin.pancake.vn/main/auto?page_id=web_VNGROUPTOURIST" strategy="lazyOnload" />
       </body>
     </html>
   );

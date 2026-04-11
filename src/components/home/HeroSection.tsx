@@ -13,11 +13,13 @@ export default function HeroSection() {
             {/* Background Image */}
             <div className="relative w-full h-[300px] lg:absolute lg:inset-0 lg:h-full z-0">
                 <Image
-                    src="/images/bannerhero1.jpg"
+                    src="/images/banner-30-4.jpg"
                     alt="Hero Banner"
                     fill
                     className="object-cover"
                     priority
+                    unoptimized={true}
+                    quality={100}
                 />
                 <div className="absolute inset-0 bg-black/10"></div>
             </div>
