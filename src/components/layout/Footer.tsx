@@ -46,14 +46,16 @@ export default function Footer() {
 
                             <div className="flex gap-3 mt-6">
                                 {[
-                                    { icon: <div className="font-bold text-xs">Tik</div>, href: '#' },
-                                    { icon: <Facebook className="w-4 h-4" />, href: '#' },
-                                    { icon: <Youtube className="w-4 h-4" />, href: '#' },
-                                    { icon: <MessageCircle className="w-4 h-4" />, href: '#' }, // Zalo
+                                    { icon: <div className="font-bold text-[11px] leading-none">TIK<br/>TOK</div>, href: 'https://www.tiktok.com/@dulichvngrouptourist?lang=vi-VN' },
+                                    { icon: <Facebook className="w-4 h-4" />, href: 'https://www.facebook.com/vngrouptourist/' },
+                                    { icon: <Youtube className="w-4 h-4" />, href: 'https://www.youtube.com/@DuLichVNGroupTourist/' },
+                                    { icon: <MessageCircle className="w-4 h-4" />, href: 'https://zalo.me/0931867376' }, // Zalo
                                 ].map((social, idx) => (
                                     <Link
                                         key={idx}
                                         href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-[#00dba1] transition-all transform hover:-translate-y-1"
                                     >
                                         {social.icon}

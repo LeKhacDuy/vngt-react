@@ -87,6 +87,39 @@ export const tourService = {
         return { data: res.data.map(transformTourData) };
     },
 
+    // Subcategory-based tour fetching
+    getToursBySubcategory: async (subcategoryCode: string) => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: subcategoryCode } });
+    },
+
+    getSpringTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'spring' } });
+    },
+
+    getSummerTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'summer' } });
+    },
+
+    getAutumnTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'autumn' } });
+    },
+
+    getWinterTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'winter' } });
+    },
+
+    getHolidayTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'holiday' } });
+    },
+
+    getMiniGroupTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'mini-group' } });
+    },
+
+    getNoShoppingTours: async () => {
+        return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: 'no-shopping' } });
+    },
+
     getById: async (id: string | number) => {
         const res = await api.get<any, { data: any }>(`/tours/${id}`);
         return { data: transformTourData(res.data) };

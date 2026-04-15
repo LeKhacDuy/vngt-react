@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import PromoBannerSlider from "@/components/home/PromoBannerSlider";
 import CategoryGrid from "@/components/home/CategoryGrid";
 import FeaturedTours from "@/components/home/FeaturedTours";
 import GroupTours from "@/components/home/GroupTours";
@@ -13,6 +14,8 @@ export default function Home() {
     <div className="pb-20">
       <PromoPopup />
       <HeroSection />
+      {/* PromoBannerSlider: Ưu đãi nổi bật */}
+      <PromoBannerSlider />
       {/* CategoryGrid: Default White */}
       <CategoryGrid />
       {/* FeaturedTours: Gray 50 */}

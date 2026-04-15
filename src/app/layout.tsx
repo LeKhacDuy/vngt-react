@@ -13,6 +13,10 @@ const inter = Inter({ subsets: ["latin", "vietnamese"] });
 export const metadata: Metadata = {
   title: "VNGROUP TOURIST - Hành trình đẳng cấp",
   description: "Trải nghiệm du lịch khác biệt cùng VNGROUP TOURIST",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

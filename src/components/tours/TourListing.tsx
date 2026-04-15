@@ -18,16 +18,21 @@ interface TourListingProps {
     description?: string;
     introSection?: React.ReactNode;
     filterTabs?: FilterTab[];
+    subcategoryCode?: string; // When set, fetches tours by subcategory_code instead of category
+    initialDestinationCode?: string; // Pre-filter by destination (from search page)
 }
 
-export default function TourListing({ category, title, description, introSection, filterTabs }: TourListingProps) {
+export default function TourListing({ category, title, description, introSection, filterTabs, subcategoryCode, initialDestinationCode }: TourListingProps) {
     const [tours, setTours] = useState<Tour[]>([]);
     const [destinations, setDestinations] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
-    const [selectedDestination, setSelectedDestination] = useState('');
+    const [selectedDestination, setSelectedDestination] = useState(initialDestinationCode || '');
     const [selectedSubCategory, setSelectedSubCategory] = useState('');
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | ''>('');
     const [visibleCount, setVisibleCount] = useState(8);
+    // Parse initial destination id
+    const initialDestId = initialDestinationCode ? Number(initialDestinationCode) : null;
+    const [selectedDestId, setSelectedDestId] = useState<number | null>(initialDestId);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,7 +40,10 @@ export default function TourListing({ category, title, description, introSection
             try {
                 // Fetch Tours
                 let tourResponse;
-                if (category === 'international') {
+                if (subcategoryCode) {
+                    // Fetch by subcategory_code (e.g. spring, summer, promotion, etc.)
+                    tourResponse = await tourService.getToursBySubcategory(subcategoryCode);
+                } else if (category === 'international') {
                     tourResponse = await tourService.getInternationalTours();
                 } else if (category === 'domestic') {
                     tourResponse = await tourService.getDomesticTours();
@@ -49,10 +57,19 @@ export default function TourListing({ category, title, description, introSection
                     setTours(tourResponse.data);
                 }
 
-                // Fetch Destinations
+                // Fetch Destinations — filter by matching category
                 const destResponse = await tourService.getDestinations();
                 if (destResponse && destResponse.data) {
-                    setDestinations(destResponse.data);
+                    let dests = destResponse.data;
+                    if (category === 'international') {
+                        dests = dests.filter((d: any) => d.category_id === 2);
+                    } else if (category === 'domestic') {
+                        dests = dests.filter((d: any) => d.category_id === 1);
+                    } else if (category === 'inbound') {
+                        dests = dests.filter((d: any) => d.category_id === 3 || d.category_id === 4);
+                    }
+                    // 'group', 'all', subcategoryCode → show all destinations
+                    setDestinations(dests);
                 }
 
             } catch (error) {
@@ -63,7 +80,7 @@ export default function TourListing({ category, title, description, introSection
         };
 
         fetchData();
-    }, [category]);
+    }, [category, subcategoryCode]);
 
     // Filter and Sort Logic
     const filteredTours = useMemo(() => {
@@ -75,9 +92,8 @@ export default function TourListing({ category, title, description, introSection
         // Our service methods (getInternationalTours) use params to filter on server, 
         // returns only relevant tours. So no need to filter by category again here usually.
 
-        if (selectedDestination) {
-            result = result.filter(t => t.destination_code === selectedDestination);
-            // Assuming API returns destination_code. Mock used 'destination'.
+        if (selectedDestId) {
+            result = result.filter(t => t.destination_id === selectedDestId);
         }
 
         // Subcategory Filter (Tab)
@@ -94,7 +110,7 @@ export default function TourListing({ category, title, description, introSection
         }
 
         return result;
-    }, [tours, selectedDestination, selectedSubCategory, sortOrder]);
+    }, [tours, selectedDestId, selectedSubCategory, sortOrder]);
 
     const displayedTours = filteredTours.slice(0, visibleCount);
 
@@ -126,7 +142,7 @@ export default function TourListing({ category, title, description, introSection
 
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
-            {/* Breadcrumb Section */}
+            {/* Breadcrumb / Page Header — always visible */}
             <section className="bg-white border-b border-gray-200 py-8 lg:py-12">
                 <div className="container mx-auto px-4">
                     <nav className="flex items-center text-sm text-gray-500 mb-4">
@@ -139,7 +155,7 @@ export default function TourListing({ category, title, description, introSection
                 </div>
             </section>
 
-            {/* Intro Section (Optional) */}
+            {/* Featured Destination Strip (Optional) */}
             {introSection}
 
             {/* Main Content */}
@@ -181,13 +197,13 @@ export default function TourListing({ category, title, description, introSection
                         <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-2 flex-grow md:flex-grow-0">
                             <span className="text-sm font-medium text-gray-500 whitespace-nowrap">Điểm đến:</span>
                             <select
-                                value={selectedDestination}
-                                onChange={(e) => setSelectedDestination(e.target.value)}
+                                value={selectedDestId ?? ''}
+                                onChange={(e) => setSelectedDestId(e.target.value ? Number(e.target.value) : null)}
                                 className="bg-transparent border-none outline-none text-sm font-semibold text-gray-800 w-full md:w-32 cursor-pointer"
                             >
                                 <option value="">Tất cả</option>
                                 {destinations.map(d => (
-                                    <option key={d.code || d.id} value={d.code}>{d.name}</option>
+                                    <option key={d.id} value={d.id}>{d.name}</option>
                                 ))}
                             </select>
                         </div>
