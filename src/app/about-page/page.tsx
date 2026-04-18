@@ -295,34 +295,39 @@ export default function AboutPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Đội ngũ lãnh đạo</h2>
                         <p className="text-xl text-gray-600">Những con người tâm huyết xây dựng VNGroup Tourist</p>
+                        <div className="w-20 h-1 bg-[#00dba1] mx-auto mt-6 rounded-full"></div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="flex flex-col md:flex-row justify-center gap-10 max-w-3xl mx-auto">
                         {teamMembers.map((member) => (
-                            <div key={member.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300">
-                                <div className="relative h-80 overflow-hidden">
+                            <div key={member.id} className="group flex-1 max-w-sm mx-auto bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                                {/* Ảnh */}
+                                <div className="relative h-96 overflow-hidden">
                                     <Image
                                         src={member.image}
                                         alt={member.name}
                                         fill
-                                        className="object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                                        <div className="text-white w-full">
-                                            <p className="text-sm line-clamp-3 mb-4">{member.bio}</p>
-                                            <div className="flex gap-3 justify-center">
-                                                {member.social?.email && (
-                                                    <a href={`mailto:${member.social.email}`} className="p-2 bg-white/20 hover:bg-[#00dba1] rounded-full transition-colors">
-                                                        <Mail className="w-5 h-5" />
-                                                    </a>
-                                                )}
-                                            </div>
-                                        </div>
+                                    {/* Gradient overlay luôn hiển thị ở dưới */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+                                    {/* Badge chức vụ */}
+                                    <div className="absolute top-4 left-4">
+                                        <span className="px-3 py-1.5 bg-[#00dba1] text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-lg">
+                                            {member.position}
+                                        </span>
+                                    </div>
+
+                                    {/* Tên + email ở dưới ảnh */}
+                                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                                        <h3 className="text-2xl font-bold text-white mb-1">{member.name}</h3>
                                     </div>
                                 </div>
-                                <div className="p-6 text-center">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                                    <div className="text-[#00dba1] font-semibold text-sm uppercase tracking-wider">{member.position}</div>
+
+                                {/* Bio */}
+                                <div className="p-6">
+                                    <p className="text-gray-600 leading-relaxed text-sm">{member.bio}</p>
                                 </div>
                             </div>
                         ))}

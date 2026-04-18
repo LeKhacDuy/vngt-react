@@ -3,14 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Globe, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useLanguage } from '@/contexts/LanguageContext';
+
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
-    const { locale, setLocale, t } = useLanguage();
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -31,40 +29,7 @@ export default function Header() {
                                 <li><Link href="/contact-page" className="hover:opacity-80 transition-opacity">Liên hệ</Link></li>
                             </ul>
                         </nav>
-                        <div className="relative">
-                            <button
-                                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                                className="flex items-center gap-1 cursor-pointer bg-white/15 border border-white/30 px-2.5 py-1 rounded hover:bg-white/25 transition-colors"
-                            >
-                                <Globe className="w-3.5 h-3.5" />
-                                <span className="font-medium text-[13px] ml-1">{locale.toUpperCase()}</span>
-                                <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", isLangDropdownOpen && "rotate-180")} />
-                            </button>
 
-                            {/* Language Dropdown */}
-                            {isLangDropdownOpen && (
-                                <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-lg border border-gray-100 py-1 min-w-[100px] z-50">
-                                    <button
-                                        onClick={() => { setLocale('vi'); setIsLangDropdownOpen(false); }}
-                                        className={cn(
-                                            "w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors flex items-center gap-2",
-                                            locale === 'vi' ? "text-[#00dba1] font-semibold" : "text-gray-700"
-                                        )}
-                                    >
-                                        🇻🇳 Tiếng Việt
-                                    </button>
-                                    <button
-                                        onClick={() => { setLocale('en'); setIsLangDropdownOpen(false); }}
-                                        className={cn(
-                                            "w-full px-4 py-2 text-left text-sm hover:bg-gray-100 transition-colors flex items-center gap-2",
-                                            locale === 'en' ? "text-[#00dba1] font-semibold" : "text-gray-700"
-                                        )}
-                                    >
-                                        🇺🇸 English
-                                    </button>
-                                </div>
-                            )}
-                        </div>
                     </div>
                 </div>
             </div>
@@ -124,11 +89,6 @@ export default function Header() {
 
                     {/* Mobile Actions */}
                     <div className="flex lg:hidden items-center gap-3">
-                        {/* Mobile Language Selector */}
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#00dba1]/20 border border-[#00dba1]/50 rounded-full text-[#00dba1] text-xs font-semibold">
-                            <Globe className="w-3.5 h-3.5" />
-                            <span>VN</span>
-                        </div>
 
                         {/* Hamburger Button */}
                         <button

@@ -1,6 +1,17 @@
-'use client';
-
+import type { Metadata } from 'next';
 import TourListing from '@/components/tours/TourListing';
+
+export const metadata: Metadata = {
+  title: 'Tour Đoàn Doanh Nghiệp — MICE & Teambuilding',
+  description: 'Tổ chức tour đoàn doanh nghiệp, MICE, teambuilding chuyên nghiệp. VNGroup Tourist có kinh nghiệm phục vụ đoàn từ 20-500 người trên khắp Việt Nam và quốc tế.',
+  alternates: { canonical: '/tours/group' },
+  openGraph: {
+    title: 'Tour Đoàn Doanh Nghiệp | VNGroup Tourist',
+    description: 'Tour đoàn, MICE, teambuilding chuyên nghiệp cho doanh nghiệp.',
+    url: '/tours/group',
+  },
+};
+
 import { FilterTab } from '@/components/tours/TourListing';
 
 const groupTabs: FilterTab[] = [

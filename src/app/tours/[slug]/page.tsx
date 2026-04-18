@@ -1,10 +1,51 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { tourService } from '@/services/tour.service';
 import TourDetailView from '@/components/tours/TourDetailView';
+import JsonLd, { tourSchema } from '@/components/common/JsonLd';
 
 // Correctly type the params as a Promise for Next.js 15
 interface PageProps {
     params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const { data: tour } = await tourService.getBySlug(slug);
+
+    if (!tour) {
+        return {
+            title: 'Tour không tồn tại',
+            robots: { index: false, follow: false },
+        };
+    }
+
+    const description = tour.highlights
+        ? tour.highlights.replace(/<[^>]+>/g, '').slice(0, 160)
+        : `Khám phá ${tour.name} cùng VNGroup Tourist. Đặt tour ngay với giá tốt nhất!`;
+
+    return {
+        title: tour.name,
+        description,
+        alternates: {
+            canonical: `/tours/${slug}`,
+        },
+        openGraph: {
+            title: `${tour.name} | VNGroup Tourist`,
+            description,
+            url: `/tours/${slug}`,
+            type: 'article',
+            images: tour.thumbnail
+                ? [{ url: tour.thumbnail, width: 1200, height: 630, alt: tour.name }]
+                : [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: tour.name,
+            description,
+            images: [tour.thumbnail || '/images/og-default.jpg'],
+        },
+    };
 }
 
 export default async function TourDetailsPage({ params }: PageProps) {
@@ -24,5 +65,19 @@ export default async function TourDetailsPage({ params }: PageProps) {
         notFound();
     }
 
-    return <TourDetailView tour={tour} articles={articles} />;
+    return (
+        <>
+            <JsonLd data={tourSchema({
+                name: tour.name,
+                description: tour.highlights?.replace(/<[^>]+>/g, '').slice(0, 300) || tour.name,
+                image: tour.thumbnail || '/images/og-default.jpg',
+                slug: tour.slug || slug,
+                price: tour.price,
+                duration: tour.duration,
+                destination: tour.destination,
+            })} />
+            <TourDetailView tour={tour} articles={articles} />
+        </>
+    );
 }
+

@@ -131,12 +131,14 @@ export const tourService = {
         const res = await api.get<any, { data: any[] }>('/tours', { params: { limit: 1000 } });
 
         if (res.data && res.data.length > 0) {
-            const normalizedSlug = slug.trim().toLowerCase();
+            // Decode URI encoding and normalize Unicode (NFC) to handle Vietnamese chars
+            // e.g. "tối" in URL (%E1%BB%91) vs "tối" in DB might differ in NFC/NFD form
+            const normalizedSlug = decodeURIComponent(slug).trim().normalize('NFC').toLowerCase();
 
-            // Priority 1: Exact slug/code match (case-insensitive & trimmed)
+            // Priority 1: Exact slug/code match (case-insensitive, decoded & NFC-normalized)
             const exactMatch = res.data.find((item: any) => {
-                const itemSlug = (item.slug || '').trim().toLowerCase();
-                const itemCode = (item.tour_code || '').trim().toLowerCase();
+                const itemSlug = (item.slug || '').trim().normalize('NFC').toLowerCase();
+                const itemCode = (item.tour_code || '').trim().normalize('NFC').toLowerCase();
                 return itemSlug === normalizedSlug || itemCode === normalizedSlug;
             });
 

@@ -1,7 +1,18 @@
-'use client';
-
+import type { Metadata } from 'next';
 import TourListing from '@/components/tours/TourListing';
 import SubcategoryHero from '@/components/tours/SubcategoryHero';
+
+export const metadata: Metadata = {
+  title: 'Tour Mini Group — Nhóm Nhỏ Tiện Lợi',
+  description: 'Tour mini group dành cho nhóm nhỏ từ 6-15 người. Linh hoạt lịch trình, dịch vụ cá nhân hóa, trải nghiệm sâu hơn cùng VNGroup Tourist.',
+  alternates: { canonical: '/tours/mini-group' },
+  openGraph: {
+    title: 'Tour Mini Group | VNGroup Tourist',
+    description: 'Tour nhóm nhỏ 6-15 người. Linh hoạt, cá nhân hóa, trải nghiệm sâu.',
+    url: '/tours/mini-group',
+  },
+};
+
 
 export default function MiniGroupToursPage() {
     return (
