@@ -45,7 +45,7 @@ export default function PromoPopup() {
                 {/* Popup image */}
                 <div className="rounded-2xl overflow-hidden shadow-2xl">
                     <Image
-                        src="/Thùng bốc thăm.jpg"
+                        src="/promo-popup.jpg"
                         alt="Bốc thăm trúng thưởng 100% có quà khi đăng ký tour"
                         width={600}
                         height={600}

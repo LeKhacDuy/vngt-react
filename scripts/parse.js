@@ -1,1 +1,0 @@
-const xlsx = require('xlsx'); const wb = xlsx.readFile('C:\\vngt\\public\\LKH VNGROUP TOURIST 2026.xlsx'); const sheetName = wb.SheetNames[0]; const data = xlsx.utils.sheet_to_json(wb.Sheets[sheetName], { header: 1 }); console.log(JSON.stringify(data.slice(0, 20), null, 2));
