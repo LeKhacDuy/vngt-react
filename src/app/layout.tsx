@@ -6,6 +6,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/common/FloatingContact";
 import JsonLd, { travelAgencySchema } from "@/components/common/JsonLd";
+import TopProgressBar from "@/components/common/TopProgressBar";
+import PageTransition from "@/components/common/PageTransition";
 import { AuthProvider } from "@/context/AuthContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -84,9 +86,12 @@ export default function RootLayout({
         <AuthProvider>
           <LanguageProvider>
             <JsonLd data={travelAgencySchema} />
+            <TopProgressBar />
             <Header />
             <main className="min-h-screen">
-              {children}
+              <PageTransition>
+                {children}
+              </PageTransition>
             </main>
             <Footer />
             <FloatingContact />

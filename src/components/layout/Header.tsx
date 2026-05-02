@@ -57,11 +57,10 @@ export default function Header() {
                             {[
                                 { name: 'Tour quốc tế', href: '/tours/international' },
                                 { name: 'Tour trong nước', href: '/tours/domestic' },
-                                { name: 'Tour cao cấp', href: '/tours/luxury' },
                                 { name: 'Tour đoàn', href: '/tours/group' },
                                 { name: 'Tour inbound', href: '/tours/inbound' },
                                 { name: 'Vé tham quan', href: '/tickets' },
-                                { name: 'Khuyến mãi', href: '/promotions' },
+                                { name: 'Lịch khởi hành', href: '/schedule-page' },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link
@@ -129,11 +128,10 @@ export default function Header() {
                         {[
                             { name: 'Tour quốc tế', href: '/tours/international' },
                             { name: 'Tour trong nước', href: '/tours/domestic' },
-                            { name: 'Tour cao cấp', href: '/tours/luxury' },
                             { name: 'Tour đoàn', href: '/tours/group' },
                             { name: 'Tour inbound', href: '/tours/inbound' },
                             { name: 'Vé tham quan', href: '/tickets' },
-                            { name: 'Khuyến mãi', href: '/promotions' },
+                            { name: 'Lịch khởi hành', href: '/schedule-page' },
                             { name: 'Liên hệ', href: '/contact-page' },
                         ].map((item) => (
                             <li key={item.name}>

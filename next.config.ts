@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
-    unoptimized: true,
+    qualities: [75, 100],
   },
   async rewrites() {
     return [

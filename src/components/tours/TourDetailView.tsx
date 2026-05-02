@@ -100,7 +100,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                             )}
                         </div>
                         <div className="flex flex-col">
-                            <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 font-serif">
+                            <h1 className="text-2xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
                                 {tour.name}
                             </h1>
 
@@ -255,7 +255,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
 
                     {/* Itinerary */}
                     <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-8 font-serif border-l-4 border-[#00dba1] pl-4">Lịch trình chi tiết</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-[#00dba1] pl-4">Lịch trình chi tiết</h2>
 
                         {tour.itinerary ? (
                             <div className="border-l-2 border-[#00dba1]/30 ml-3 space-y-10 pl-8 relative">
@@ -332,7 +332,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                     <section className="bg-white py-12 lg:py-16 mt-8">
                         <div className="container mx-auto px-4">
                             <div className="flex items-center justify-between mb-8">
-                                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 font-serif">
+                                <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
                                     Cẩm nang du lịch
                                 </h2>
                                 <a href="/guide-page" className="text-[#00dba1] font-medium hover:underline flex items-center gap-1">

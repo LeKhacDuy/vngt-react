@@ -3,33 +3,23 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Calendar, MapPin, Clock, ArrowRight, Filter } from 'lucide-react';
-import { tours } from '@/data/tours';
+import rawDepartures from '@/data/schedule.json';
 
-// Generate mock departures based on existing tours
-const generateDepartures = () => {
-    return tours.flatMap(tour => {
-        // Generate 3 random dates for each tour in next 2 months
-        return [1, 2, 3].map(i => {
-            const date = new Date();
-            date.setDate(date.getDate() + (i * 7) + Math.floor(Math.random() * 5));
-            return {
-                ...tour,
-                departureDate: date,
-                seats: 20,
-                available: Math.floor(Math.random() * 10),
-                status: Math.random() > 0.3 ? 'Available' : 'Last Seats'
-            };
-        });
-    }).sort((a, b) => a.departureDate.getTime() - b.departureDate.getTime());
-};
-
-const departures = generateDepartures();
+// Lấy danh sách lịch khởi hành từ file json
+const departures = rawDepartures.map(d => ({
+    ...d,
+    // Add mock fields for UI if needed
+    seats: 20,
+    available: Math.floor(Math.random() * 10) + 1,
+    status: Math.random() > 0.3 ? 'Available' : 'Last Seats',
+    formattedPrice: new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(d.price)
+}));
 
 export default function SchedulePage() {
     const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth());
 
-    // Filter by month
-    const filteredDepartures = departures.filter(d => d.departureDate.getMonth() === selectedMonth);
+    // Filter by month (0-indexed)
+    const filteredDepartures = departures.filter(d => d.month === selectedMonth);
 
     const months = [
         { value: 0, label: 'Tháng 1' }, { value: 1, label: 'Tháng 2' },
@@ -81,27 +71,33 @@ export default function SchedulePage() {
                             <div key={idx} className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all flex flex-col md:flex-row items-center gap-6">
                                 {/* Date Box */}
                                 <div className="flex flex-col items-center justify-center p-4 bg-blue-50 text-blue-800 rounded-xl min-w-[100px]">
-                                    <span className="text-3xl font-bold">{item.departureDate.getDate()}</span>
-                                    <span className="text-sm font-semibold uppercase">Tháng {item.departureDate.getMonth() + 1}</span>
+                                    <span className="text-3xl font-bold">{item.day}</span>
+                                    <span className="text-sm font-semibold uppercase">Tháng {item.month + 1}</span>
                                 </div>
 
                                 {/* Tour Info */}
                                 <div className="flex-1 text-center md:text-left">
-                                    <div className="flex items-center justify-center md:justify-start gap-2 text-sm text-gray-500 mb-1">
-                                        <MapPin className="w-4 h-4 text-[#00dba1]" />
-                                        {item.destination}
-                                        <span className="w-1 h-1 bg-gray-300 rounded-full mx-2"></span>
+                                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-sm text-gray-500 mb-2">
                                         <Clock className="w-4 h-4 text-[#00dba1]" />
-                                        {item.duration}
+                                        <span>{item.duration}</span>
+                                        <span className="w-1 h-1 bg-gray-300 rounded-full mx-2 hidden sm:block"></span>
+                                        <span className="bg-gray-100 px-2 py-1 rounded text-xs whitespace-pre-line text-left">
+                                            ✈️ {item.flight}
+                                        </span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-[#00dba1] transition-colors">
-                                        <Link href={`/tours/${item.id}`}>{item.name}</Link>
+                                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 hover:text-[#00dba1] transition-colors whitespace-pre-line">
+                                        <Link href={`/tours`}>{item.tourName}</Link>
                                     </h3>
                                     <div className="flex items-center justify-center md:justify-start gap-4 text-sm">
+                                        {item.isHoliday && (
+                                            <span className="px-3 py-1 rounded-full font-bold text-xs bg-red-500 text-white shadow-sm">
+                                                Dịp Lễ
+                                            </span>
+                                        )}
                                         <span className={`px-3 py-1 rounded-full font-bold text-xs ${item.status === 'Available' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                                             {item.status === 'Available' ? 'Còn chỗ' : 'Sắp hết'}
                                         </span>
-                                        <span className="text-gray-500">
+                                        <span className="text-gray-500 hidden sm:inline">
                                             Còn <strong>{item.available}</strong> chỗ
                                         </span>
                                     </div>
@@ -109,13 +105,12 @@ export default function SchedulePage() {
 
                                 {/* Price & Action */}
                                 <div className="text-center md:text-right min-w-[180px] border-t md:border-t-0 md:border-l border-gray-100 pt-4 md:pt-0 md:pl-6 w-full md:w-auto mt-4 md:mt-0">
-                                    <div className="text-gray-400 text-sm line-through mb-1">{item.originalPrice}</div>
-                                    <div className="text-2xl font-bold text-[#f5a623] mb-3">{item.price}</div>
+                                    <div className="text-2xl font-bold text-[#f5a623] mb-3">{item.formattedPrice}</div>
                                     <Link
-                                        href={`/tours/${item.id}`}
-                                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-lg transition-all w-full md:w-auto justify-center"
+                                        href={`/tours`}
+                                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-lg transition-all w-full md:w-auto justify-center shadow-md hover:shadow-lg"
                                     >
-                                        Đặt ngay <ArrowRight className="w-4 h-4" />
+                                        Liên hệ <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </div>
                             </div>

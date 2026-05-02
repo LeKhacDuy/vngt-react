@@ -8,6 +8,7 @@ import { tourService, Tour, getImageUrl } from '@/services/tour.service';
 
 export default function GroupTours() {
     const [tours, setTours] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchTours = async () => {
@@ -29,12 +30,40 @@ export default function GroupTours() {
                 }
             } catch (error) {
                 console.error("Failed to fetch group tours:", error);
+            } finally {
+                setIsLoading(false);
             }
         }
         fetchTours();
     }, []);
 
-    if (tours.length === 0) return null; // Or return loading skeleton
+    if (isLoading) {
+        return (
+            <section className="py-20 bg-[#0f172a] relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+                    <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#00dba1]/10 blur-[100px]"></div>
+                    <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]"></div>
+                </div>
+                <div className="container mx-auto px-4 relative z-10 animate-pulse">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                        <div>
+                            <div className="h-4 w-40 bg-white/10 rounded mb-3" />
+                            <div className="h-10 w-72 bg-white/10 rounded-lg mb-2" />
+                            <div className="h-5 w-96 bg-white/5 rounded" />
+                        </div>
+                        <div className="h-12 w-48 bg-[#00dba1]/20 rounded-full" />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[1, 2, 3, 4].map(i => (
+                            <div key={i} className="h-[400px] rounded-3xl bg-white/5 border border-white/10" />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    if (tours.length === 0) return null;
 
     return (
         <section className="py-20 bg-[#0f172a] relative overflow-hidden">

@@ -47,7 +47,48 @@ export default function TravelGuideSection() {
     const remaining = sidebarCandidates.filter(a => !sidebarList.find(s => s.id === a.id));
     sidebarList = [...sidebarList, ...remaining].slice(0, 3);
 
-    if (loading) return null; // Or skeleton
+    if (loading) {
+        return (
+            <section className="py-24 bg-[#FAFAFA]">
+                <div className="container mx-auto px-4 animate-pulse">
+                    {/* Header Skeleton */}
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                        <div className="max-w-2xl">
+                            <div className="h-4 w-24 bg-[#00dba1]/20 rounded mb-3" />
+                            <div className="h-12 w-72 bg-gray-200 rounded-lg mb-4" />
+                            <div className="h-5 w-96 bg-gray-200 rounded" />
+                        </div>
+                        <div className="hidden md:block h-12 w-36 bg-gray-200 rounded-full" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        {/* Hero Article Skeleton */}
+                        <div className="lg:col-span-7 xl:col-span-8">
+                            <div className="h-[500px] lg:h-[600px] rounded-[2rem] bg-gray-200" />
+                        </div>
+
+                        {/* Sidebar Skeleton */}
+                        <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="flex gap-5 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 items-center">
+                                    <div className="w-32 h-32 md:w-36 md:h-36 rounded-xl bg-gray-200 flex-shrink-0" />
+                                    <div className="flex-1 space-y-3 py-1">
+                                        <div className="flex gap-2">
+                                            <div className="h-4 w-14 bg-[#00dba1]/10 rounded" />
+                                            <div className="h-4 w-20 bg-gray-100 rounded" />
+                                        </div>
+                                        <div className="h-5 w-full bg-gray-200 rounded" />
+                                        <div className="h-5 w-3/4 bg-gray-200 rounded" />
+                                        <div className="h-3 w-20 bg-gray-100 rounded" />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
     if (articles.length === 0) return null;
 
     const formatDate = (dateString?: string) => {

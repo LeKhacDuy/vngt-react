@@ -134,8 +134,55 @@ export default function TourListing({ category, title, description, introSection
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00dba1]"></div>
+            <div className="min-h-screen bg-gray-50 pb-20 animate-pulse">
+                {/* Breadcrumb Skeleton */}
+                <section className="bg-white border-b border-gray-200 py-8 lg:py-12">
+                    <div className="container mx-auto px-4">
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="h-4 w-16 bg-gray-200 rounded" />
+                            <div className="h-4 w-4 bg-gray-200 rounded" />
+                            <div className="h-4 w-32 bg-gray-200 rounded" />
+                        </div>
+                        <div className="h-10 lg:h-14 w-64 bg-gray-200 rounded-lg" />
+                        <div className="h-5 w-96 bg-gray-200 rounded mt-4" />
+                    </div>
+                </section>
+
+                {/* Filters + Grid Skeleton */}
+                <div className="container mx-auto px-4 py-8 lg:py-12">
+                    {/* Filter Toolbar */}
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
+                        <div className="h-8 w-48 bg-gray-200 rounded-lg" />
+                        <div className="flex gap-3">
+                            <div className="h-10 w-36 bg-white border border-gray-200 rounded-xl" />
+                            <div className="h-10 w-36 bg-white border border-gray-200 rounded-xl" />
+                        </div>
+                    </div>
+
+                    {/* Tour Card Grid Skeleton */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                            <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col h-full">
+                                {/* Image */}
+                                <div className="h-[215px] bg-gray-200" />
+                                {/* Content */}
+                                <div className="p-4 flex flex-col flex-grow">
+                                    <div className="h-5 w-full bg-gray-200 rounded mb-2" />
+                                    <div className="h-5 w-3/4 bg-gray-200 rounded mb-4" />
+                                    <div className="space-y-2 mb-4">
+                                        <div className="h-4 w-40 bg-gray-100 rounded" />
+                                        <div className="h-4 w-36 bg-gray-100 rounded" />
+                                    </div>
+                                    <div className="border-t border-gray-100 my-3" />
+                                    <div className="mt-auto flex justify-between items-center">
+                                        <div className="h-6 w-28 bg-[#00dba1]/15 rounded" />
+                                        <div className="h-9 w-20 bg-[#00dba1]/10 rounded-full" />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         );
     }

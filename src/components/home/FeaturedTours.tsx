@@ -17,8 +17,23 @@ export default function FeaturedTours() {
                 const response = await tourService.getHotTours();
 
                 if (response && response.data) {
+                    // Ưu tiên hiển thị tour Trung Quốc lên trước
+                    const sortedData = [...response.data].sort((a: any, b: any) => {
+                        // Lấy thông tin điểm đến (code hoặc name)
+                        const aDest = (a.destination?.code || a.destination_code || a.destination?.name || '').toLowerCase();
+                        const bDest = (b.destination?.code || b.destination_code || b.destination?.name || '').toLowerCase();
+                        
+                        // Kiểm tra xem có chứa từ khóa Trung Quốc không
+                        const isAChina = aDest.includes('trung quoc') || aDest.includes('trung-quoc') || aDest.includes('trung quốc') || aDest.includes('china');
+                        const isBChina = bDest.includes('trung quoc') || bDest.includes('trung-quoc') || bDest.includes('trung quốc') || bDest.includes('china');
+
+                        if (isAChina && !isBChina) return -1;
+                        if (!isAChina && isBChina) return 1;
+                        return 0;
+                    });
+
                     // Map API data to UI format
-                    const mappedTours = response.data.slice(0, 4).map((item: Tour) => ({
+                    const mappedTours = sortedData.slice(0, 4).map((item: any) => ({
                         id: item.id.toString(),
                         name: item.name,
                         image: getImageUrl(item.thumbnail), // Use helper
@@ -26,9 +41,9 @@ export default function FeaturedTours() {
                         originalPrice: null,
                         duration: `${item.duration} Ngày`,
                         departure: 'Liên hệ',
-                        discount: item.subcategory_code === 'hot' ? 'Hot' : null, // Tag logic
-                        slug: item.slug || item.tour_code, // Prefer slug, fallback to tour_code
-                        category: 'international'
+                        discount: item.subcategory_code === 'hot' || item.subcategory?.code === 'hot' ? 'Hot' : null,
+                        slug: item.slug || item.tour_code,
+                        category: item.category?.name || 'Tour nổi bật'
                     }));
                     setTours(mappedTours);
                 }
@@ -53,10 +68,28 @@ export default function FeaturedTours() {
                             <div className="h-8 w-48 bg-gray-200 rounded animate-pulse mb-2"></div>
                             <div className="h-4 w-64 bg-gray-200 rounded animate-pulse"></div>
                         </div>
+                        <div className="h-10 w-32 bg-gray-200 rounded-full animate-pulse"></div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[1, 2, 3, 4].map(i => (
-                            <div key={i} className="h-[400px] bg-gray-200 rounded-2xl animate-pulse"></div>
+                            <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm animate-pulse">
+                                {/* Image placeholder */}
+                                <div className="h-[215px] bg-gray-200" />
+                                {/* Content */}
+                                <div className="p-4">
+                                    <div className="h-5 w-full bg-gray-200 rounded mb-2" />
+                                    <div className="h-5 w-3/4 bg-gray-200 rounded mb-4" />
+                                    <div className="space-y-2 mb-4">
+                                        <div className="h-4 w-40 bg-gray-100 rounded" />
+                                        <div className="h-4 w-36 bg-gray-100 rounded" />
+                                    </div>
+                                    <div className="border-t border-gray-100 my-3" />
+                                    <div className="flex justify-between items-center">
+                                        <div className="h-6 w-28 bg-[#00dba1]/15 rounded" />
+                                        <div className="h-9 w-20 bg-[#00dba1]/10 rounded-full" />
+                                    </div>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>

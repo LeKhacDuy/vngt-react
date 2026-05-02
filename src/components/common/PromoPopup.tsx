@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 export default function PromoPopup() {
     const [isOpen, setIsOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         // Check if popup was already shown in this session
         const wasShown = sessionStorage.getItem('promoPopupShown');
         if (!wasShown) {
@@ -20,9 +23,9 @@ export default function PromoPopup() {
         }
     }, []);
 
-    if (!isOpen) return null;
+    if (!isOpen || !mounted) return null;
 
-    return (
+    return createPortal(
         <div
             className="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
             onClick={() => setIsOpen(false)}
@@ -87,6 +90,7 @@ export default function PromoPopup() {
                     animation: scale-in 0.4s ease-out;
                 }
             `}</style>
-        </div>
+        </div>,
+        document.body
     );
 }

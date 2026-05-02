@@ -47,10 +47,8 @@ export default function Home() {
       <TestimonialsSection />
       {/* StatsSection: Ocean Gradient */}
       <StatsSection />
-      {/* WhyChooseUs: Gray 50 */}
-      <div className="bg-gray-50">
-        <WhyChooseUs />
-      </div>
+      {/* Memberships Section */}
+      <WhyChooseUs />
     </div>
   );
 }

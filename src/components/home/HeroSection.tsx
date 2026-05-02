@@ -6,6 +6,11 @@ import { Search, MapPin, Calendar, ArrowLeft, ArrowRight, ChevronDown, Globe, X 
 import { tourService } from '@/services/tour.service';
 import { useRouter } from 'next/navigation';
 
+const HERO_IMAGES = [
+    '/cover/cover1.jpg',
+    '/cover/cover2.jpg'
+];
+
 interface Destination {
     id: number;
     code: string;
@@ -20,6 +25,23 @@ export default function HeroSection() {
     const [searchText, setSearchText] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState('');
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    // Auto-scroll hero banner
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide(prev => (prev + 1) % HERO_IMAGES.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const handleNextSlide = () => {
+        setCurrentSlide(prev => (prev + 1) % HERO_IMAGES.length);
+    };
+
+    const handlePrevSlide = () => {
+        setCurrentSlide(prev => (prev === 0 ? HERO_IMAGES.length - 1 : prev - 1));
+    };
     const dropdownRef = useRef<HTMLDivElement>(null);
     const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -87,44 +109,53 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative flex flex-col lg:block h-auto lg:h-[75vh]">
+        <section className="relative flex flex-col lg:block h-auto lg:h-[75vh] lg:mb-16">
             {/* Background Image */}
-            <div className="relative w-full h-[320px] lg:absolute lg:inset-0 lg:h-full z-0">
-                <Image
-                    src="/images/banner-30-4.jpg"
-                    alt="Hero Banner"
-                    fill
-                    className="object-cover"
-                    priority
-                    unoptimized={true}
-                    quality={100}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/50" />
+            <div className="relative w-full h-[320px] lg:absolute lg:inset-0 lg:h-full z-0 overflow-hidden bg-gray-900">
+                {HERO_IMAGES.map((src, idx) => (
+                    <div
+                        key={idx}
+                        className={`absolute inset-0 transition-opacity duration-1000 ${
+                            idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                        }`}
+                    >
+                        <Image
+                            src={src}
+                            alt={`Hero Banner ${idx + 1}`}
+                            fill
+                            className="object-cover"
+                            priority={idx === 0}
+                            quality={100}
+                        />
+                    </div>
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 z-20 pointer-events-none" />
             </div>
 
             {/* Arrow navigation */}
-            <div className="hidden lg:flex justify-between items-center w-full absolute top-1/2 left-0 px-6 -translate-y-1/2 pointer-events-none z-10">
-                <button className="pointer-events-auto w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-white/40 transition-all duration-300 text-white shadow-lg">
+            <div className="hidden lg:flex justify-between items-center w-full absolute top-1/2 left-0 px-6 -translate-y-1/2 pointer-events-none z-30">
+                <button 
+                    onClick={handlePrevSlide}
+                    className="pointer-events-auto w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-white/40 transition-all duration-300 text-white shadow-lg">
                     <ArrowLeft className="w-5 h-5" />
                 </button>
-                <button className="pointer-events-auto w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-white/40 transition-all duration-300 text-white shadow-lg">
+                <button 
+                    onClick={handleNextSlide}
+                    className="pointer-events-auto w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-white/40 transition-all duration-300 text-white shadow-lg">
                     <ArrowRight className="w-5 h-5" />
                 </button>
             </div>
 
             {/* Content */}
-            <div className="container mx-auto relative z-10 w-full px-4 lg:h-full lg:flex lg:items-end lg:justify-center lg:pb-12">
-                <div className="relative mt-6 mb-8 lg:mt-0 lg:mb-0 w-full lg:w-[860px] max-w-full">
+            <div className="container mx-auto relative z-10 w-full px-4 lg:h-full lg:flex lg:items-end lg:justify-center">
+                
+                {/* Hero headline (hidden for cleaner design) */}
+                <div className="sr-only">
+                    <p>Khám phá Việt Nam & thế giới</p>
+                    <h1>Chuyến đi trong mơ của bạn bắt đầu từ đây</h1>
+                </div>
 
-                    {/* Hero headline (desktop only) */}
-                    <div className="hidden lg:block text-center mb-6">
-                        <p className="text-white/80 text-sm font-medium tracking-widest uppercase mb-2">
-                            Khám phá Việt Nam & thế giới
-                        </p>
-                        <h1 className="text-white text-4xl font-bold drop-shadow-lg">
-                            Chuyến đi trong mơ của bạn bắt đầu từ đây
-                        </h1>
-                    </div>
+                <div className="relative mt-6 mb-8 lg:mt-0 lg:mb-0 w-full lg:w-[860px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
 
                     {/* Search Card */}
                     <div
