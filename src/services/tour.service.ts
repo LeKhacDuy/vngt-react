@@ -87,6 +87,14 @@ export const tourService = {
         return { data: res.data.map(transformTourData) };
     },
 
+    getActivePromotions: async () => {
+        return api.get<any, { data: any[] }>('/promotions/active');
+    },
+
+    getActivePromotionTours: async () => {
+        return api.get<any, { data: any[] }>('/promotions/active-tours');
+    },
+
     // Subcategory-based tour fetching
     getToursBySubcategory: async (subcategoryCode: string) => {
         return api.get<any, { data: Tour[] }>('/tours', { params: { subcategory_code: subcategoryCode } });

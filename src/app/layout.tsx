@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/common/FloatingContact";
 import JsonLd, { travelAgencySchema } from "@/components/common/JsonLd";
+import SiteShell from "@/components/common/SiteShell";
 import TopProgressBar from "@/components/common/TopProgressBar";
 import PageTransition from "@/components/common/PageTransition";
 import { AuthProvider } from "@/context/AuthContext";
@@ -70,6 +71,10 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
     shortcut: "/favicon.png",
   },
+  verification: {
+    google: "GOOGLE_VERIFICATION_CODE", // REPLACE WITH YOUR CODE
+    // other verification tags can be added here
+  },
   alternates: {
     canonical: siteUrl,
   },
@@ -86,15 +91,15 @@ export default function RootLayout({
         <AuthProvider>
           <LanguageProvider>
             <JsonLd data={travelAgencySchema} />
-            <TopProgressBar />
-            <Header />
+            <SiteShell><TopProgressBar /></SiteShell>
+            <SiteShell><Header /></SiteShell>
             <main className="min-h-screen">
               <PageTransition>
                 {children}
               </PageTransition>
             </main>
-            <Footer />
-            <FloatingContact />
+            <SiteShell><Footer /></SiteShell>
+            <SiteShell><FloatingContact /></SiteShell>
           </LanguageProvider>
         </AuthProvider>
         <Script src="https://chat-plugin.pancake.vn/main/auto?page_id=web_VNGROUPTOURIST" strategy="lazyOnload" />

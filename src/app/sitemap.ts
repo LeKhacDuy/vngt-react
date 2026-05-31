@@ -23,6 +23,7 @@ const staticPages: MetadataRoute.Sitemap = [
   { url: `${siteUrl}/about-page`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   { url: `${siteUrl}/contact-page`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   { url: `${siteUrl}/promotions`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+  { url: `${siteUrl}/hanh-trinh-tinh-hoa-trung-hoa`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

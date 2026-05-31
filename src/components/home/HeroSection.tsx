@@ -149,10 +149,15 @@ export default function HeroSection() {
             {/* Content */}
             <div className="container mx-auto relative z-10 w-full px-4 lg:h-full lg:flex lg:items-end lg:justify-center">
                 
-                {/* Hero headline (hidden for cleaner design) */}
-                <div className="sr-only">
-                    <p>Khám phá Việt Nam & thế giới</p>
-                    <h1>Chuyến đi trong mơ của bạn bắt đầu từ đây</h1>
+                {/* Hero headline */}
+                <div className="absolute top-[15%] lg:top-[20%] left-1/2 -translate-x-1/2 w-full max-w-4xl text-center px-4">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-2xl mb-4">
+                        Hành Trình Đẳng Cấp,<br />
+                        <span className="text-[#00dba1]">Trải Nghiệm Khác Biệt</span>
+                    </h1>
+                    <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-lg max-w-2xl mx-auto hidden sm:block">
+                        VNGroup Tourist — Chuyên tổ chức tour trong nước & quốc tế uy tín, tour MICE, dịch vụ Visa hàng đầu tại TP.HCM.
+                    </p>
                 </div>
 
                 <div className="relative mt-6 mb-8 lg:mt-0 lg:mb-0 w-full lg:w-[860px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">

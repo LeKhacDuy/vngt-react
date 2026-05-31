@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Tour du lịch Bắc Kinh – Hàng Châu – Ô Trấn – Thượng Hải 6N5Đ. Bay thẳng Vietnam Airlines. Hành trình khám phá tinh hoa Trung Hoa.">
+  <meta name="keywords" content="tour trung quoc, du lich trung quoc, hanh trinh trung hoa, bac kinh, thuong hai, hang chau, o tran, vngroup tourist">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vngrouptourist.vn/hanh-trinh-tinh-hoa-trung-hoa">
+  <meta property="og:title" content="Hành Trình Trung Hoa 6N5Đ | VNGroup Tourist">
+  <meta property="og:description" content="Khám phá tinh hoa Trung Hoa với tour 6N5Đ cao cấp. Bay thẳng Vietnam Airlines, khách sạn 4-5*.">
+  <meta property="og:image" content="https://vngrouptourist.vn/hanh-trinh-tinh-hoa-trung-hoa/images/hero_greatwall.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://vngrouptourist.vn/hanh-trinh-tinh-hoa-trung-hoa">
+  <meta property="twitter:title" content="Hành Trình Trung Hoa 6N5Đ | VNGroup Tourist">
+  <meta property="twitter:description" content="Khám phá tinh hoa Trung Hoa với tour 6N5Đ cao cấp. Bay thẳng Vietnam Airlines.">
+  <meta property="twitter:image" content="https://vngrouptourist.vn/hanh-trinh-tinh-hoa-trung-hoa/images/hero_greatwall.png">
+
+  <link rel="canonical" href="https://vngrouptourist.vn/hanh-trinh-tinh-hoa-trung-hoa">
+  <title>Hành Trình Trung Hoa 6N5Đ | VNGroup Tourist</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/favicon.png">
+</head>
+
+<body>
+
+  <!-- ====================================================
+     CUSTOM CURSOR
+==================================================== -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- ====================================================
+     FIXED ELEMENTS
+==================================================== -->
+
+  <!-- Vertical Route Line -->
+  <div id="route-line">
+    <div id="route-line-bg"></div>
+    <div id="route-line-fill"></div>
+  </div>
+
+  <!-- Fixed Vehicle Icon -->
+  <div id="vehicle">
+    <div id="vehicle-glow"></div>
+    <span id="vehicle-body"></span>
+    <div id="vehicle-trail"></div>
+  </div>
+
+  <!-- Top HUD -->
+  <header id="hud">
+    <div class="hud-logo-container">
+      <div class="hud-logo">VNGROUP TOURIST</div>
+      <div class="hud-slogan">Hành trình đẳng cấp – Trải nghiệm khác biệt</div>
+    </div>
+    <div class="hud-stats">
+      <div class="stat-item">
+        <span class="stat-val">3000+</span>
+        <span class="stat-lbl">Khách hàng</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">Est. 2023</span>
+        <span class="stat-lbl">Uy tín</span>
+      </div>
+    </div>
+    <a href="#section-cta" class="hud-btn">Đăng ký →</a>
+    <div class="hud-progress-bar">
+      <div class="hud-progress-fill" id="hudFill"></div>
+    </div>
+  </header>
+
+  <!-- Right Minimap -->
+  <nav id="minimap">
+    <div class="mm-stop" data-target="section-intro" id="mm-intro">
+      <div class="mm-dot"></div>
+      <span class="mm-label">TP.HCM</span>
+      <div class="mm-line"></div>
+    </div>
+    <div class="mm-stop" data-target="section-beijing" id="mm-beijing">
+      <div class="mm-dot"></div>
+      <span class="mm-label">Bắc Kinh</span>
+      <div class="mm-line"></div>
+    </div>
+    <div class="mm-stop" data-target="section-hangzhou" id="mm-hangzhou">
+      <div class="mm-dot"></div>
+      <span class="mm-label">Hàng Châu</span>
+      <div class="mm-line"></div>
+    </div>
+    <div class="mm-stop" data-target="section-wuzhen" id="mm-wuzhen">
+      <div class="mm-dot"></div>
+      <span class="mm-label">Ô Trấn</span>
+      <div class="mm-line"></div>
+    </div>
+    <div class="mm-stop" data-target="section-shanghai" id="mm-shanghai">
+      <div class="mm-dot"></div>
+      <span class="mm-label">Thượng Hải</span>
+      <div class="mm-line"></div>
+    </div>
+  </nav>
+
+  <!-- ====================================================
+     1. INTRO / DEPARTURE
+==================================================== -->
+  <section id="section-intro">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="stars"></div>
+    <div class="city-silhouette"></div>
+    <div class="intro-content">
+      <div class="intro-badge">Bay thẳng · Vietnam Airlines</div>
+      <h1 class="intro-title">
+        <span class="t-gold">Hành Trình</span><br>
+        Tinh Hoa Trung Hoa
+      </h1>
+      <p class="intro-desc">
+        Khởi hành từ Sài Gòn — cuộn xuống để cùng bay qua Bắc Kinh huyền thoại, lướt tàu cao tốc về Hàng Châu, dạo bước
+        Ô Trấn cổ kính, và chạm tay vào Thượng Hải hoa lệ.
+      </p>
+      <div class="intro-chips">
+        <div class="chip">6 Ngày 5 Đêm</div>
+        <div class="chip">4 Thành phố</div>
+        <div class="chip">Visa đơn giản</div>
+        <div class="chip">2 Bữa đặc sản miễn phí</div>
+      </div>
+      <div class="scroll-down-cta">
+        <span>Cuộn xuống để bắt đầu hành trình</span>
+        <span class="arr">↓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     TRANSITION: HCM → BẮC KINH
+==================================================== -->
+  <div class="journey-transition" id="jt-1">
+    <div class="jt-bg"></div>
+    <div class="jt-content">
+      <div class="jt-vehicle"></div>
+      <div class="jt-distance">TP. Hồ Chí Minh → Bắc Kinh · Bay thẳng ~3h45</div>
+      <div class="jt-arrow">
+        <div class="jt-dashes">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span></span>
+        <div class="jt-dashes" style="transform:scaleX(-1)">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+     2. BẮC KINH (Ngày 01–02)
+==================================================== -->
+  <section class="city-section" id="section-beijing">
+    <div class="city-bg">
+      <img src="images/hero_greatwall.png" alt="Bắc Kinh – Vạn Lý Trường Thành" loading="lazy" class="parallax-img">
+      <div class="city-bg-overlay"></div>
+    </div>
+
+    <!-- Route stop dot -->
+    <div class="route-stop" id="stop-beijing">
+      <div class="route-stop-dot" id="dot-beijing"></div>
+    </div>
+
+    <div class="city-content">
+      <div class="city-inner" id="inner-beijing">
+        <span class="city-day-tag">Ngày 01 – 02</span>
+        <span class="city-vehicle-tag">Bay thẳng Vietnam Airlines</span>
+        <h2 class="city-name t-gold">Bắc Kinh</h2>
+        <p class="city-name-cn">北京 · Thủ đô ngàn năm văn hiến</p>
+        <p class="city-desc">Kinh đô huyền thoại nơi Vạn Lý Trường Thành uốn mình qua đỉnh núi, nơi Tử Cấm Thành lưu giữ
+          bí mật ngàn năm của các triều đại hoàng gia.</p>
+        <div class="city-highlights">
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Vạn Lý Trường Thành</strong> – kỳ quan thế giới, công trình vĩ đại nhất
+              lịch sử nhân loại</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Cố Cung (Tử Cấm Thành)</strong> – 9999 gian điện nguy nga, cung đình lớn
+              nhất thế giới</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Quảng trường Thiên An Môn</strong> – trung tâm chính trị lịch sử của
+              Trung Quốc</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Di Hòa Viên</strong> – cung điện mùa hè với Cung Từ Hy, Tháp Dâng
+              Hương</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Sân vận động Tổ Chim</strong> – huyền thoại Olympic Bắc Kinh 2008</span>
+          </div>
+        </div>
+        <div class="city-offer">
+          <span class="offer-icon"></span>
+          <span><strong>Tặng bữa Vịt Quay Bắc Kinh</strong> – đặc sản tinh túy bậc nhất Trung Hoa</span>
+        </div>
+        <div class="city-meals" style="margin-top:1rem">
+          <span class="meal-badge">Sáng</span>
+          <span class="meal-badge">Trưa</span>
+          <span class="meal-badge">Tối</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     TRANSITION: BẮC KINH → HÀNG CHÂU
+==================================================== -->
+  <div class="journey-transition" id="jt-2">
+    <div class="jt-bg"></div>
+    <div class="jt-content">
+      <div class="jt-vehicle"></div>
+      <div class="jt-distance">Bắc Kinh → Hàng Châu · Tàu cao tốc ~7h</div>
+      <div class="jt-arrow">
+        <div class="jt-dashes">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span></span>
+        <div class="jt-dashes" style="transform:scaleX(-1)">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+     3. HÀNG CHÂU (Ngày 03)
+==================================================== -->
+  <section class="city-section" id="section-hangzhou">
+    <div class="city-bg">
+      <img src="images/hangzhou_westlake.png" alt="Hàng Châu – Tây Hồ" loading="lazy" class="parallax-img">
+      <div class="city-bg-overlay"></div>
+    </div>
+    <div class="route-stop" id="stop-hangzhou">
+      <div class="route-stop-dot" id="dot-hangzhou"></div>
+    </div>
+    <div class="city-content">
+      <div class="city-inner right" id="inner-hangzhou">
+        <span class="city-day-tag">Ngày 03</span>
+        <span class="city-vehicle-tag">Tàu cao tốc từ Bắc Kinh</span>
+        <h2 class="city-name t-gold">Hàng Châu</h2>
+        <p class="city-name-cn">杭州 · Thiên đường hạ giới</p>
+        <p class="city-desc">Nơi Tây Hồ phản chiếu ánh trăng vàng, nơi những truyền thuyết về Lương Sơn Bá – Chúc Anh
+          Đài còn vang vọng trên mặt hồ phẳng lặng như gương.</p>
+        <div class="city-highlights">
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Dạo thuyền Tây Hồ</strong> – "Tam Đàn Ấn Nguyệt", 10 cảnh đẹp huyền
+              thoại</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Quả Sơn, Đoạn Kiều, Tô Đê Bạch Đê</strong> – những địa danh bất tử trong
+              thơ ca</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Nghệ thuật pha trà Trung Quốc</strong> – thưởng thức văn hóa trà đạo cổ
+              xưa</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Tống Thành Thiên Tình Cổ</strong> – show biểu diễn đặc sắc (tự túc 380
+              RMB)</span>
+          </div>
+        </div>
+        <div class="city-meals" style="margin-top:1rem">
+          <span class="meal-badge">Sáng</span>
+          <span class="meal-badge">Trưa</span>
+          <span class="meal-badge">Tối</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     TRANSITION: HÀNG CHÂU → Ô TRẤN
+==================================================== -->
+  <div class="journey-transition" id="jt-3">
+    <div class="jt-bg"></div>
+    <div class="jt-content">
+      <div class="jt-vehicle"></div>
+      <div class="jt-distance">Hàng Châu → Ô Trấn · Xe du lịch ~1h30</div>
+      <div class="jt-arrow">
+        <div class="jt-dashes">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span></span>
+        <div class="jt-dashes" style="transform:scaleX(-1)">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+     4. Ô TRẤN (Ngày 04)
+==================================================== -->
+  <section class="city-section" id="section-wuzhen">
+    <div class="city-bg">
+      <img src="images/wuzhen_watertown.png" alt="Ô Trấn" loading="lazy" class="parallax-img">
+      <div class="city-bg-overlay"></div>
+    </div>
+    <div class="route-stop" id="stop-wuzhen">
+      <div class="route-stop-dot" id="dot-wuzhen"></div>
+    </div>
+    <div class="city-content">
+      <div class="city-inner" id="inner-wuzhen">
+        <span class="city-day-tag">Ngày 04</span>
+        <span class="city-vehicle-tag">Từ Hàng Châu</span>
+        <h2 class="city-name t-gold">Ô Trấn</h2>
+        <p class="city-name-cn">乌镇 · Trấn cổ sống nước ngàn năm</p>
+        <p class="city-desc">Nơi thời gian dừng lại — những công trình gỗ chạm khắc soi bóng xuống mặt kênh, đèn lồng đỏ
+          lung linh trong đêm, và cuộc sống vẫn mang hơi thở của hơn 1000 năm trước.</p>
+        <div class="city-highlights">
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Ô Trấn Tây Sách</strong> – trấn cổ sống nước lớn nhất Trung Quốc, 1300
+              năm lịch sử</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Cầu đá cổ & kênh đào</strong> – kiến trúc độc đáo nguyên vẹn qua ngàn
+              năm</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Thuyền gỗ trên kênh</strong> – trải nghiệm cuộc sống thuyền chài truyền
+              thống</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Thuê Hán phục chụp ảnh</strong> – hóa thân thành mỹ nhân cổ đại (tự
+              túc)</span>
+          </div>
+        </div>
+        <div class="city-meals" style="margin-top:1rem">
+          <span class="meal-badge">Sáng</span>
+          <span class="meal-badge">Trưa</span>
+          <span class="meal-badge">Tối</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     TRANSITION: Ô TRẤN → THƯỢNG HẢI
+==================================================== -->
+  <div class="journey-transition" id="jt-4">
+    <div class="jt-bg"></div>
+    <div class="jt-content">
+      <div class="jt-vehicle"></div>
+      <div class="jt-distance">Ô Trấn → Thượng Hải · Xe du lịch ~2h</div>
+      <div class="jt-arrow">
+        <div class="jt-dashes">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span></span>
+        <div class="jt-dashes" style="transform:scaleX(-1)">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+     5. THƯỢNG HẢI (Ngày 05–06)
+==================================================== -->
+  <section class="city-section" id="section-shanghai">
+    <div class="city-bg">
+      <img src="images/shanghai_bund.png" alt="Thượng Hải – Bến Thượng Hải" loading="lazy" class="parallax-img">
+      <div class="city-bg-overlay"></div>
+    </div>
+    <div class="route-stop" id="stop-shanghai">
+      <div class="route-stop-dot" id="dot-shanghai"></div>
+    </div>
+    <div class="city-content">
+      <div class="city-inner right" id="inner-shanghai">
+        <span class="city-day-tag">Ngày 05 – 06</span>
+        <span class="city-vehicle-tag">Từ Ô Trấn · Bay về HCM</span>
+        <h2 class="city-name t-gold">Thượng Hải</h2>
+        <p class="city-name-cn">上海 · Hòn ngọc phương Đông</p>
+        <p class="city-desc">Thành phố hoa lệ nơi hiện đại gặp cổ điển — những cao ốc tỷ đô lấp lánh soi bóng xuống sông
+          Hoàng Phố, trong khi ngôi chùa ngàn năm vẫn tĩnh lặng giữa lòng đô thị.</p>
+        <div class="city-highlights">
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Bến Thượng Hải (The Bund)</strong> – con phố lịch sử đi vào điện ảnh và
+              âm nhạc thế giới</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Tháp Đông Phương Minh Châu</strong> – 468m, tháp cao nhất châu Á, thứ 3
+              thế giới</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Chùa Phật Ngọc & Miếu Thành Hoàng</strong> – linh thiêng ngàn năm giữa đô
+              thị hoa lệ</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Phố Nam Kinh</strong> – thiên đường mua sắm 600+ cửa hàng lớn nhỏ</span>
+          </div>
+          <div class="city-hl-item">
+            <span class="city-hl-icon"></span>
+            <span class="city-hl-text"><strong>Du thuyền sông Hoàng Phố</strong> – ngắm 2 bờ lung linh ánh đèn đêm (tự
+              túc ~200 RMB)</span>
+          </div>
+        </div>
+        <div class="city-offer">
+          <span class="offer-icon"></span>
+          <span><strong>Tặng bữa Lẩu Trung Hoa</strong> tại Thượng Hải – trị giá 120 tệ</span>
+        </div>
+        <div class="city-meals" style="margin-top:1rem">
+          <span class="meal-badge">Sáng</span>
+          <span class="meal-badge">Trưa</span>
+          <span class="meal-badge">Tối</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     7. PREMIUM STANDARDS
+==================================================== -->
+  <section id="section-premium" class="extra-section">
+    <div class="container">
+      <h2 class="extra-title">Tiêu Chuẩn Dịch Vụ 5 Sao</h2>
+      <div class="premium-grid">
+        <div class="premium-card">
+          <h3>Khách sạn cao cấp</h3>
+          <p>Hệ thống khách sạn 4-5 sao quốc tế, tọa lạc tại trung tâm các thành phố lớn.</p>
+        </div>
+        <div class="premium-card">
+          <h3>Di chuyển VIP</h3>
+          <p>Xe du lịch đời mới, ghế ngồi rộng rãi, tiện nghi và êm ái suốt hành trình.</p>
+        </div>
+        <div class="premium-card">
+          <h3>Ẩm thực phong phú</h3>
+          <p>Thực đơn đa dạng, kết hợp hài hòa giữa đặc sản địa phương và khẩu vị người Việt.</p>
+        </div>
+        <div class="premium-card">
+          <h3>Hỗ trợ Visa tận tâm</h3>
+          <p>Tỷ lệ đậu cao, thủ tục đơn giản và được hướng dẫn chi tiết bởi chuyên gia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     8. CULINARY JOURNEY
+==================================================== -->
+  <section id="section-culinary" class="extra-section">
+    <div class="container">
+      <h2 class="extra-title">Hành Trình Ẩm Thực</h2>
+      <div class="culinary-cards">
+        <div class="culinary-card">
+          <img src="images/food_duck.png" alt="Vịt quay Bắc Kinh" loading="lazy">
+          <div class="c-info">
+            <h4>Vịt quay Bắc Kinh</h4>
+            <p>Món ăn hoàng gia với lớp da giòn rụm và hương vị đặc trưng.</p>
+          </div>
+        </div>
+        <div class="culinary-card">
+          <img src="images/food_hotpot.png" alt="Lẩu Thượng Hải" loading="lazy">
+          <div class="c-info">
+            <h4>Lẩu Thượng Hải</h4>
+            <p>Hương vị cay nồng, đậm đà, sưởi ấm tâm hồn giữa phố thị hoa lệ.</p>
+          </div>
+        </div>
+        <div class="culinary-card">
+          <img src="images/food_dimsum.png" alt="Điểm sâm" loading="lazy">
+          <div class="c-info">
+            <h4>Điểm sâm tinh tế</h4>
+            <p>Những xửng hấp nóng hổi, gói trọn tinh hoa ẩm thực Trung Hoa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     9. FAQ SECTION
+==================================================== -->
+  <section id="section-faq" class="extra-section">
+    <div class="container">
+      <h2 class="extra-title">Câu Hỏi Thường Gặp</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Thủ tục xin Visa có khó không? <span>+</span></div>
+          <div class="faq-a">
+            <p>VNGroup Tourist sẽ hỗ trợ quý khách từ A-Z. Thủ tục hiện nay đã đơn giản hóa rất nhiều, chỉ cần hộ chiếu và ảnh thẻ.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Thời tiết Trung Quốc mùa này như thế nào? <span>+</span></div>
+          <div class="faq-a">
+            <p>Mùa này thời tiết rất dễ chịu, thích hợp cho việc tham quan các cảnh điểm ngoài trời và dạo phố đêm.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Có cần đổi nhiều tiền mặt không? <span>+</span></div>
+          <div class="faq-a">
+            <p>Trung Quốc hiện dùng thanh toán điện tử rất nhiều. Quý khách chỉ cần đổi một lượng tiền mặt nhỏ, chúng tôi sẽ hướng dẫn cài đặt ứng dụng thanh toán.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     11. DETAILED ITINERARY
+==================================================== -->
+  <section id="section-itinerary" class="extra-section">
+    <div class="container">
+      <h2 class="extra-title">Lịch Trình Chi Tiết 6 Ngày</h2>
+      <div class="itinerary-timeline">
+        <div class="itinerary-day">
+          <div class="day-number">01</div>
+          <div class="day-content">
+            <h4>TP. Hồ Chí Minh — Bắc Kinh</h4>
+            <p>Đoàn tập trung tại sân bay Tân Sơn Nhất, làm thủ tục chuyến bay đi Bắc Kinh. Đến nơi, xe và HDV đón đoàn về khách sạn nghỉ ngơi, bắt đầu hành trình khám phá thủ đô.</p>
+          </div>
+        </div>
+        <div class="itinerary-day">
+          <div class="day-number">02</div>
+          <div class="day-content">
+            <h4>Bắc Kinh: Vạn Lý Trường Thành — Định Lăng</h4>
+            <p>Chinh phục Vạn Lý Trường Thành kỳ vĩ. Buổi chiều tham quan Định Lăng — một trong 13 lăng mộ đời Minh. Thưởng thức đặc sản Vịt quay Bắc Kinh buổi tối.</p>
+          </div>
+        </div>
+        <div class="itinerary-day">
+          <div class="day-number">03</div>
+          <div class="day-content">
+            <h4>Bắc Kinh — Hàng Châu (Tàu cao tốc)</h4>
+            <p>Tham quan Tử Cấm Thành, Thiên An Môn. Sau đó lên tàu cao tốc hiện đại đi Hàng Châu. Ngắm nhìn phong cảnh Trung Hoa qua khung cửa sổ tàu siêu tốc.</p>
+          </div>
+        </div>
+        <div class="itinerary-day">
+          <div class="day-number">04</div>
+          <div class="day-content">
+            <h4>Hàng Châu — Ô Trấn</h4>
+            <p>Dạo thuyền Tây Hồ, thưởng thức trà Long Tỉnh. Di chuyển đến Ô Trấn — trấn cổ sông nước đẹp nhất vùng Giang Nam, ngắm đèn lồng lung linh về đêm.</p>
+          </div>
+        </div>
+        <div class="itinerary-day">
+          <div class="day-number">05</div>
+          <div class="day-content">
+            <h4>Ô Trấn — Thượng Hải</h4>
+            <p>Khám phá Ô Trấn buổi sáng yên bình. Di chuyển về Thượng Hải, tham quan Bến Thượng Hải, tháp Đông Phương Minh Châu và mua sắm tại phố Nam Kinh.</p>
+          </div>
+        </div>
+        <div class="itinerary-day">
+          <div class="day-number">06</div>
+          <div class="day-content">
+            <h4>Thượng Hải — TP. Hồ Chí Minh</h4>
+            <p>Tham quan Miếu Thành Hoàng, chùa Phật Ngọc. Tự do mua sắm trước khi xe đưa đoàn ra sân bay làm thủ tục chuyến bay về lại Việt Nam.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     12. TESTIMONIALS
+==================================================== -->
+  <section id="section-testimonials" class="extra-section">
+    <div class="container">
+      <h2 class="extra-title">Nhật Ký Hành Trình</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="t-text">"Một chuyến đi tuyệt vời hơn mong đợi. Ô Trấn về đêm đẹp như một bức tranh thủy mặc, còn HDV thì cực kỳ am hiểu và nhiệt tình."</p>
+          <div class="t-user">
+            <div class="t-info">
+              <span class="t-name">Chị Minh Anh</span>
+              <span class="t-date">Khách tour tháng 4/2026</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="t-text">"Lần đầu tiên trải nghiệm tàu cao tốc 350km/h ở Trung Quốc, thật sự rất ấn tượng. Khách sạn và đồ ăn đều ở mức xuất sắc."</p>
+          <div class="t-user">
+            <div class="t-info">
+              <span class="t-name">Anh Hoàng Nam</span>
+              <span class="t-date">Khách tour tháng 3/2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     13. TRUST SIGNALS
+==================================================== -->
+  <section id="section-trust" class="extra-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="tr-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Trách nhiệm cao</h4>
+          <p>Cam kết hoàn thành mọi dịch vụ với tinh thần trách nhiệm và sự tận tâm tuyệt đối (Responsibility).</p>
+        </div>
+        <div class="trust-item">
+          <div class="tr-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Gắn kết & Tận tâm</h4>
+          <p>Hỗ trợ 24/7 qua Hotline: 0931 867 376. Chúng tôi luôn đồng hành cùng bạn (Unity & Sincerity).</p>
+        </div>
+        <div class="trust-item">
+          <div class="tr-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Niềm tin vững chắc</h4>
+          <p>Xây dựng giá trị thật và sự tin tưởng tuyệt đối với mọi khách hàng (Trust & Transformation).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+     14. CTA / REGISTER
+==================================================== -->
+  <section id="section-cta">
+    <div class="cta-wrapper">
+      <div class="cta-info">
+        <h2>Hành Trình Hoàn Hảo Đang Chờ Bạn</h2>
+        <p>6 ngày 5 đêm qua 4 thành phố — từ cổ kính đến hiện đại, từ núi cao đến mặt hồ. Đặt ngay để nhận ưu đãi tốt
+          nhất!</p>
+        <div class="summary-stops">
+          <div class="summary-stop">
+            <div>
+              <div class="ss-name">TP.HCM → Bắc Kinh</div>
+              <div class="ss-info">Bay thẳng Vietnam Airlines</div>
+            </div>
+          </div>
+          <div class="summary-stop">
+            <div>
+              <div class="ss-name">Bắc Kinh (2 ngày)</div>
+              <div class="ss-info">Vạn Lý Trường Thành · Cố Cung · Thiên An Môn</div>
+            </div>
+          </div>
+          <div class="summary-stop">
+            <div>
+              <div class="ss-name">Tàu cao tốc → Hàng Châu</div>
+              <div class="ss-info">Tây Hồ · Tam Đàn Ấn Nguyệt</div>
+            </div>
+          </div>
+          <div class="summary-stop">
+            <div>
+              <div class="ss-name">Ô Trấn (1 ngày)</div>
+              <div class="ss-info">Trấn cổ 1300 năm · Đèn lồng · Hán phục</div>
+            </div>
+          </div>
+          <div class="summary-stop">
+            <div>
+              <div class="ss-name">Thượng Hải (2 ngày)</div>
+              <div class="ss-info">The Bund · Tháp Minh Châu · Phố Nam Kinh</div>
+            </div>
+          </div>
+          <div class="summary-stop">
+            <div>
+              <div class="ss-name">Bay về TP.HCM</div>
+              <div class="ss-info">Kết thúc hành trình đáng nhớ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-form">
+        <h3>Đăng Ký Tư Vấn Miễn Phí</h3>
+        <div class="fr2">
+          <div class="fg">
+            <label>Họ và tên *</label>
+            <input type="text" id="f-name" placeholder="Nguyễn Văn A" required>
+          </div>
+          <div class="fg">
+            <label>Điện thoại *</label>
+            <input type="tel" id="f-phone" placeholder="0901 234 567" required>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Email</label>
+          <input type="email" id="f-email" placeholder="email@example.com">
+        </div>
+        <div class="fg">
+          <label>Số người tham gia</label>
+          <select id="f-guests">
+            <option value="">-- Chọn số người --</option>
+            <option>1 người</option>
+            <option>2 người</option>
+            <option>3 – 5 người</option>
+            <option>5 – 10 người</option>
+            <option>Trên 10 người (đoàn)</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Thời gian & ghi chú</label>
+          <textarea id="f-note" placeholder="Muốn đi tháng mấy? Yêu cầu đặc biệt?"></textarea>
+        </div>
+        <button class="btn-submit" id="submitBtn">Gửi Đăng Ký Ngay</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h3>VNGROUP TOURIST</h3>
+        <p>Hành trình đẳng cấp – Trải nghiệm khác biệt</p>
+      </div>
+      <div class="footer-info">
+        <p>📍 93/8 Phạm Văn Hai, P. Tân Sơn Hòa, TP. HCM</p>
+        <p>📧 info@vngrouptourist.com</p>
+        <p>📞 0931 867 376 - 0938 322 487</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 VNGroup Tourist. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

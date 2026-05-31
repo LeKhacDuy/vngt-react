@@ -73,14 +73,14 @@ export default function Header() {
                             ))}
                             <li>
                                 <Link
-                                    href="/hot-combo"
+                                    href="/promotions"
                                     className="flex items-center gap-2 ml-2 bg-gradient-to-br from-[rgba(0,219,161,0.15)] to-[rgba(0,219,161,0.25)] text-[#00dba1] font-semibold text-[13px] uppercase px-4 py-2 rounded-full border border-[rgba(0,219,161,0.3)] hover:translate-y-[-2px] hover:shadow-md transition-all"
                                 >
                                     {/* Using generic icon if image missing, or image */}
                                     <div className="relative w-[18px] h-[18px]">
                                         <Image src="/images/160_3408.svg" alt="" fill />
                                     </div>
-                                    <span>Combo du lịch hot</span>
+                                    <span>Chương trình khuyến mãi</span>
                                 </Link>
                             </li>
                         </ul>
@@ -146,14 +146,14 @@ export default function Header() {
                         ))}
                         <li>
                             <Link
-                                href="/hot-combo"
+                                href="/promotions"
                                 className="flex items-center gap-3 bg-[#00dba1]/10 p-4 rounded-xl text-[#00dba1] font-medium uppercase mt-4"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 <div className="relative w-[18px] h-[18px]">
                                     <Image src="/images/160_3408.svg" alt="" fill />
                                 </div>
-                                <span>Combo du lịch hot</span>
+                                <span>Chương trình khuyến mãi</span>
                             </Link>
                         </li>
                     </ul>
