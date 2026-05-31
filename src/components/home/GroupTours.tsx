@@ -66,23 +66,32 @@ export default function GroupTours() {
     if (tours.length === 0) return null;
 
     return (
-        <section className="py-20 bg-[#0f172a] relative overflow-hidden">
+        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#090d16] via-[#0f172a] to-[#070a10] relative overflow-hidden">
             {/* Abstract Background Shapes */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#00dba1]/10 blur-[100px]"></div>
-                <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]"></div>
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+                <div className="absolute -top-[20%] -left-[10%] w-[55%] h-[55%] rounded-full bg-[#00dba1]/8 blur-[100px] animate-pulse duration-[6000ms]"></div>
+                <div className="absolute top-[40%] -right-[10%] w-[45%] h-[45%] rounded-full bg-blue-600/8 blur-[120px] animate-pulse duration-[8000ms]"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 relative z-10">
                     <div>
-                        <span className="text-[#00dba1] font-bold tracking-wider uppercase text-sm mb-2 block">Dành cho doanh nghiệp</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 leading-tight">Tour Khách Đoàn <span className="text-[#00dba1]">Cao Cấp</span></h2>
-                        <p className="text-gray-400 max-w-lg">Giải pháp lữ hành toàn diện, thiết kế riêng biệt cho doanh nghiệp và tổ chức với chi phí tối ưu.</p>
+                        <span className="text-[#00dba1] bg-[#00dba1]/10 px-3.5 py-1.5 rounded-full inline-block font-extrabold uppercase tracking-widest text-xs mb-3">
+                            Dành cho doanh nghiệp
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+                            Tour Khách Đoàn <span className="bg-gradient-to-r from-[#00dba1] to-blue-400 bg-clip-text text-transparent">Cao Cấp</span>
+                        </h2>
+                        <p className="text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
+                            Giải pháp lữ hành toàn diện, thiết kế riêng biệt cho doanh nghiệp và tổ chức với chi phí tối ưu cùng dịch vụ chuẩn mực.
+                        </p>
                     </div>
 
-                    <Link href="/tours/group" className="group flex items-center gap-2 px-6 py-3 rounded-full bg-[#00dba1] text-white font-bold hover:bg-[#00c993] transition-all shadow-lg shadow-[#00dba1]/30">
+                    <Link 
+                        href="/tours/group" 
+                        className="group flex items-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white text-xs font-extrabold uppercase tracking-widest hover:shadow-[0_8px_25px_rgba(0,219,161,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
+                    >
                         Nhận báo giá ngay <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
@@ -92,34 +101,35 @@ export default function GroupTours() {
                     {tours.map((tour, idx) => (
                         <div key={tour.id} className="min-w-[85%] sm:min-w-[350px] md:min-w-0 snap-center">
                             <Link href={`/tours/${tour.slug}`} className="block h-full">
-                                <div className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer">
+                                <div className="group relative h-[440px] rounded-[28px] overflow-hidden cursor-pointer shadow-lg border border-white/5 hover:border-white/10 transition-all duration-500">
                                     <Image
                                         src={tour.image}
                                         alt={tour.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
-                                    <div className="absolute top-4 right-4 bg-[#00dba1] text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                    <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
                                         {tour.discount}
                                     </div>
 
-                                    <div className="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                                        <div className="text-gray-300 text-xs font-medium mb-2 flex items-center gap-2">
-                                            <span className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded text-white">{tour.duration}</span>
+                                    {/* Glassmorphic floating text panel */}
+                                    <div className="absolute bottom-4 left-4 right-4 p-5 rounded-[22px] glass-panel-dark transition-all duration-500 group-hover:border-[#00dba1]/30 group-hover:shadow-[0_12px_40px_rgba(0,219,161,0.12)]">
+                                        <div className="text-gray-300 text-xs font-semibold mb-2.5 flex items-center gap-2">
+                                            <span className="bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-md text-white font-bold">{tour.duration}</span>
                                             <span>• {tour.departure}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 leading-snug group-hover:text-[#00dba1] transition-colors">
+                                        <h3 className="text-[15px] font-extrabold text-white mb-2 line-clamp-2 leading-snug group-hover:text-[#00dba1] transition-colors duration-300">
                                             {tour.name}
                                         </h3>
-                                        <div className="flex items-end gap-2 mb-4">
-                                            <span className="text-[#00dba1] font-bold text-lg">{tour.price}</span>
-                                            {tour.originalPrice && <span className="text-gray-500 text-sm line-through decoration-white/50">{tour.originalPrice}</span>}
+                                        <div className="flex items-end gap-2 mb-3.5">
+                                            <span className="text-[#00dba1] font-extrabold text-base tracking-tight">{tour.price}</span>
+                                            {tour.originalPrice && <span className="text-gray-400/80 text-xs line-through">{tour.originalPrice}</span>}
                                         </div>
-                                        <button className="w-full py-3 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-[#00dba1] hover:border-[#00dba1] text-white rounded-xl font-semibold transition-all">
+                                        <div className="w-full py-2.5 bg-gradient-to-r from-[#00dba1] to-[#00b87a] hover:from-[#00c993] hover:to-[#00a878] text-white rounded-xl text-center text-xs font-extrabold uppercase tracking-wider transition-all duration-300 shadow-md shadow-[#00dba1]/25 shimmer-btn">
                                             Xem chi tiết
-                                        </button>
+                                        </div>
                                     </div>
                                 </div>
                             </Link>

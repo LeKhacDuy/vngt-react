@@ -8,7 +8,12 @@ import { useRouter } from 'next/navigation';
 
 const HERO_IMAGES = [
     '/cover/cover1.jpg',
-    '/cover/cover2.jpg'
+    '/cover/cover2.jpg',
+    '/cover/Cover Website tour nước ngoài.jpg',
+    '/cover/Cover Website tour nội địa.jpg',
+    '/cover/Cover website Teambuilding Gala Dinner.jpg',
+    '/cover/Cover website Thái Lan.jpg',
+    '/cover/Cover website Trung Quốc.jpg'
 ];
 
 interface Destination {
@@ -109,9 +114,9 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative flex flex-col lg:block h-auto lg:h-[75vh] lg:mb-16">
+        <section className="relative w-full min-h-[580px] sm:min-h-[620px] lg:min-h-0 lg:h-auto lg:aspect-[3000/1039] flex flex-col justify-end py-10 lg:py-0 lg:block lg:mb-16 bg-gray-900">
             {/* Background Image */}
-            <div className="relative w-full h-[320px] lg:absolute lg:inset-0 lg:h-full z-0 overflow-hidden bg-gray-900">
+            <div className="absolute inset-0 z-0 overflow-hidden bg-gray-900">
                 {HERO_IMAGES.map((src, idx) => (
                     <div
                         key={idx}
@@ -129,7 +134,7 @@ export default function HeroSection() {
                         />
                     </div>
                 ))}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 z-20 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 z-20 pointer-events-none" />
             </div>
 
             {/* Arrow navigation */}
@@ -147,54 +152,56 @@ export default function HeroSection() {
             </div>
 
             {/* Content */}
-            <div className="container mx-auto relative z-10 w-full px-4 lg:h-full lg:flex lg:items-end lg:justify-center">
+            <div className="container mx-auto relative z-10 w-full px-4 flex flex-col justify-between h-full lg:h-full lg:flex lg:items-end lg:justify-center">
                 
-                {/* Hero headline */}
-                <div className="absolute top-[15%] lg:top-[20%] left-1/2 -translate-x-1/2 w-full max-w-4xl text-center px-4">
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-2xl mb-4">
+                {/* Hero headline - Visually hidden (sr-only) to prevent overlap with pre-designed text on the banner image, while maintaining 100% SEO strength */}
+                <div className="sr-only">
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[62px] font-extrabold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] mb-4 lg:mb-5 tracking-tight">
                         Hành Trình Đẳng Cấp,<br />
-                        <span className="text-[#00dba1]">Trải Nghiệm Khác Biệt</span>
+                        <span className="bg-gradient-to-r from-[#00dba1] to-[#00f5b9] bg-clip-text text-transparent drop-shadow-none">Trải Nghiệm Khác Biệt</span>
                     </h1>
-                    <p className="text-base md:text-xl text-white/90 font-medium drop-shadow-lg max-w-2xl mx-auto hidden sm:block">
+                    <p className="text-xs sm:text-base md:text-xl text-white/95 font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] max-w-2xl mx-auto leading-relaxed">
                         VNGroup Tourist — Chuyên tổ chức tour trong nước & quốc tế uy tín, tour MICE, dịch vụ Visa hàng đầu tại TP.HCM.
                     </p>
                 </div>
 
-                <div className="relative mt-6 mb-8 lg:mt-0 lg:mb-0 w-full lg:w-[860px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
+                <div className="w-full lg:w-[880px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
 
                     {/* Search Card */}
                     <div
-                        className="bg-white/95 backdrop-blur-xl rounded-2xl border border-white/60 overflow-visible"
-                        style={{ boxShadow: '0 25px 60px rgba(0,0,0,0.18)' }}
+                        className="bg-white/80 backdrop-blur-xl rounded-[28px] border border-white/40 overflow-visible p-1.5"
+                        style={{ boxShadow: '0 30px 70px rgba(0,0,0,0.22)' }}
                     >
                         {/* Top label strip */}
-                        <div className="flex items-center gap-2 px-6 pt-5 pb-0">
-                            <div className="w-2 h-2 rounded-full bg-[#00dba1]" />
-                            <span className="text-xs font-semibold tracking-widest text-[#00a878] uppercase">
-                                Tìm tour du lịch
+                        <div className="flex items-center gap-2 px-6 pt-4 pb-1">
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#00dba1] animate-pulse" />
+                            <span className="text-[11px] font-bold tracking-widest text-[#00a878] uppercase">
+                                Tìm kiếm hành trình của bạn
                             </span>
                         </div>
 
                         {/* Unified search bar */}
-                        <div className="flex flex-col lg:flex-row items-stretch gap-0 p-4">
+                        <div className="flex flex-col lg:flex-row items-stretch gap-2 p-2">
 
                             {/* ── Destination Dropdown ── */}
                             <div className="flex-1 relative" ref={dropdownRef}>
                                 {/* Trigger */}
                                 <div
-                                    className={`flex items-center gap-3 px-5 py-4 rounded-xl lg:rounded-r-none lg:rounded-l-xl cursor-pointer transition-all duration-200 select-none ${
-                                        isDropdownOpen ? 'bg-[#f0fdf9] ring-2 ring-[#00dba1]/40' : 'bg-gray-50 hover:bg-gray-100/80'
+                                    className={`flex items-center gap-3 px-5 py-4 rounded-2xl cursor-pointer transition-all duration-300 select-none border ${
+                                        isDropdownOpen 
+                                            ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
+                                            : 'bg-white/30 hover:bg-white/60 border-transparent'
                                     }`}
                                     onClick={handleOpenDropdown}
                                 >
-                                    <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
-                                        isDropdownOpen ? 'bg-[#00dba1]' : 'bg-gray-200'
+                                    <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                        isDropdownOpen ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
                                     }`}>
-                                        <MapPin className={`w-4 h-4 ${isDropdownOpen ? 'text-white' : 'text-gray-500'}`} />
+                                        <MapPin className="w-4 h-4" />
                                     </div>
 
                                     <div className="flex flex-col min-w-0 flex-1">
-                                        <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
+                                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
                                             Điểm đến
                                         </span>
                                         {/* Show search input when open, label when closed */}
@@ -204,13 +211,13 @@ export default function HeroSection() {
                                                 type="text"
                                                 value={searchText}
                                                 onChange={e => setSearchText(e.target.value)}
-                                                placeholder="Tìm điểm đến..."
+                                                placeholder="Bạn muốn đi đâu?"
                                                 onClick={e => e.stopPropagation()}
-                                                className="bg-transparent border-none outline-none text-sm font-semibold text-gray-800 placeholder-gray-400 w-full"
+                                                className="bg-transparent border-none outline-none text-sm font-bold text-gray-800 placeholder-gray-400 w-full"
                                             />
                                         ) : (
-                                            <span className={`text-sm font-semibold truncate ${selectedDestination ? 'text-gray-800' : 'text-gray-400'}`}>
-                                                {selectedDestination ? selectedDestination.name : 'Bạn muốn đi đâu?'}
+                                            <span className={`text-sm font-bold truncate ${selectedDestination ? 'text-gray-800' : 'text-gray-400'}`}>
+                                                {selectedDestination ? selectedDestination.name : 'Nhập địa điểm du lịch...'}
                                             </span>
                                         )}
                                     </div>
@@ -221,20 +228,20 @@ export default function HeroSection() {
                                             <X className="w-3 h-3 text-gray-600" />
                                         </button>
                                     ) : (
-                                        <ChevronDown className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                                        <ChevronDown className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-[#00dba1]' : ''}`} />
                                     )}
                                 </div>
 
                                 {/* Dropdown Panel */}
                                 {isDropdownOpen && (
                                     <div
-                                        className="absolute top-full left-0 mt-2 w-full min-w-[260px] bg-white rounded-2xl border border-gray-100 z-50 overflow-hidden"
+                                        className="absolute top-full left-0 mt-2.5 w-full min-w-[280px] bg-white/95 backdrop-blur-md rounded-2xl border border-gray-100 z-50 overflow-hidden"
                                         style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.15)' }}
                                     >
                                         {/* All option */}
                                         <button
                                             onClick={() => handleSelectDestination(null)}
-                                            className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-semibold hover:bg-[#f0fdf9] transition-colors border-b border-gray-50 ${!selectedDestination ? 'text-[#00a878] bg-[#f0fdf9]' : 'text-gray-700'}`}
+                                            className={`w-full flex items-center gap-3 px-4 py-3.5 text-sm font-bold hover:bg-[#f0fdf9] transition-colors border-b border-gray-50 ${!selectedDestination ? 'text-[#00a878] bg-[#f0fdf9]' : 'text-gray-700'}`}
                                         >
                                             <div className="w-8 h-8 rounded-full bg-[#00dba1]/10 flex items-center justify-center flex-shrink-0">
                                                 <Globe className="w-4 h-4 text-[#00a878]" />
@@ -272,26 +279,22 @@ export default function HeroSection() {
                                 )}
                             </div>
 
-                            {/* Dividers */}
-                            <div className="hidden lg:flex items-center px-1">
-                                <div className="w-px h-10 bg-gray-200" />
-                            </div>
-                            <div className="block lg:hidden my-1 mx-1 h-px bg-gray-200" />
-
                             {/* ── Departure date ── */}
                             <div
-                                className={`flex-1 flex items-center gap-3 px-5 py-4 rounded-xl lg:rounded-none cursor-text transition-all duration-200 ${
-                                    focusedField === 'date' ? 'bg-[#f0fdf9] ring-2 ring-[#00dba1]/40' : 'bg-gray-50 hover:bg-gray-100/80'
+                                className={`flex-1 flex items-center gap-3 px-5 py-4 rounded-2xl cursor-text transition-all duration-300 border ${
+                                    focusedField === 'date' 
+                                        ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
+                                        : 'bg-white/30 hover:bg-white/60 border-transparent'
                                 }`}
                                 onClick={() => (document.getElementById('input-date') as HTMLInputElement)?.showPicker?.()}
                             >
-                                <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
-                                    focusedField === 'date' ? 'bg-[#00dba1]' : 'bg-gray-200'
+                                <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                    focusedField === 'date' ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
                                 }`}>
-                                    <Calendar className={`w-4 h-4 ${focusedField === 'date' ? 'text-white' : 'text-gray-500'}`} />
+                                    <Calendar className="w-4 h-4" />
                                 </div>
                                 <div className="flex flex-col min-w-0 flex-1">
-                                    <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
+                                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
                                         Ngày khởi hành
                                     </span>
                                     <input
@@ -301,24 +304,22 @@ export default function HeroSection() {
                                         onChange={e => setSelectedDate(e.target.value)}
                                         onFocus={() => setFocusedField('date')}
                                         onBlur={() => setFocusedField(null)}
-                                        className="bg-transparent border-none outline-none text-sm font-semibold text-gray-800 w-full cursor-pointer [color-scheme:light]"
+                                        className="bg-transparent border-none outline-none text-sm font-bold text-gray-800 w-full cursor-pointer [color-scheme:light]"
                                     />
                                 </div>
-            
                             </div>
 
                             {/* ── Search Button ── */}
-                            <div className="flex items-center px-1 pt-2 lg:pt-0">
+                            <div className="flex items-center pt-2 lg:pt-0">
                                 <button
                                     onClick={handleSearch}
-                                    className="w-full lg:w-auto h-14 px-7 rounded-xl flex items-center justify-center gap-2 font-bold text-white text-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
+                                    className="w-full lg:w-auto h-14 px-8 rounded-2xl flex items-center justify-center gap-2 font-bold text-white text-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95 shimmer-btn shadow-[0_8px_25px_rgba(0,219,161,0.3)] hover:shadow-[0_12px_30px_rgba(0,219,161,0.45)]"
                                     style={{
                                         background: 'linear-gradient(135deg, #00dba1 0%, #00b87a 100%)',
-                                        boxShadow: '0 8px 24px rgba(0,219,161,0.4)',
                                     }}
                                 >
                                     <Search className="w-5 h-5" strokeWidth={2.5} />
-                                    <span>Tìm kiếm</span>
+                                    <span className="uppercase tracking-wider">Tìm kiếm</span>
                                 </button>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
@@ -9,13 +9,31 @@ import { cn } from '@/lib/utils';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
     return (
-        <header className="sticky top-0 z-50 bg-white shadow-sm">
+        <header className={cn(
+            "sticky top-0 z-50 w-full transition-all duration-500",
+            isScrolled
+                ? "bg-white/80 backdrop-blur-lg shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-gray-100/50"
+                : "bg-white/95 backdrop-blur-sm shadow-sm"
+        )}>
             {/* Top Bar - Hidden on mobile/tablet */}
             <div className="hidden lg:block bg-gradient-to-br from-[#00dba1] to-[#00c791] text-white text-sm py-2">
                 <div className="container mx-auto px-4 flex justify-between items-center h-9">
@@ -35,7 +53,7 @@ export default function Header() {
             </div>
 
             {/* Main Header */}
-            <div className="bg-white py-2 lg:py-3 border-b border-gray-100 lg:border-none">
+            <div className="bg-transparent py-2 lg:py-3 border-b border-gray-100/50 lg:border-none">
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0">
@@ -65,16 +83,17 @@ export default function Header() {
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="block px-2 xl:px-3 py-2 text-[13px] font-medium text-gray-800 uppercase hover:bg-gray-100 hover:text-[#00dba1] rounded-md transition-colors whitespace-nowrap"
+                                        className="relative block px-2.5 xl:px-3.5 py-2 text-[13px] font-bold text-gray-700 uppercase hover:text-[#00dba1] transition-all duration-300 whitespace-nowrap group"
                                     >
-                                        {item.name}
+                                        <span className="relative z-10">{item.name}</span>
+                                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] rounded-full bg-[#00dba1] transition-all duration-300 group-hover:w-4/5" />
                                     </Link>
                                 </li>
                             ))}
                             <li>
                                 <Link
                                     href="/promotions"
-                                    className="flex items-center gap-2 ml-2 bg-gradient-to-br from-[rgba(0,219,161,0.15)] to-[rgba(0,219,161,0.25)] text-[#00dba1] font-semibold text-[13px] uppercase px-4 py-2 rounded-full border border-[rgba(0,219,161,0.3)] hover:translate-y-[-2px] hover:shadow-md transition-all"
+                                    className="flex items-center gap-2 ml-2 bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white font-bold text-[13px] uppercase px-5 py-2.5 rounded-full hover:shadow-[0_8px_20px_rgba(0,219,161,0.25)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
                                 >
                                     {/* Using generic icon if image missing, or image */}
                                     <div className="relative w-[18px] h-[18px]">
@@ -113,17 +132,41 @@ export default function Header() {
             {/* Mobile Menu Sidebar */}
             <div
                 className={cn(
-                    "fixed top-0 right-0 w-[85%] max-w-[350px] h-full bg-white z-50 transition-transform duration-300 transform overflow-y-auto lg:hidden",
+                    "fixed top-0 right-0 w-[85%] max-w-[340px] h-full bg-white/95 backdrop-blur-xl border-l border-gray-100/50 rounded-l-[32px] z-50 transition-all duration-500 ease-out transform overflow-y-auto lg:hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)]",
                     isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
                 )}
             >
-                <div className="p-6 pt-20">
-                    <ul className="space-y-4">
-                        <li><Link href="/visa-page" className="block pb-3 border-b border-gray-100 text-lg font-medium text-gray-800 uppercase">Dịch vụ Visa</Link></li>
-                        <li><Link href="/guide-page" className="block pb-3 border-b border-gray-100 text-lg font-medium text-gray-800 uppercase">Cẩm nang du lịch</Link></li>
-                        <li><Link href="/about-page" className="block pb-3 border-b border-gray-100 text-lg font-medium text-gray-800 uppercase">Về chúng tôi</Link></li>
+                <div className="p-6 pt-24">
+                    <ul className="space-y-2">
+                        <li>
+                            <Link
+                                href="/visa-page"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Dịch vụ Visa
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/guide-page"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Cẩm nang du lịch
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/about-page"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Về chúng tôi
+                            </Link>
+                        </li>
 
-                        <li className="h-px bg-gray-100 my-4"></li>
+                        <li className="h-px bg-gray-100/80 my-3 mx-4"></li>
 
                         {[
                             { name: 'Tour quốc tế', href: '/tours/international' },
@@ -137,17 +180,17 @@ export default function Header() {
                             <li key={item.name}>
                                 <Link
                                     href={item.href}
-                                    className="block pb-3 border-b border-gray-100 text-lg font-medium text-gray-800 uppercase hover:text-[#00dba1] transition-colors"
+                                    className="block py-3 px-4 rounded-xl text-base font-bold text-gray-700 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {item.name}
                                 </Link>
                             </li>
                         ))}
-                        <li>
+                        <li className="pt-2">
                             <Link
                                 href="/promotions"
-                                className="flex items-center gap-3 bg-[#00dba1]/10 p-4 rounded-xl text-[#00dba1] font-medium uppercase mt-4"
+                                className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white p-4 rounded-2xl font-bold uppercase hover:shadow-[0_8px_20px_rgba(0,219,161,0.2)] transition-all duration-300 shimmer-btn"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 <div className="relative w-[18px] h-[18px]">
@@ -158,7 +201,7 @@ export default function Header() {
                         </li>
                     </ul>
 
-                    <div className="mt-8 pt-8 border-t border-gray-100 text-center text-gray-500">
+                    <div className="mt-8 pt-8 border-t border-gray-100 text-center text-gray-400">
                         <p className="flex items-center justify-center gap-2">
                             <Phone className="w-4 h-4" /> Liên hệ: 0931 867 376
                         </p>

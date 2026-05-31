@@ -33,22 +33,22 @@ export default function Home() {
     <div className="pb-20">
       <PromoPopup />
       <HeroSection />
-      {/* HotToursOfDay: Tour hot trong ngày */}
-      <HotToursOfDay />
-      {/* CategoryGrid: Default White */}
+      {/* CategoryGrid: Default White - Đưa lên đầu để khơi gợi cảm hứng khám phá sớm */}
       <CategoryGrid />
-      {/* FeaturedTours: Gray 50 */}
+      {/* HotToursOfDay: Tour hot trong ngày - Tạo tâm lý khẩn cấp */}
+      <HotToursOfDay />
+      {/* FeaturedTours: Gray 50 - Các tour nổi bật chính */}
       <FeaturedTours />
-      {/* GroupTours: Premium Dark */}
-      <GroupTours />
-      {/* TravelGuideSection: Gray 50 */}
-      <TravelGuideSection />
-      {/* TestimonialsSection: White */}
-      <TestimonialsSection />
-      {/* StatsSection: Ocean Gradient */}
-      <StatsSection />
-      {/* Memberships Section */}
+      {/* Memberships Section / WhyChooseUs: Đưa lên sớm để củng cố độ tin cậy của thương hiệu */}
       <WhyChooseUs />
+      {/* StatsSection: Ocean Gradient - Đi liền sau phần Why Choose Us để bổ trợ số liệu thực tế */}
+      <StatsSection />
+      {/* GroupTours: Premium Dark - Tour đoàn phân khúc cao cấp */}
+      <GroupTours />
+      {/* TestimonialsSection: White - Phản hồi từ khách hàng thực tế */}
+      <TestimonialsSection />
+      {/* TravelGuideSection: Gray 50 - Cẩm nang chia sẻ kinh nghiệm du lịch */}
+      <TravelGuideSection />
       
       {/* SEO Content Section */}
       <section className="py-12 bg-white border-t border-gray-50">
