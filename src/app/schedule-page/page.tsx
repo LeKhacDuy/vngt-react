@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Clock, ArrowRight, Filter } from 'lucide-react';
+import { Clock, ArrowRight, Filter, X, Send, CheckCircle } from 'lucide-react';
 
 interface DepartureItem {
     id: number;
@@ -25,6 +25,21 @@ export default function SchedulePage() {
     const [departures, setDepartures] = useState<DepartureItem[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+
+    // Modal state
+    const [activeTour, setActiveTour] = useState<DepartureItem | null>(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        adults: 1,
+        children: 0,
+        babies: 0,
+        message: ''
+    });
+    const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+    const [isSubmittingForm, setIsSubmittingForm] = useState(false);
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
     useEffect(() => {
         async function fetchSchedule() {
@@ -124,6 +139,95 @@ export default function SchedulePage() {
         { value: 10, label: 'Tháng 11' }, { value: 11, label: 'Tháng 12' }
     ];
 
+    // Form input validation
+    const validateForm = () => {
+        const errors: Record<string, string> = {};
+        if (!formData.name.trim()) errors.name = 'Vui lòng nhập họ tên';
+        if (!formData.phone.trim()) {
+            errors.phone = 'Vui lòng nhập số điện thoại';
+        } else if (!/^[0-9]{10,11}$/.test(formData.phone.replace(/\s/g, ''))) {
+            errors.phone = 'Số điện thoại không hợp lệ';
+        }
+        if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            errors.email = 'Email không hợp lệ';
+        }
+        return errors;
+    };
+
+    // Form submit to CRM
+    const handleFormSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        const errors = validateForm();
+        if (Object.keys(errors).length > 0) {
+            setFormErrors(errors);
+            return;
+        }
+
+        if (!activeTour) return;
+
+        setIsSubmittingForm(true);
+        setFormErrors({});
+
+        try {
+            const formattedDate = new Date(activeTour.departureDate).toLocaleDateString('vi-VN');
+            const payload = {
+                TenKH: formData.name,
+                SoDienThoaiKH: formData.phone,
+                EmailKH: formData.email,
+                DiaChiKH: '',
+                SoLuong: Number(formData.adults),
+                QuantityChild: Number(formData.children),
+                QuantityBaby: Number(formData.babies),
+                Gia: activeTour.price,
+                GiaChild: 0,
+                GiaBaby: 0,
+                TenPhieu: `Đăng ký Lịch Khởi Hành: ${activeTour.tourName} (${activeTour.duration})`,
+                NoiDungPhieu: `Thông tin đăng ký:
+- Ngày khởi hành: ${formattedDate}
+- Người lớn: ${formData.adults} | Trẻ em: ${formData.children} | Em bé: ${formData.babies}
+- Ghi chú: ${formData.message || 'Không có'}`
+            };
+
+            const res = await fetch('/api/schedule/ticket', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+                throw new Error('Không thể gửi thông tin lên hệ thống CRM.');
+            }
+
+            setIsFormSubmitted(true);
+            
+            // Auto close after 3 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 3500);
+
+        } catch (err: any) {
+            console.error('[Submit CRM Ticket Error]:', err);
+            setFormErrors({ submit: err.message || 'Có lỗi xảy ra khi gửi thông tin.' });
+        } finally {
+            setIsSubmittingForm(false);
+        }
+    };
+
+    const closeModal = () => {
+        setActiveTour(null);
+        setFormData({
+            name: '',
+            phone: '',
+            email: '',
+            adults: 1,
+            children: 0,
+            babies: 0,
+            message: ''
+        });
+        setFormErrors({});
+        setIsFormSubmitted(false);
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
             {/* Header */}
@@ -215,12 +319,12 @@ export default function SchedulePage() {
                                 {/* Price & Action */}
                                 <div className="text-center md:text-right min-w-[180px] border-t md:border-t-0 md:border-l border-gray-100 pt-4 md:pt-0 md:pl-6 w-full md:w-auto mt-4 md:mt-0">
                                     <div className="text-2xl font-bold text-[#f5a623] mb-3">{item.formattedPrice}</div>
-                                    <Link
-                                        href={item.tourCode ? `/tours/${item.tourCode}` : `/tours`}
-                                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-lg transition-all w-full md:w-auto justify-center shadow-md hover:shadow-lg"
+                                    <button
+                                        onClick={() => setActiveTour(item)}
+                                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-lg transition-all w-full md:w-auto justify-center shadow-md hover:shadow-lg cursor-pointer"
                                     >
                                         Liên hệ <ArrowRight className="w-4 h-4" />
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         ))
@@ -231,7 +335,160 @@ export default function SchedulePage() {
                     )}
                 </div>
             </div>
+
+            {/* Inquire/Contact Modal */}
+            {activeTour && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-gray-100 animate-in zoom-in-95 duration-200">
+                        {/* Modal Header */}
+                        <div className="bg-[#003580] text-white p-6 relative">
+                            <button 
+                                onClick={closeModal}
+                                className="absolute top-4 right-4 text-white/80 hover:text-white bg-white/10 p-2 rounded-full hover:bg-white/20 transition-all cursor-pointer"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                            <h3 className="text-xl font-bold pr-8">Yêu Cầu Tư Vấn Lịch Khởi Hành</h3>
+                            <p className="text-blue-100 text-sm mt-2 font-medium line-clamp-1">{activeTour.tourName}</p>
+                        </div>
+
+                        {/* Modal Body */}
+                        <div className="p-6">
+                            {isFormSubmitted ? (
+                                <div className="text-center py-8 animate-in zoom-in duration-300">
+                                    <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <CheckCircle className="w-10 h-10" />
+                                    </div>
+                                    <h4 className="text-2xl font-bold text-gray-900 mb-2">Gửi thành công!</h4>
+                                    <p className="text-gray-600 max-w-sm mx-auto">
+                                        Yêu cầu tư vấn của bạn đã được chuyển đến hệ thống CRM. Chúng tôi sẽ liên hệ lại với bạn ngay.
+                                    </p>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleFormSubmit} className="space-y-4">
+                                    {formErrors.submit && (
+                                        <div className="p-3 bg-red-50 text-red-600 rounded-lg text-sm font-medium">
+                                            {formErrors.submit}
+                                        </div>
+                                    )}
+
+                                    {/* Tour Meta inside form */}
+                                    <div className="bg-gray-50 p-3.5 rounded-xl text-sm text-gray-600 space-y-1.5 border border-gray-100">
+                                        <p>🗓️ <strong>Ngày khởi hành:</strong> {new Date(activeTour.departureDate).toLocaleDateString('vi-VN')} ({activeTour.duration})</p>
+                                        <p>💵 <strong>Giá người lớn:</strong> <span className="text-red-600 font-bold">{activeTour.formattedPrice}</span></p>
+                                    </div>
+
+                                    {/* Name input */}
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Họ và tên <span className="text-red-500">*</span></label>
+                                        <input
+                                            type="text"
+                                            value={formData.name}
+                                            onChange={e => setFormData({ ...formData, name: e.target.value })}
+                                            placeholder="Ví dụ: Nguyễn Văn A"
+                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${formErrors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                        />
+                                        {formErrors.name && <p className="text-xs text-red-500">{formErrors.name}</p>}
+                                    </div>
+
+                                    {/* Phone input */}
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Số điện thoại <span className="text-red-500">*</span></label>
+                                        <input
+                                            type="tel"
+                                            value={formData.phone}
+                                            onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                                            placeholder="09xx xxx xxx"
+                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${formErrors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                        />
+                                        {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
+                                    </div>
+
+                                    {/* Email input */}
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Email (Không bắt buộc)</label>
+                                        <input
+                                            type="email"
+                                            value={formData.email}
+                                            onChange={e => setFormData({ ...formData, email: e.target.value })}
+                                            placeholder="example@gmail.com"
+                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${formErrors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                        />
+                                        {formErrors.email && <p className="text-xs text-red-500">{formErrors.email}</p>}
+                                    </div>
+
+                                    {/* Quantity inputs */}
+                                    <div className="grid grid-cols-3 gap-3">
+                                        <div className="space-y-1">
+                                            <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Người lớn</label>
+                                            <input
+                                                type="number"
+                                                min="1"
+                                                value={formData.adults}
+                                                onChange={e => setFormData({ ...formData, adults: Math.max(1, Number(e.target.value)) })}
+                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1]"
+                                            />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Trẻ em (5-11t)</label>
+                                            <input
+                                                type="number"
+                                                min="0"
+                                                value={formData.children}
+                                                onChange={e => setFormData({ ...formData, children: Math.max(0, Number(e.target.value)) })}
+                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1]"
+                                            />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Em bé (&lt;5t)</label>
+                                            <input
+                                                type="number"
+                                                min="0"
+                                                value={formData.babies}
+                                                onChange={e => setFormData({ ...formData, babies: Math.max(0, Number(e.target.value)) })}
+                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1]"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Message input */}
+                                    <div className="space-y-1">
+                                        <label className="text-xs font-bold text-gray-700 uppercase tracking-wider">Lời nhắn / Yêu cầu thêm</label>
+                                        <textarea
+                                            value={formData.message}
+                                            onChange={e => setFormData({ ...formData, message: e.target.value })}
+                                            rows={2}
+                                            placeholder="Thời gian bay mong muốn, ghi chú đặc biệt..."
+                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] resize-none"
+                                        />
+                                    </div>
+
+                                    {/* Submit button */}
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmittingForm}
+                                        className="w-full mt-2 py-3 bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white font-bold rounded-xl hover:shadow-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                                    >
+                                        {isSubmittingForm ? (
+                                            <>
+                                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                Đang gửi yêu cầu...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Send className="w-4 h-4" />
+                                                Gửi thông tin tư vấn
+                                            </>
+                                        )}
+                                    </button>
+                                </form>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
+
 
