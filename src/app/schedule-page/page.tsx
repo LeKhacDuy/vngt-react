@@ -338,8 +338,12 @@ export default function SchedulePage() {
 
             {/* Inquire/Contact Modal */}
             {activeTour && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-gray-100 animate-in zoom-in-95 duration-200">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    {/* Separate absolute overlay for blur/dark background to fix WebKit rendering bug */}
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={closeModal}></div>
+                    
+                    {/* Modal Card Content (with relative z-10 to force rendering above backdrop) */}
+                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-gray-100 relative z-10 max-h-[95vh] overflow-y-auto">
                         {/* Modal Header */}
                         <div className="bg-[#003580] text-white p-6 relative">
                             <button 
@@ -355,7 +359,7 @@ export default function SchedulePage() {
                         {/* Modal Body */}
                         <div className="p-6">
                             {isFormSubmitted ? (
-                                <div className="text-center py-8 animate-in zoom-in duration-300">
+                                <div className="text-center py-8">
                                     <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                         <CheckCircle className="w-10 h-10" />
                                     </div>
