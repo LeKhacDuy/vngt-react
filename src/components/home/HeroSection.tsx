@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Search, MapPin, Calendar, ArrowLeft, ArrowRight, ChevronDown, Globe, X } from 'lucide-react';
+import { Search, MapPin, Calendar, ArrowLeft, ArrowRight, ChevronDown, Globe, X, Compass } from 'lucide-react';
 import { tourService } from '@/services/tour.service';
 import { useRouter } from 'next/navigation';
 
@@ -20,7 +20,17 @@ interface Destination {
     id: number;
     code: string;
     name: string;
+    category_id?: number;
 }
+
+const DEPARTURES = [
+    'TP. Hồ Chí Minh',
+    'Hà Nội',
+    'Đà Nẵng',
+    'Cần Thơ',
+    'Nha Trang',
+    'Hải Phòng'
+];
 
 export default function HeroSection() {
     const router = useRouter();
@@ -29,6 +39,11 @@ export default function HeroSection() {
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
     const [searchText, setSearchText] = useState('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    
+    // Departure states
+    const [selectedDeparture, setSelectedDeparture] = useState('TP. Hồ Chí Minh');
+    const [isDepartureDropdownOpen, setIsDepartureDropdownOpen] = useState(false);
+
     const [selectedDate, setSelectedDate] = useState('');
     const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -47,7 +62,9 @@ export default function HeroSection() {
     const handlePrevSlide = () => {
         setCurrentSlide(prev => (prev === 0 ? HERO_IMAGES.length - 1 : prev - 1));
     };
+    
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const departureDropdownRef = useRef<HTMLDivElement>(null);
     const searchInputRef = useRef<HTMLInputElement>(null);
 
     // Fetch destinations from API
@@ -66,6 +83,9 @@ export default function HeroSection() {
                 // If nothing selected, clear search text too
                 if (!selectedDestination) setSearchText('');
             }
+            if (departureDropdownRef.current && !departureDropdownRef.current.contains(e.target as Node)) {
+                setIsDepartureDropdownOpen(false);
+            }
         };
         document.addEventListener('mousedown', handler);
         return () => document.removeEventListener('mousedown', handler);
@@ -82,6 +102,10 @@ export default function HeroSection() {
         d.name.toLowerCase().includes(searchText.toLowerCase()) ||
         d.code.toLowerCase().includes(searchText.toLowerCase())
     );
+
+    // Group destinations for dropdown view
+    const domesticDests = filteredDestinations.filter(d => d.category_id === 1);
+    const internationalDests = filteredDestinations.filter(d => d.category_id === 2);
 
     const handleOpenDropdown = () => {
         setIsDropdownOpen(true);
@@ -105,6 +129,9 @@ export default function HeroSection() {
 
     const handleSearch = () => {
         const params = new URLSearchParams();
+        if (selectedDeparture) {
+            params.set('departure', selectedDeparture);
+        }
         if (selectedDestination) {
             params.set('destinationId', String(selectedDestination.id));
             params.set('destinationName', selectedDestination.name);
@@ -165,7 +192,7 @@ export default function HeroSection() {
                     </p>
                 </div>
 
-                <div className="w-full lg:w-[880px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
+                <div className="w-full lg:w-[940px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
 
                     {/* Search Card */}
                     <div
@@ -182,6 +209,58 @@ export default function HeroSection() {
 
                         {/* Unified search bar */}
                         <div className="flex flex-col lg:flex-row items-stretch gap-2 p-2">
+
+                            {/* ── Departure Point Dropdown ── */}
+                            <div className="flex-1 relative" ref={departureDropdownRef}>
+                                {/* Trigger */}
+                                <div
+                                    className={`flex items-center gap-3 px-5 py-4 rounded-2xl cursor-pointer transition-all duration-300 select-none border ${
+                                        isDepartureDropdownOpen 
+                                            ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
+                                            : 'bg-white/30 hover:bg-white/60 border-transparent'
+                                    }`}
+                                    onClick={() => setIsDepartureDropdownOpen(!isDepartureDropdownOpen)}
+                                >
+                                    <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                        isDepartureDropdownOpen ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
+                                    }`}>
+                                        <Compass className="w-4 h-4" />
+                                    </div>
+
+                                    <div className="flex flex-col min-w-0 flex-1">
+                                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
+                                            Điểm khởi hành
+                                        </span>
+                                        <span className="text-sm font-bold text-gray-800 truncate">
+                                            {selectedDeparture}
+                                        </span>
+                                    </div>
+                                    <ChevronDown className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isDepartureDropdownOpen ? 'rotate-180 text-[#00dba1]' : ''}`} />
+                                </div>
+
+                                {/* Dropdown Panel */}
+                                {isDepartureDropdownOpen && (
+                                    <div
+                                        className="absolute top-full left-0 mt-2.5 w-full min-w-[200px] bg-white/95 backdrop-blur-md rounded-2xl border border-gray-100 z-50 overflow-hidden animate-fade-in"
+                                        style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.15)' }}
+                                    >
+                                        <div className="max-h-48 overflow-y-auto">
+                                            {DEPARTURES.map((dep) => (
+                                                <button
+                                                    key={dep}
+                                                    onClick={() => {
+                                                        setSelectedDeparture(dep);
+                                                        setIsDepartureDropdownOpen(false);
+                                                    }}
+                                                    className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDeparture === dep ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
+                                                >
+                                                    {dep}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
 
                             {/* ── Destination Dropdown ── */}
                             <div className="flex-1 relative" ref={dropdownRef}>
@@ -235,7 +314,7 @@ export default function HeroSection() {
                                 {/* Dropdown Panel */}
                                 {isDropdownOpen && (
                                     <div
-                                        className="absolute top-full left-0 mt-2.5 w-full min-w-[280px] bg-white/95 backdrop-blur-md rounded-2xl border border-gray-100 z-50 overflow-hidden"
+                                        className="absolute top-full left-0 mt-2.5 w-full min-w-[320px] bg-white/95 backdrop-blur-md rounded-2xl border border-gray-100 z-50 overflow-hidden animate-fade-in"
                                         style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.15)' }}
                                     >
                                         {/* All option */}
@@ -249,8 +328,8 @@ export default function HeroSection() {
                                             Tất cả điểm đến
                                         </button>
 
-                                        {/* Filtered list */}
-                                        <div className="max-h-52 overflow-y-auto">
+                                        {/* Grouped list */}
+                                        <div className="max-h-64 overflow-y-auto">
                                             {destinations.length === 0 ? (
                                                 <div className="py-6 text-center text-sm text-gray-400">
                                                     <div className="animate-spin w-5 h-5 border-2 border-[#00dba1] border-t-transparent rounded-full mx-auto mb-2" />
@@ -261,18 +340,49 @@ export default function HeroSection() {
                                                     Không tìm thấy điểm đến nào
                                                 </div>
                                             ) : (
-                                                filteredDestinations.map((dest) => (
-                                                    <button
-                                                        key={dest.id}
-                                                        onClick={() => handleSelectDestination(dest)}
-                                                        className={`w-full flex items-center gap-3 px-4 py-3 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDestination?.id === dest.id ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
-                                                    >
-                                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold ${selectedDestination?.id === dest.id ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500'}`}>
-                                                            {dest.code?.slice(0, 2).toUpperCase()}
+                                                <>
+                                                    {/* ── Tour Trong Nước ── */}
+                                                    {domesticDests.length > 0 && (
+                                                        <div>
+                                                            <div className="px-4 py-2 bg-gray-50 text-[10px] font-extrabold text-gray-500 uppercase tracking-wider border-b border-gray-150/40">
+                                                                🇻🇳 Tour Trong Nước
+                                                            </div>
+                                                            {domesticDests.map((dest) => (
+                                                                <button
+                                                                    key={dest.id}
+                                                                    onClick={() => handleSelectDestination(dest)}
+                                                                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDestination?.id === dest.id ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
+                                                                >
+                                                                    <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${selectedDestination?.id === dest.id ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500'}`}>
+                                                                        {dest.code?.slice(0, 2).toUpperCase()}
+                                                                    </div>
+                                                                    <span className="truncate">{dest.name}</span>
+                                                                </button>
+                                                            ))}
                                                         </div>
-                                                        {dest.name}
-                                                    </button>
-                                                ))
+                                                    )}
+
+                                                    {/* ── Tour Quốc Tế ── */}
+                                                    {internationalDests.length > 0 && (
+                                                        <div className="border-t border-gray-100">
+                                                            <div className="px-4 py-2 bg-gray-50 text-[10px] font-extrabold text-gray-500 uppercase tracking-wider border-b border-gray-150/40">
+                                                                ✈️ Tour Quốc Tế
+                                                            </div>
+                                                            {internationalDests.map((dest) => (
+                                                                <button
+                                                                    key={dest.id}
+                                                                    onClick={() => handleSelectDestination(dest)}
+                                                                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDestination?.id === dest.id ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
+                                                                >
+                                                                    <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${selectedDestination?.id === dest.id ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500'}`}>
+                                                                        {dest.code?.slice(0, 2).toUpperCase()}
+                                                                    </div>
+                                                                    <span className="truncate">{dest.name}</span>
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </>
                                             )}
                                         </div>
                                     </div>
@@ -290,7 +400,7 @@ export default function HeroSection() {
                             >
                                 <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                                     focusedField === 'date' ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
-                                }`}>
+                                }}`}>
                                     <Calendar className="w-4 h-4" />
                                 </div>
                                 <div className="flex flex-col min-w-0 flex-1">
