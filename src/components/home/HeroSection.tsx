@@ -351,7 +351,7 @@ export default function HeroSection() {
                             </div>
 
                             {/* ── Departure Point Dropdown ── */}
-                            <div className="flex-1 relative" ref={departureDropdownRef}>
+                            <div className="flex-1 min-w-0 relative" ref={departureDropdownRef}>
                                 {/* Trigger */}
                                 <div
                                     className={`flex items-center gap-3 px-5 py-4 rounded-2xl cursor-pointer transition-all duration-300 select-none border ${
@@ -371,9 +371,11 @@ export default function HeroSection() {
                                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
                                             Điểm khởi hành
                                         </span>
-                                        <span className="text-sm font-bold text-gray-800 truncate">
-                                            {selectedDeparture}
-                                        </span>
+                                        <div className="h-5 flex items-center">
+                                            <span className="text-sm font-bold text-gray-800 truncate leading-none">
+                                                {selectedDeparture}
+                                            </span>
+                                        </div>
                                     </div>
                                     <ChevronDown className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isDepartureDropdownOpen ? 'rotate-180 text-[#00dba1]' : ''}`} />
                                 </div>
@@ -403,7 +405,7 @@ export default function HeroSection() {
                             </div>
 
                             {/* ── Destination Dropdown (Lọc động hoàn toàn không bị rối) ── */}
-                            <div className="flex-1 relative" ref={dropdownRef}>
+                            <div className="flex-1 min-w-0 relative" ref={dropdownRef}>
                                 {/* Trigger */}
                                 <div
                                     className={`flex items-center gap-3 px-5 py-4 rounded-2xl cursor-pointer transition-all duration-300 select-none border ${
@@ -423,22 +425,24 @@ export default function HeroSection() {
                                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
                                             Điểm đến ({tourCategory === 'domestic' ? 'Trong nước' : 'Nước ngoài'})
                                         </span>
-                                        {/* Show search input when open, label when closed */}
-                                        {isDropdownOpen ? (
-                                            <input
-                                                ref={searchInputRef}
-                                                type="text"
-                                                value={searchText}
-                                                onChange={e => setSearchText(e.target.value)}
-                                                placeholder="Bạn muốn đi đâu?"
-                                                onClick={e => e.stopPropagation()}
-                                                className="bg-transparent border-none outline-none text-sm font-bold text-gray-800 placeholder-gray-400 w-full"
-                                            />
-                                        ) : (
-                                            <span className={`text-sm font-bold truncate ${selectedDestination ? 'text-gray-800' : 'text-gray-400'}`}>
-                                                {selectedDestination ? selectedDestination.name : 'Nhập địa điểm du lịch...'}
-                                            </span>
-                                        )}
+                                        <div className="h-5 flex items-center">
+                                            {/* Show search input when open, label when closed */}
+                                            {isDropdownOpen ? (
+                                                <input
+                                                    ref={searchInputRef}
+                                                    type="text"
+                                                    value={searchText}
+                                                    onChange={e => setSearchText(e.target.value)}
+                                                    placeholder="Bạn muốn đi đâu?"
+                                                    onClick={e => e.stopPropagation()}
+                                                    className="bg-transparent border-none outline-none text-sm font-bold text-gray-800 placeholder-gray-400 w-full min-w-0 p-0 leading-none h-full"
+                                                />
+                                            ) : (
+                                                <span className={`text-sm font-bold truncate leading-none ${selectedDestination ? 'text-gray-800' : 'text-gray-400'}`}>
+                                                    {selectedDestination ? selectedDestination.name : 'Nhập địa điểm du lịch...'}
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
 
                                     {/* Clear or chevron icon */}
@@ -502,7 +506,7 @@ export default function HeroSection() {
 
                             {/* ── Departure date ── */}
                             <div
-                                className={`flex-1 flex items-center gap-3 px-5 py-4 rounded-2xl cursor-text transition-all duration-300 border ${
+                                className={`flex-1 min-w-0 flex items-center gap-3 px-5 py-4 rounded-2xl cursor-text transition-all duration-300 border ${
                                     focusedField === 'date' 
                                         ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
                                         : 'bg-white/30 hover:bg-white/60 border-transparent'
@@ -518,15 +522,17 @@ export default function HeroSection() {
                                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
                                         Ngày khởi hành
                                     </span>
-                                    <input
-                                        id="input-date"
-                                        type="date"
-                                        value={selectedDate}
-                                        onChange={e => setSelectedDate(e.target.value)}
-                                        onFocus={() => setFocusedField('date')}
-                                        onBlur={() => setFocusedField(null)}
-                                        className="bg-transparent border-none outline-none text-sm font-bold text-gray-800 w-full cursor-pointer [color-scheme:light]"
-                                    />
+                                    <div className="h-5 flex items-center">
+                                        <input
+                                            id="input-date"
+                                            type="date"
+                                            value={selectedDate}
+                                            onChange={e => setSelectedDate(e.target.value)}
+                                            onFocus={() => setFocusedField('date')}
+                                            onBlur={() => setFocusedField(null)}
+                                            className="bg-transparent border-none outline-none text-sm font-bold text-gray-800 w-full cursor-pointer [color-scheme:light] p-0 leading-none h-full"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
