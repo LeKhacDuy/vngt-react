@@ -70,6 +70,7 @@ export default function Footer() {
                             <ul className="flex flex-col gap-4">
                                 {[
                                     { name: 'Giới thiệu công ty', href: '/about-page' },
+                                    { name: 'Hồ sơ năng lực', href: '/company-profile' },
                                     { name: 'Lịch khởi hành', href: '/schedule-page' },
                                     { name: 'Hỗ trợ khách hàng', href: '/support-page' },
                                     { name: 'Tuyển dụng', href: '/careers-page' },

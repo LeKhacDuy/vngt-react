@@ -43,6 +43,7 @@ export default function Header() {
                             <ul className="flex gap-5">
                                 <li><Link href="/visa-page" className="hover:opacity-80 transition-opacity">Dịch vụ Visa</Link></li>
                                 <li><Link href="/guide-page" className="hover:opacity-80 transition-opacity">Cẩm nang du lịch</Link></li>
+                                <li><Link href="/company-profile" className="hover:opacity-80 transition-opacity">Hồ sơ năng lực</Link></li>
                                 <li><Link href="/about-page" className="hover:opacity-80 transition-opacity">Về chúng tôi</Link></li>
                                 <li><Link href="/contact-page" className="hover:opacity-80 transition-opacity">Liên hệ</Link></li>
                             </ul>
@@ -154,6 +155,15 @@ export default function Header() {
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Cẩm nang du lịch
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="/company-profile"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Hồ sơ năng lực
                             </Link>
                         </li>
                         <li>

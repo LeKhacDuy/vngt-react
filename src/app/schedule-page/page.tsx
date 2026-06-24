@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { Clock, ArrowRight, Filter, X, Send, CheckCircle } from 'lucide-react';
 
 interface DepartureItem {
@@ -298,8 +297,8 @@ export default function SchedulePage() {
                                             ✈️ {item.flight}
                                         </span>
                                     </div>
-                                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 hover:text-[#00dba1] transition-colors whitespace-pre-line">
-                                        <Link href={item.tourCode ? `/tours/${item.tourCode}` : `/tours`}>{item.tourName}</Link>
+                                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 whitespace-pre-line">
+                                        {item.tourName}
                                     </h3>
                                     <div className="flex items-center justify-center md:justify-start gap-4 text-sm">
                                         {item.isHoliday && (
@@ -340,10 +339,10 @@ export default function SchedulePage() {
             {activeTour && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                     {/* Separate absolute overlay for blur/dark background to fix WebKit rendering bug */}
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={closeModal}></div>
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-10" onClick={closeModal}></div>
                     
-                    {/* Modal Card Content (with relative z-10 to force rendering above backdrop) */}
-                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-gray-100 relative z-10 max-h-[95vh] overflow-y-auto">
+                    {/* Modal Card Content (with relative z-20 to force rendering above backdrop) */}
+                    <div className="bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden border border-gray-100 relative z-20 max-h-[95vh] overflow-y-auto">
                         {/* Modal Header */}
                         <div className="bg-[#003580] text-white p-6 relative">
                             <button 
