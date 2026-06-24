@@ -269,8 +269,8 @@ export default function HeroSection() {
 
                 <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
 
-                    {/* Tabs Menu */}
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3.5 px-2 sm:px-0">
+                    {/* Tabs Menu (Unified Segment Control) */}
+                    <div className="inline-flex items-center p-1 bg-white/90 backdrop-blur-xl rounded-t-[20px] rounded-b-lg border border-white/50 border-b-0 shadow-sm max-w-full overflow-x-auto gap-0.5 ml-2 lg:ml-6 relative z-30 translate-y-[2px]">
                         {TABS.map((tab) => {
                             const Icon = tab.icon;
                             const isActive = activeTab === tab.id;
@@ -278,10 +278,10 @@ export default function HeroSection() {
                                 <button
                                     key={tab.id}
                                     onClick={() => handleTabClick(tab)}
-                                    className={`flex items-center gap-2 px-4 py-3 rounded-t-2xl rounded-b-lg font-bold text-xs sm:text-[13px] transition-all duration-300 ${
+                                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg lg:rounded-xl font-bold text-xs sm:text-[13px] whitespace-nowrap transition-all duration-300 ${
                                         isActive
-                                            ? 'bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white shadow-[0_8px_25px_rgba(0,219,161,0.22)] border-t-2 border-[#00f5b9]'
-                                            : 'bg-white/85 backdrop-blur-md text-gray-700 hover:bg-white border border-white/40 hover:text-[#00a878]'
+                                            ? 'bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white shadow-[0_4px_12px_rgba(0,219,161,0.18)]'
+                                            : 'text-gray-600 hover:text-[#00a878] hover:bg-gray-50/50'
                                     }`}
                                 >
                                     <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white animate-pulse' : 'text-gray-500'}`} />
@@ -293,7 +293,7 @@ export default function HeroSection() {
 
                     {/* Search Card */}
                     <div
-                        className="bg-white rounded-[32px] overflow-visible p-2"
+                        className="bg-white rounded-[32px] overflow-visible p-2 relative z-20"
                         style={{ boxShadow: '0 30px 70px rgba(0,0,0,0.18)' }}
                     >
                         {/* Unified search bar */}
