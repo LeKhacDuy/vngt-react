@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Search, MapPin, Calendar, ArrowLeft, ArrowRight, ChevronDown, Globe, X, Compass } from 'lucide-react';
+import { Search, MapPin, Calendar, ArrowLeft, ArrowRight, ChevronDown, Globe, X, Compass, Plane, Hotel, Bed, ShieldCheck, Star } from 'lucide-react';
 import { tourService } from '@/services/tour.service';
 import { useRouter } from 'next/navigation';
 
@@ -46,6 +46,26 @@ export default function HeroSection() {
 
     const [selectedDate, setSelectedDate] = useState('');
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    // New states for premium Vietravel-style search bar
+    const [tourCategory, setTourCategory] = useState<'domestic' | 'international'>('domestic');
+    const [activeTab, setActiveTab] = useState<'tours' | 'flight_hotel' | 'hotel' | 'flight' | 'visa'>('tours');
+
+    const TABS = [
+        { id: 'tours', label: 'TOUR TRỌN GÓI', icon: Compass },
+        { id: 'flight_hotel', label: 'VÉ MÁY BAY + KHÁCH SẠN', icon: Bed },
+        { id: 'hotel', label: 'KHÁCH SẠN', icon: Hotel },
+        { id: 'flight', label: 'VÉ MÁY BAY', icon: Plane },
+        { id: 'visa', label: 'DỊCH VỤ VISA', icon: ShieldCheck }
+    ];
+
+    const POPULAR_SEARCHES = [
+        { label: 'TOUR XUYÊN VIỆT', type: 'domestic', query: 'Xuyên Việt' },
+        { label: 'TOUR PHÚ QUỐC', type: 'domestic', query: 'Phú Quốc' },
+        { label: 'TOUR THÁI LAN', type: 'international', query: 'Thái Lan' },
+        { label: 'TOUR TRUNG QUỐC', type: 'international', query: 'Trung Quốc' },
+        { label: 'DỊCH VỤ VISA', type: 'visa', query: '' }
+    ];
 
     // Auto-scroll hero banner
     useEffect(() => {
@@ -98,14 +118,66 @@ export default function HeroSection() {
         }
     }, [isDropdownOpen]);
 
-    const filteredDestinations = destinations.filter(d =>
+    // Filter destinations by active category first (1 for domestic, 2 for international)
+    const categoryFilteredDests = destinations.filter(d => 
+        tourCategory === 'domestic' ? d.category_id === 1 : d.category_id === 2
+    );
+
+    const filteredDestinations = categoryFilteredDests.filter(d =>
         d.name.toLowerCase().includes(searchText.toLowerCase()) ||
         d.code.toLowerCase().includes(searchText.toLowerCase())
     );
 
-    // Group destinations for dropdown view
-    const domesticDests = filteredDestinations.filter(d => d.category_id === 1);
-    const internationalDests = filteredDestinations.filter(d => d.category_id === 2);
+    // Handler for category change with smart destination reset
+    const handleCategoryChange = (category: 'domestic' | 'international') => {
+        setTourCategory(category);
+        if (selectedDestination) {
+            const expectedCategoryId = category === 'domestic' ? 1 : 2;
+            if (selectedDestination.category_id !== expectedCategoryId) {
+                setSelectedDestination(null);
+            }
+        }
+    };
+
+    // Handler for top tab click with routing logic
+    const handleTabClick = (tab: typeof TABS[0]) => {
+        setActiveTab(tab.id as any);
+        if (tab.id === 'visa') {
+            router.push('/visa-page');
+        } else if (tab.id === 'flight_hotel' || tab.id === 'hotel' || tab.id === 'flight') {
+            router.push('/tickets');
+        }
+    };
+
+    // Handler for popular search clicks
+    const handlePopularSearchClick = (tag: typeof POPULAR_SEARCHES[0]) => {
+        if (tag.type === 'visa') {
+            router.push('/visa-page');
+            return;
+        }
+        
+        setTourCategory(tag.type as 'domestic' | 'international');
+        
+        const found = destinations.find(d => 
+            d.name.toLowerCase().includes(tag.query.toLowerCase()) &&
+            (tag.type === 'domestic' ? d.category_id === 1 : d.category_id === 2)
+        );
+        
+        if (found) {
+            setSelectedDestination(found);
+            const params = new URLSearchParams();
+            if (selectedDeparture) params.set('departure', selectedDeparture);
+            params.set('destinationId', String(found.id));
+            params.set('destinationName', found.name);
+            if (selectedDate) params.set('date', selectedDate);
+            router.push(`/tours/search?${params.toString()}`);
+        } else {
+            const params = new URLSearchParams();
+            if (selectedDeparture) params.set('departure', selectedDeparture);
+            params.set('keyword', tag.query);
+            router.push(`/tours/search?${params.toString()}`);
+        }
+    };
 
     const handleOpenDropdown = () => {
         setIsDropdownOpen(true);
@@ -135,6 +207,9 @@ export default function HeroSection() {
         if (selectedDestination) {
             params.set('destinationId', String(selectedDestination.id));
             params.set('destinationName', selectedDestination.name);
+        } else {
+            // Pass the category filter to the search page if "All destinations" is selected
+            params.set('category', tourCategory === 'domestic' ? 'domestic' : 'international');
         }
         if (selectedDate) params.set('date', selectedDate);
         router.push(`/tours/search?${params.toString()}`);
@@ -192,23 +267,88 @@ export default function HeroSection() {
                     </p>
                 </div>
 
-                <div className="w-full lg:w-[940px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
+                <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
+
+                    {/* Tabs Menu */}
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3.5 px-2 sm:px-0">
+                        {TABS.map((tab) => {
+                            const Icon = tab.icon;
+                            const isActive = activeTab === tab.id;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => handleTabClick(tab)}
+                                    className={`flex items-center gap-2 px-4 py-3 rounded-t-2xl rounded-b-lg font-bold text-xs sm:text-[13px] transition-all duration-300 ${
+                                        isActive
+                                            ? 'bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white shadow-[0_8px_25px_rgba(0,219,161,0.22)] border-t-2 border-[#00f5b9]'
+                                            : 'bg-white/85 backdrop-blur-md text-gray-700 hover:bg-white border border-white/40 hover:text-[#00a878]'
+                                    }`}
+                                >
+                                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white animate-pulse' : 'text-gray-500'}`} />
+                                    <span>{tab.label}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
 
                     {/* Search Card */}
                     <div
-                        className="bg-white/80 backdrop-blur-xl rounded-[28px] border border-white/40 overflow-visible p-1.5"
+                        className="bg-white/85 backdrop-blur-2xl rounded-[28px] border border-white/50 overflow-visible p-1.5"
                         style={{ boxShadow: '0 30px 70px rgba(0,0,0,0.22)' }}
                     >
-                        {/* Top label strip */}
-                        <div className="flex items-center gap-2 px-6 pt-4 pb-1">
-                            <div className="w-2.5 h-2.5 rounded-full bg-[#00dba1] animate-pulse" />
-                            <span className="text-[11px] font-bold tracking-widest text-[#00a878] uppercase">
-                                Tìm kiếm hành trình của bạn
-                            </span>
-                        </div>
-
                         {/* Unified search bar */}
-                        <div className="flex flex-col lg:flex-row items-stretch gap-2 p-2">
+                        <div className="flex flex-col lg:flex-row items-stretch gap-2.5 p-2">
+
+                            {/* ── Category Selector (Trong nước / Nước ngoài) ── */}
+                            <div className="flex-shrink-0 flex flex-row lg:flex-col justify-center items-center lg:items-start gap-6 lg:gap-2.5 px-6 py-4 rounded-2xl bg-white/40 border border-white/20 lg:w-44 select-none shadow-sm">
+                                <label className="flex items-center gap-3 cursor-pointer group">
+                                    <input
+                                        type="radio"
+                                        name="tourCategory"
+                                        checked={tourCategory === 'domestic'}
+                                        onChange={() => handleCategoryChange('domestic')}
+                                        className="sr-only"
+                                    />
+                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                                        tourCategory === 'domestic' 
+                                            ? 'border-[#00dba1] bg-[#00dba1]/10 scale-105 shadow-sm' 
+                                            : 'border-gray-300 bg-transparent group-hover:border-gray-400'
+                                    }`}>
+                                        <div className={`w-2.5 h-2.5 rounded-full bg-[#00dba1] transition-transform duration-300 ${
+                                            tourCategory === 'domestic' ? 'scale-100 animate-fade-in' : 'scale-0'
+                                        }`} />
+                                    </div>
+                                    <span className={`text-[13px] font-bold tracking-wide transition-colors duration-300 whitespace-nowrap ${
+                                        tourCategory === 'domestic' ? 'text-[#00a878]' : 'text-gray-600 group-hover:text-gray-800'
+                                    }`}>
+                                        Trong nước
+                                    </span>
+                                </label>
+
+                                <label className="flex items-center gap-3 cursor-pointer group">
+                                    <input
+                                        type="radio"
+                                        name="tourCategory"
+                                        checked={tourCategory === 'international'}
+                                        onChange={() => handleCategoryChange('international')}
+                                        className="sr-only"
+                                    />
+                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                                        tourCategory === 'international' 
+                                            ? 'border-[#00dba1] bg-[#00dba1]/10 scale-105 shadow-sm' 
+                                            : 'border-gray-300 bg-transparent group-hover:border-gray-400'
+                                    }`}>
+                                        <div className={`w-2.5 h-2.5 rounded-full bg-[#00dba1] transition-transform duration-300 ${
+                                            tourCategory === 'international' ? 'scale-100 animate-fade-in' : 'scale-0'
+                                        }`} />
+                                    </div>
+                                    <span className={`text-[13px] font-bold tracking-wide transition-colors duration-300 whitespace-nowrap ${
+                                        tourCategory === 'international' ? 'text-[#00a878]' : 'text-gray-600 group-hover:text-gray-800'
+                                    }`}>
+                                        Nước ngoài
+                                    </span>
+                                </label>
+                            </div>
 
                             {/* ── Departure Point Dropdown ── */}
                             <div className="flex-1 relative" ref={departureDropdownRef}>
@@ -262,7 +402,7 @@ export default function HeroSection() {
                                 )}
                             </div>
 
-                            {/* ── Destination Dropdown ── */}
+                            {/* ── Destination Dropdown (Lọc động hoàn toàn không bị rối) ── */}
                             <div className="flex-1 relative" ref={dropdownRef}>
                                 {/* Trigger */}
                                 <div
@@ -281,7 +421,7 @@ export default function HeroSection() {
 
                                     <div className="flex flex-col min-w-0 flex-1">
                                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
-                                            Điểm đến
+                                            Điểm đến ({tourCategory === 'domestic' ? 'Trong nước' : 'Nước ngoài'})
                                         </span>
                                         {/* Show search input when open, label when closed */}
                                         {isDropdownOpen ? (
@@ -325,10 +465,10 @@ export default function HeroSection() {
                                             <div className="w-8 h-8 rounded-full bg-[#00dba1]/10 flex items-center justify-center flex-shrink-0">
                                                 <Globe className="w-4 h-4 text-[#00a878]" />
                                             </div>
-                                            Tất cả điểm đến
+                                            Tất cả điểm đến {tourCategory === 'domestic' ? 'Trong nước' : 'Nước ngoài'}
                                         </button>
 
-                                        {/* Grouped list */}
+                                        {/* Flat list already filtered by category */}
                                         <div className="max-h-64 overflow-y-auto">
                                             {destinations.length === 0 ? (
                                                 <div className="py-6 text-center text-sm text-gray-400">
@@ -340,49 +480,20 @@ export default function HeroSection() {
                                                     Không tìm thấy điểm đến nào
                                                 </div>
                                             ) : (
-                                                <>
-                                                    {/* ── Tour Trong Nước ── */}
-                                                    {domesticDests.length > 0 && (
-                                                        <div>
-                                                            <div className="px-4 py-2 bg-gray-50 text-[10px] font-extrabold text-gray-500 uppercase tracking-wider border-b border-gray-150/40">
-                                                                🇻🇳 Tour Trong Nước
+                                                <div className="py-1">
+                                                    {filteredDestinations.map((dest) => (
+                                                        <button
+                                                            key={dest.id}
+                                                            onClick={() => handleSelectDestination(dest)}
+                                                            className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDestination?.id === dest.id ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
+                                                        >
+                                                            <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${selectedDestination?.id === dest.id ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500'}`}>
+                                                                {dest.code?.slice(0, 2).toUpperCase()}
                                                             </div>
-                                                            {domesticDests.map((dest) => (
-                                                                <button
-                                                                    key={dest.id}
-                                                                    onClick={() => handleSelectDestination(dest)}
-                                                                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDestination?.id === dest.id ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
-                                                                >
-                                                                    <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${selectedDestination?.id === dest.id ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500'}`}>
-                                                                        {dest.code?.slice(0, 2).toUpperCase()}
-                                                                    </div>
-                                                                    <span className="truncate">{dest.name}</span>
-                                                                </button>
-                                                            ))}
-                                                        </div>
-                                                    )}
-
-                                                    {/* ── Tour Quốc Tế ── */}
-                                                    {internationalDests.length > 0 && (
-                                                        <div className="border-t border-gray-100">
-                                                            <div className="px-4 py-2 bg-gray-50 text-[10px] font-extrabold text-gray-500 uppercase tracking-wider border-b border-gray-150/40">
-                                                                ✈️ Tour Quốc Tế
-                                                            </div>
-                                                            {internationalDests.map((dest) => (
-                                                                <button
-                                                                    key={dest.id}
-                                                                    onClick={() => handleSelectDestination(dest)}
-                                                                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm hover:bg-[#f0fdf9] transition-colors text-left ${selectedDestination?.id === dest.id ? 'text-[#00a878] font-bold bg-[#f0fdf9]' : 'text-gray-700 font-medium'}`}
-                                                                >
-                                                                    <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${selectedDestination?.id === dest.id ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500'}`}>
-                                                                        {dest.code?.slice(0, 2).toUpperCase()}
-                                                                    </div>
-                                                                    <span className="truncate">{dest.name}</span>
-                                                                </button>
-                                                            ))}
-                                                        </div>
-                                                    )}
-                                                </>
+                                                            <span className="truncate">{dest.name}</span>
+                                                        </button>
+                                                    ))}
+                                                </div>
                                             )}
                                         </div>
                                     </div>
@@ -400,7 +511,7 @@ export default function HeroSection() {
                             >
                                 <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                                     focusedField === 'date' ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
-                                }}`}>
+                                }`}>
                                     <Calendar className="w-4 h-4" />
                                 </div>
                                 <div className="flex flex-col min-w-0 flex-1">
@@ -431,6 +542,23 @@ export default function HeroSection() {
                                     <Search className="w-5 h-5" strokeWidth={2.5} />
                                     <span className="uppercase tracking-wider">Tìm kiếm</span>
                                 </button>
+                            </div>
+                        </div>
+
+                        {/* Popular Searches strip */}
+                        <div className="flex flex-wrap items-center gap-2 px-6 pt-2 pb-3 text-xs border-t border-gray-100/50 mt-1.5">
+                            <span className="font-bold text-gray-500 mr-1 whitespace-nowrap">Tìm kiếm nổi bật:</span>
+                            <div className="flex flex-wrap items-center gap-1.5">
+                                {POPULAR_SEARCHES.map((tag) => (
+                                    <button
+                                        key={tag.label}
+                                        onClick={() => handlePopularSearchClick(tag)}
+                                        className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#f0fdf9] text-[#00a878] hover:bg-[#e6fbf4] border border-[#00dba1]/20 font-bold transition-all duration-300 hover:-translate-y-0.5 active:scale-95 text-[11px]"
+                                    >
+                                        <Star className="w-3 h-3 fill-[#00a878]/15 text-[#00a878]" />
+                                        {tag.label}
+                                    </button>
+                                ))}
                             </div>
                         </div>
                     </div>
