@@ -216,7 +216,7 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative w-full min-h-[580px] sm:min-h-[620px] lg:min-h-0 lg:h-auto lg:aspect-[3000/1039] flex flex-col justify-end py-10 lg:py-0 lg:block lg:mb-16 bg-gray-900">
+        <section className="relative w-full min-h-[580px] sm:min-h-[620px] lg:min-h-0 lg:h-auto lg:aspect-[3000/1039] flex flex-col justify-end py-10 lg:py-0 lg:block lg:mb-28 bg-gray-900">
             {/* Background Image */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-gray-900">
                 {HERO_IMAGES.map((src, idx) => (
@@ -267,7 +267,7 @@ export default function HeroSection() {
                     </p>
                 </div>
 
-                <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2 z-20">
+                <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-[75%] z-20">
 
                     {/* Tabs Menu (Unified Segment Control) */}
                     <div className="inline-flex items-center p-1 bg-white/90 backdrop-blur-xl rounded-t-[20px] rounded-b-lg border border-white/50 border-b-0 shadow-sm max-w-full overflow-x-auto gap-0.5 ml-2 lg:ml-6 relative z-30 translate-y-[2px]">
