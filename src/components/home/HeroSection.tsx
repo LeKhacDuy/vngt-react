@@ -293,14 +293,14 @@ export default function HeroSection() {
 
                     {/* Search Card */}
                     <div
-                        className="bg-white/85 backdrop-blur-2xl rounded-[28px] border border-white/50 overflow-visible p-1.5"
-                        style={{ boxShadow: '0 30px 70px rgba(0,0,0,0.22)' }}
+                        className="bg-white rounded-[32px] overflow-visible p-2"
+                        style={{ boxShadow: '0 30px 70px rgba(0,0,0,0.18)' }}
                     >
                         {/* Unified search bar */}
-                        <div className="flex flex-col lg:flex-row items-stretch gap-2.5 p-2">
+                        <div className="flex flex-col lg:flex-row items-stretch gap-0 bg-transparent rounded-[24px] overflow-hidden">
 
                             {/* ── Category Selector (Trong nước / Nước ngoài) ── */}
-                            <div className="flex-shrink-0 flex flex-row lg:flex-col justify-center items-center lg:items-start gap-6 lg:gap-2.5 px-6 py-4 rounded-2xl bg-white/40 border border-white/20 lg:w-44 select-none shadow-sm">
+                            <div className="flex-shrink-0 flex flex-row lg:flex-col justify-center items-center lg:items-start gap-6 lg:gap-2 px-6 py-4 lg:py-3.5 select-none border-b lg:border-b-0 lg:border-r border-gray-100 lg:w-44 bg-transparent">
                                 <label className="flex items-center gap-3 cursor-pointer group">
                                     <input
                                         type="radio"
@@ -351,18 +351,14 @@ export default function HeroSection() {
                             </div>
 
                             {/* ── Departure Point Dropdown ── */}
-                            <div className="flex-1 min-w-0 relative" ref={departureDropdownRef}>
+                            <div className={`flex-1 min-w-0 relative border-b lg:border-b-0 lg:border-r border-gray-100 transition-all duration-300 ${isDepartureDropdownOpen ? 'bg-[#f0fdf9]/40' : 'bg-transparent'}`} ref={departureDropdownRef}>
                                 {/* Trigger */}
                                 <div
-                                    className={`flex items-center gap-3 px-5 py-4 rounded-2xl cursor-pointer transition-all duration-300 select-none border ${
-                                        isDepartureDropdownOpen 
-                                            ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
-                                            : 'bg-white/30 hover:bg-white/60 border-transparent'
-                                    }`}
+                                    className="flex items-center gap-3 px-6 py-4 lg:py-3.5 cursor-pointer select-none w-full h-full"
                                     onClick={() => setIsDepartureDropdownOpen(!isDepartureDropdownOpen)}
                                 >
                                     <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
-                                        isDepartureDropdownOpen ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
+                                        isDepartureDropdownOpen ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500 shadow-sm'
                                     }`}>
                                         <Compass className="w-4 h-4" />
                                     </div>
@@ -383,8 +379,7 @@ export default function HeroSection() {
                                 {/* Dropdown Panel */}
                                 {isDepartureDropdownOpen && (
                                     <div
-                                        className="absolute top-full left-0 mt-2.5 w-full min-w-[200px] bg-white/95 backdrop-blur-md rounded-2xl border border-gray-100 z-50 overflow-hidden animate-fade-in"
-                                        style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.15)' }}
+                                        className="absolute top-full left-0 mt-2 w-full min-w-[200px] bg-white rounded-2xl border border-gray-100 z-50 overflow-hidden shadow-xl animate-fade-in"
                                     >
                                         <div className="max-h-48 overflow-y-auto">
                                             {DEPARTURES.map((dep) => (
@@ -404,19 +399,15 @@ export default function HeroSection() {
                                 )}
                             </div>
 
-                            {/* ── Destination Dropdown (Lọc động hoàn toàn không bị rối) ── */}
-                            <div className="flex-1 min-w-0 relative" ref={dropdownRef}>
+                            {/* ── Destination Dropdown ── */}
+                            <div className={`flex-1 min-w-0 relative border-b lg:border-b-0 lg:border-r border-gray-100 transition-all duration-300 ${isDropdownOpen ? 'bg-[#f0fdf9]/40' : 'bg-transparent'}`} ref={dropdownRef}>
                                 {/* Trigger */}
                                 <div
-                                    className={`flex items-center gap-3 px-5 py-4 rounded-2xl cursor-pointer transition-all duration-300 select-none border ${
-                                        isDropdownOpen 
-                                            ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
-                                            : 'bg-white/30 hover:bg-white/60 border-transparent'
-                                    }`}
+                                    className="flex items-center gap-3 px-6 py-4 lg:py-3.5 cursor-pointer select-none w-full h-full"
                                     onClick={handleOpenDropdown}
                                 >
                                     <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
-                                        isDropdownOpen ? 'bg-[#00dba1] text-white' : 'bg-white/80 text-gray-500 shadow-sm'
+                                        isDropdownOpen ? 'bg-[#00dba1] text-white' : 'bg-gray-100 text-gray-500 shadow-sm'
                                     }`}>
                                         <MapPin className="w-4 h-4" />
                                     </div>
@@ -458,8 +449,7 @@ export default function HeroSection() {
                                 {/* Dropdown Panel */}
                                 {isDropdownOpen && (
                                     <div
-                                        className="absolute top-full left-0 mt-2.5 w-full min-w-[320px] bg-white/95 backdrop-blur-md rounded-2xl border border-gray-100 z-50 overflow-hidden animate-fade-in"
-                                        style={{ boxShadow: '0 20px 50px rgba(0,0,0,0.15)' }}
+                                        className="absolute top-full left-0 mt-2 w-full min-w-[320px] bg-white rounded-2xl border border-gray-100 z-50 overflow-hidden shadow-xl animate-fade-in"
                                     >
                                         {/* All option */}
                                         <button
@@ -506,10 +496,8 @@ export default function HeroSection() {
 
                             {/* ── Departure date ── */}
                             <div
-                                className={`flex-1 min-w-0 flex items-center gap-3 px-5 py-4 rounded-2xl cursor-text transition-all duration-300 border ${
-                                    focusedField === 'date' 
-                                        ? 'bg-white shadow-[0_8px_30px_rgba(0,219,161,0.06)] border-[#00dba1]/20 ring-2 ring-[#00dba1]/20' 
-                                        : 'bg-white/30 hover:bg-white/60 border-transparent'
+                                className={`flex-1 min-w-0 flex items-center gap-3 px-6 py-4 lg:py-3.5 border-b lg:border-b-0 border-gray-100 transition-all duration-300 ${
+                                    focusedField === 'date' ? 'bg-[#f0fdf9]/40' : 'bg-transparent'
                                 }`}
                                 onClick={() => (document.getElementById('input-date') as HTMLInputElement)?.showPicker?.()}
                             >
@@ -537,10 +525,10 @@ export default function HeroSection() {
                             </div>
 
                             {/* ── Search Button ── */}
-                            <div className="flex items-center pt-2 lg:pt-0">
+                            <div className="flex items-center justify-center p-3 lg:p-2 lg:pl-4 bg-transparent">
                                 <button
                                     onClick={handleSearch}
-                                    className="w-full lg:w-auto h-14 px-8 rounded-2xl flex items-center justify-center gap-2 font-bold text-white text-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95 shimmer-btn shadow-[0_8px_25px_rgba(0,219,161,0.3)] hover:shadow-[0_12px_30px_rgba(0,219,161,0.45)]"
+                                    className="w-full lg:w-auto h-12 lg:h-14 px-8 rounded-2xl lg:rounded-[22px] flex items-center justify-center gap-2 font-bold text-white text-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95 shimmer-btn shadow-[0_6px_20px_rgba(0,219,161,0.2)] hover:shadow-[0_10px_25px_rgba(0,219,161,0.35)]"
                                     style={{
                                         background: 'linear-gradient(135deg, #00dba1 0%, #00b87a 100%)',
                                     }}
@@ -552,7 +540,7 @@ export default function HeroSection() {
                         </div>
 
                         {/* Popular Searches strip */}
-                        <div className="flex flex-wrap items-center gap-2 px-6 pt-2 pb-3 text-xs border-t border-gray-100/50 mt-1.5">
+                        <div className="flex flex-wrap items-center gap-2 px-6 pt-2.5 pb-3 text-xs border-t border-gray-100/50 mt-1">
                             <span className="font-bold text-gray-500 mr-1 whitespace-nowrap">Tìm kiếm nổi bật:</span>
                             <div className="flex flex-wrap items-center gap-1.5">
                                 {POPULAR_SEARCHES.map((tag) => (
