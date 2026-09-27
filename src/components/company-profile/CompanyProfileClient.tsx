@@ -198,21 +198,21 @@ export default function CompanyProfileClient() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans selection:bg-[#00dba1]/30 selection:text-slate-900 overflow-x-hidden">
+        <div className="min-h-screen bg-slate-50 font-sans selection:bg-brand/30 selection:text-slate-900 overflow-x-hidden">
             {/* Hero Section */}
-            <section className="relative min-h-[70vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-br from-[#e6fbf7] via-slate-50 to-teal-50 text-slate-900">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(0,219,161,0.06),transparent_50%)]"></div>
+            <section className="relative min-h-[70vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-br from-brand-tint via-cream to-brand-tint text-slate-900">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(188, 52, 46,0.06),transparent_50%)]"></div>
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_60%,#f8fafc_100%)]"></div>
                 
                 <div className="container mx-auto px-4 relative z-10 text-center max-w-5xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00dba1]/10 border border-[#00dba1]/20 text-[#00a36c] text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand/10 border border-brand/20 text-brand-press text-xs font-bold rounded-full mb-6 uppercase tracking-wider">
                         <Sparkles className="w-3.5 h-3.5 animate-pulse" />
                         Hồ sơ năng lực doanh nghiệp
                     </div>
                     
                     <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight tracking-tight text-slate-950">
                         CÔNG TY TNHH TM - DV & DU LỊCH <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00dba1] via-emerald-500 to-teal-600">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-brand-hover to-brand-press">
                             VNGROUP TOURIST
                         </span>
                     </h1>
@@ -225,7 +225,7 @@ export default function CompanyProfileClient() {
                         <a 
                             href="/documents/company-profile.pdf" 
                             download="Company profile_VNGroup Tourist.pdf"
-                            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#00dba1] to-[#00b87a] hover:from-[#00c791] hover:to-[#00a36c] text-slate-950 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#00dba1]/20 hover:shadow-[#00dba1]/40 hover:-translate-y-0.5"
+                            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand to-brand-hover hover:from-brand hover:to-brand-press text-slate-950 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-brand/20 hover:shadow-brand/40 hover:-translate-y-0.5"
                         >
                             <Download className="w-5 h-5 stroke-[2.5]" />
                             Tải PDF Bản Gốc (26MB)
@@ -246,11 +246,11 @@ export default function CompanyProfileClient() {
             {/* Letter Section */}
             <section className="py-16 sm:py-24 container mx-auto px-4 -mt-20 relative z-20">
                 <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 shadow-[0_20px_50px_rgba(15,23,42,0.05)] border border-slate-100 max-w-4xl mx-auto relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#00dba1]/10 to-transparent rounded-bl-full"></div>
-                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#00dba1]/5 to-transparent rounded-tr-full"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand/10 to-transparent rounded-bl-full"></div>
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-brand/5 to-transparent rounded-tr-full"></div>
 
-                    <div className="flex items-center gap-3 text-[#00dba1] font-bold text-sm tracking-widest uppercase mb-6">
-                        <span className="w-8 h-px bg-[#00dba1]"></span>
+                    <div className="flex items-center gap-3 text-brand font-bold text-sm tracking-widest uppercase mb-6">
+                        <span className="w-8 h-px bg-brand"></span>
                         Lời Ngỏ Từ Ban Giám Đốc
                     </div>
 
@@ -266,7 +266,7 @@ export default function CompanyProfileClient() {
                             Trong nhịp sống hiện đại, du lịch đã trở thành một nhu cầu thiết yếu để tái tạo năng lượng, gắn kết gia đình và nâng cao đời sống tinh thần. Thấu hiểu sâu sắc điều đó, VNGroup Tourist cam kết kiến tạo và mang đến những sản phẩm du lịch đa dạng, phong phú cùng chất lượng phục vụ vượt trội, đáp ứng cao nhất mọi kỳ vọng của bạn.
                         </p>
                         <p>
-                            Là một công ty lữ hành trẻ trung và đầy khát vọng, chính thức ra mắt từ ngày <span className="font-semibold text-[#00a36c]">09/03/2023</span>, chúng tôi luôn nhạy bén nắm bắt các xu hướng du lịch hiện đại của thời đại để không ngừng nghiên cứu, cải tiến hệ thống sản phẩm. Với đội ngũ nhân sự giàu kinh nghiệm, nhiệt huyết, được đào tạo chuyên sâu từ các đơn vị lữ hành hàng đầu cùng mạng lưới đối tác chọn lọc kỹ lưỡng, mục tiêu của chúng tôi là mang tới những chuyến đi đầy ắp cảm xúc trọn vẹn nhất.
+                            Là một công ty lữ hành trẻ trung và đầy khát vọng, chính thức ra mắt từ ngày <span className="font-semibold text-brand-press">09/03/2023</span>, chúng tôi luôn nhạy bén nắm bắt các xu hướng du lịch hiện đại của thời đại để không ngừng nghiên cứu, cải tiến hệ thống sản phẩm. Với đội ngũ nhân sự giàu kinh nghiệm, nhiệt huyết, được đào tạo chuyên sâu từ các đơn vị lữ hành hàng đầu cùng mạng lưới đối tác chọn lọc kỹ lưỡng, mục tiêu của chúng tôi là mang tới những chuyến đi đầy ắp cảm xúc trọn vẹn nhất.
                         </p>
                         <p>
                             Bằng sự chuyên nghiệp, tinh thần trách nhiệm tuyệt đối và cam kết chất lượng, chúng tôi rất mong có cơ hội hợp tác và mang đến cho Quý Khách hàng những hành trình du lịch đẳng cấp, giá trị và đáng nhớ nhất.
@@ -280,7 +280,7 @@ export default function CompanyProfileClient() {
                         </div>
                         <div className="text-right">
                             <p className="font-bold text-slate-950 text-lg">Trân trọng,</p>
-                            <p className="font-semibold text-[#00b87a] uppercase tracking-wide mt-1">Đội ngũ VNGroup Tourist</p>
+                            <p className="font-semibold text-brand-hover uppercase tracking-wide mt-1">Đội ngũ VNGroup Tourist</p>
                         </div>
                     </div>
                 </div>
@@ -288,19 +288,19 @@ export default function CompanyProfileClient() {
 
             {/* Vision, Mission & ESG Section */}
             <section className="py-20 bg-slate-50 text-slate-950 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,219,161,0.03),transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(188, 52, 46,0.03),transparent_50%)]"></div>
                 <div className="container mx-auto px-4 relative z-10 max-w-6xl">
                     <div className="text-center mb-16">
-                        <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Tầm nhìn & Sứ mệnh</span>
+                        <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Tầm nhìn & Sứ mệnh</span>
                         <h2 className="text-3xl sm:text-5xl font-extrabold">Định Hướng Phát Triển Bền Vững</h2>
-                        <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-4 rounded-full"></div>
+                        <div className="w-16 h-1 bg-brand mx-auto mt-4 rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                         {/* Vision Card */}
-                        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 flex flex-col justify-between hover:border-[#00dba1]/40 transition-all duration-300 shadow-sm">
+                        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 flex flex-col justify-between hover:border-brand/40 transition-all duration-300 shadow-sm">
                             <div>
-                                <div className="w-12 h-12 bg-gradient-to-br from-[#00dba1]/15 to-emerald-500/15 rounded-2xl flex items-center justify-center text-[#00a36c] mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-br from-brand/15 to-brand/15 rounded-2xl flex items-center justify-center text-brand-press mb-6">
                                     <Compass className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-slate-950">Tầm Nhìn</h3>
@@ -311,23 +311,23 @@ export default function CompanyProfileClient() {
                         </div>
 
                         {/* Mission Card */}
-                        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 flex flex-col justify-between hover:border-[#00dba1]/40 transition-all duration-300 shadow-sm">
+                        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 flex flex-col justify-between hover:border-brand/40 transition-all duration-300 shadow-sm">
                             <div>
-                                <div className="w-12 h-12 bg-gradient-to-br from-[#00dba1]/15 to-emerald-500/15 rounded-2xl flex items-center justify-center text-[#00a36c] mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-br from-brand/15 to-brand/15 rounded-2xl flex items-center justify-center text-brand-press mb-6">
                                     <Award className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-slate-950">Sứ Mệnh</h3>
                                 <ul className="text-slate-600 font-light space-y-3.5 leading-relaxed">
                                     <li className="flex items-start gap-2.5">
-                                        <Check className="w-4 h-4 text-[#00dba1] mt-1 flex-shrink-0" />
+                                        <Check className="w-4 h-4 text-success mt-1 flex-shrink-0" />
                                         <span>Tạo ra các sản phẩm du lịch phong phú, giàu giá trị văn hóa lịch sử, phục vụ mọi gia đình Việt.</span>
                                     </li>
                                     <li className="flex items-start gap-2.5">
-                                        <Check className="w-4 h-4 text-[#00dba1] mt-1 flex-shrink-0" />
+                                        <Check className="w-4 h-4 text-success mt-1 flex-shrink-0" />
                                         <span>Kết nối du khách khám phá vẻ đẹp bất tận của quê hương Việt Nam và các nền văn minh lớn thế giới.</span>
                                     </li>
                                     <li className="flex items-start gap-2.5">
-                                        <Check className="w-4 h-4 text-[#00dba1] mt-1 flex-shrink-0" />
+                                        <Check className="w-4 h-4 text-success mt-1 flex-shrink-0" />
                                         <span>Xây dựng môi trường làm việc sáng tạo, năng động, mang đến cơ hội thăng tiến và thu nhập công bằng cho nhân sự.</span>
                                     </li>
                                 </ul>
@@ -336,18 +336,18 @@ export default function CompanyProfileClient() {
                     </div>
 
                     {/* ESG Commitment */}
-                    <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-3xl p-8 md:p-10 border border-emerald-200/60 shadow-sm">
+                    <div className="bg-gradient-to-r from-brand-tint to-brand-tint rounded-3xl p-8 md:p-10 border border-line shadow-sm">
                         <div className="flex flex-col md:flex-row items-center gap-8">
-                            <div className="w-20 h-20 bg-emerald-500 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-500/20">
+                            <div className="w-20 h-20 bg-brand rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand/20">
                                 <Leaf className="w-10 h-10 text-slate-950 stroke-[2.2]" />
                             </div>
                             <div>
-                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-[#00a36c] rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 border border-brand/20 text-brand-press rounded-full text-xs font-bold uppercase tracking-wider mb-2">
                                     Tiêu chuẩn ESG
                                 </div>
                                 <h3 className="text-2xl font-bold text-slate-950 mb-3">Cam kết Phát triển Bền vững (ESG)</h3>
                                 <p className="text-slate-650 font-light leading-relaxed">
-                                    Ngay từ những ngày đầu thành lập, VNGroup Tourist đã đặt mục tiêu hướng đến sự <strong className="font-semibold text-slate-950">phát triển bền vững</strong>. Chúng tôi lồng ghép các tiêu chuẩn <strong className="text-[#00a36c]">Environment (Môi trường)</strong> – <strong className="text-[#00a36c]">Social (Xã hội)</strong> – <strong className="text-[#00a36c]">Governance (Quản trị)</strong> trong từng hành trình. Vừa mang đến trải nghiệm du lịch ý nghĩa, vừa nỗ lực bảo tồn môi trường điểm đến, tôn vinh văn hóa bản địa và kết nối giúp đỡ cộng đồng địa phương.
+                                    Ngay từ những ngày đầu thành lập, VNGroup Tourist đã đặt mục tiêu hướng đến sự <strong className="font-semibold text-slate-950">phát triển bền vững</strong>. Chúng tôi lồng ghép các tiêu chuẩn <strong className="text-brand-press">Environment (Môi trường)</strong> – <strong className="text-brand-press">Social (Xã hội)</strong> – <strong className="text-brand-press">Governance (Quản trị)</strong> trong từng hành trình. Vừa mang đến trải nghiệm du lịch ý nghĩa, vừa nỗ lực bảo tồn môi trường điểm đến, tôn vinh văn hóa bản địa và kết nối giúp đỡ cộng đồng địa phương.
                                 </p>
                             </div>
                         </div>
@@ -358,12 +358,12 @@ export default function CompanyProfileClient() {
             {/* Core Values (TRUST) Section */}
             <section className="py-24 container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-16">
-                    <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Kim chỉ nam</span>
+                    <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Kim chỉ nam</span>
                     <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Giá Trị Cốt Lõi - TRUST</h2>
                     <p className="text-slate-500 max-w-2xl mx-auto mt-4 font-light text-base sm:text-lg">
                         Tại VNGroup Tourist, "TRUST" không đơn giản chỉ là chữ viết tắt, mà còn là tôn chỉ giúp chúng tôi xây dựng một thương hiệu du lịch đáng tin cậy.
                     </p>
-                    <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-6 rounded-full"></div>
+                    <div className="w-16 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-8 md:p-12 rounded-3xl border border-slate-100 shadow-[0_15px_40px_rgba(15,23,42,0.03)]">
@@ -375,12 +375,12 @@ export default function CompanyProfileClient() {
                                 onClick={() => setActiveTab(val.id)}
                                 className={`flex items-center gap-4 p-3.5 sm:p-5 rounded-2xl text-left transition-all duration-300 w-full cursor-pointer ${
                                     activeTab === val.id
-                                        ? 'bg-[#00dba1]/20 border border-[#00dba1] text-slate-950 translate-x-1 shadow-sm'
+                                        ? 'bg-brand/20 border border-brand text-slate-950 translate-x-1 shadow-sm'
                                         : 'bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-100'
                                 }`}
                             >
                                 <span className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center font-black text-xl sm:text-2xl transition-colors duration-300 ${
-                                    activeTab === val.id ? 'bg-[#00dba1] text-slate-950' : 'bg-slate-200 text-slate-700'
+                                    activeTab === val.id ? 'bg-brand text-slate-950' : 'bg-slate-200 text-slate-700'
                                 }`}>
                                     {val.letter}
                                 </span>
@@ -398,11 +398,11 @@ export default function CompanyProfileClient() {
                             if (val.id !== activeTab) return null;
                             return (
                                 <div key={val.id} className="animate-fade-in">
-                                    <div className="inline-block px-3.5 py-1.5 bg-[#00dba1]/10 text-[#00b87a] rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                                    <div className="inline-block px-3.5 py-1.5 bg-brand/10 text-brand-hover rounded-full text-xs font-bold uppercase tracking-wider mb-4">
                                         Chữ viết tắt: {val.letter}
                                     </div>
                                     <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 mb-2">{val.title}</h3>
-                                    <h4 className="text-lg font-semibold text-[#00b87a] mb-6">{val.subtitle}</h4>
+                                    <h4 className="text-lg font-semibold text-brand-hover mb-6">{val.subtitle}</h4>
                                     <p className="text-slate-600 leading-relaxed text-base sm:text-lg font-light">
                                         {val.desc}
                                     </p>
@@ -415,15 +415,15 @@ export default function CompanyProfileClient() {
 
             {/* Business Sectors Section */}
             <section className="py-24 bg-slate-50 text-slate-950 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,219,161,0.03),transparent_40%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(188, 52, 46,0.03),transparent_40%)]"></div>
                 <div className="container mx-auto px-4 max-w-6xl relative z-10">
                     <div className="text-center mb-16">
-                        <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Lĩnh vực hoạt động</span>
+                        <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Lĩnh vực hoạt động</span>
                         <h2 className="text-3xl sm:text-5xl font-extrabold">Lĩnh Vực Kinh Doanh Cốt Lõi</h2>
                         <p className="text-slate-500 max-w-2xl mx-auto mt-4 font-light text-sm sm:text-base">
                             Chúng tôi cung cấp giải pháp dịch vụ lữ hành toàn diện và chất lượng vượt trội nhằm đáp ứng tối đa mọi nhu cầu của du khách.
                         </p>
-                        <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-6 rounded-full"></div>
+                        <div className="w-16 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
                     </div>
 
                     {/* Sectors Grid/Tabs */}
@@ -436,7 +436,7 @@ export default function CompanyProfileClient() {
                                     onClick={() => setActiveSector(idx)}
                                     className={`px-5 py-4 rounded-xl font-bold text-left transition-all duration-300 text-sm cursor-pointer border ${
                                         activeSector === idx
-                                            ? 'bg-[#00dba1] text-slate-950 border-[#00dba1] shadow-md'
+                                            ? 'bg-brand text-slate-950 border-brand shadow-md'
                                             : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
                                     }`}
                                 >
@@ -456,7 +456,7 @@ export default function CompanyProfileClient() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-955/70 via-slate-955/10 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6 right-6">
-                                    <span className="text-[#00dba1] font-bold text-xs uppercase tracking-wider block mb-1">
+                                    <span className="text-brand font-bold text-xs uppercase tracking-wider block mb-1">
                                         Mảng kinh doanh 0{activeSector + 1}
                                     </span>
                                     <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
@@ -466,7 +466,7 @@ export default function CompanyProfileClient() {
                             </div>
                             
                             <div className="p-8 sm:p-10 space-y-6">
-                                <h4 className="text-lg font-bold text-[#00b87a]">{businessSectors[activeSector].subtitle}</h4>
+                                <h4 className="text-lg font-bold text-brand-hover">{businessSectors[activeSector].subtitle}</h4>
                                 <p className="text-slate-600 font-light leading-relaxed">
                                     {businessSectors[activeSector].desc}
                                 </p>
@@ -476,7 +476,7 @@ export default function CompanyProfileClient() {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                                         {businessSectors[activeSector].features.map((feat, fidx) => (
                                             <div key={fidx} className="flex items-start gap-2.5">
-                                                <CheckCircle2 className="w-4 h-4 text-[#00dba1] mt-0.5 flex-shrink-0" />
+                                                <CheckCircle2 className="w-4 h-4 text-success mt-0.5 flex-shrink-0" />
                                                 <span className="text-sm text-slate-650 font-light">{feat}</span>
                                             </div>
                                         ))}
@@ -491,9 +491,9 @@ export default function CompanyProfileClient() {
             {/* Organization & Human Resources */}
             <section className="py-24 container mx-auto px-4 max-w-6xl">
                 <div className="text-center mb-16">
-                    <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Cơ cấu & Con người</span>
+                    <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Cơ cấu & Con người</span>
                     <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Bộ Máy Tổ Chức & Nhân Sự</h2>
-                    <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-4 rounded-full"></div>
+                    <div className="w-16 h-1 bg-brand mx-auto mt-4 rounded-full"></div>
                 </div>
 
                 {/* Staff Qualifications */}
@@ -509,7 +509,7 @@ export default function CompanyProfileClient() {
                     </div>
                     
                     <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex gap-4 items-center">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-brand-tint flex items-center justify-center text-brand flex-shrink-0">
                             <GraduationCap className="w-6 h-6" />
                         </div>
                         <div>
@@ -567,7 +567,7 @@ export default function CompanyProfileClient() {
                         {/* Level 3: Department List */}
                         <div className="grid grid-cols-1 md:grid-cols-7 gap-3 pt-6 relative z-10">
                             {organizationDepts.map((dept, idx) => (
-                                <div key={idx} className="bg-slate-50 hover:bg-slate-100 hover:border-[#00dba1] transition-all p-4 rounded-xl border border-slate-200 text-center flex flex-col justify-center h-full min-h-[90px]">
+                                <div key={idx} className="bg-slate-50 hover:bg-slate-100 hover:border-brand transition-all p-4 rounded-xl border border-slate-200 text-center flex flex-col justify-center h-full min-h-[90px]">
                                     <h4 className="font-extrabold text-slate-950 text-xs tracking-wider mb-1.5 uppercase">{dept.name}</h4>
                                     <p className="text-[10px] text-slate-500 leading-tight font-medium">{dept.desc}</p>
                                 </div>
@@ -581,9 +581,9 @@ export default function CompanyProfileClient() {
             <section className="py-20 bg-white text-slate-950 relative overflow-hidden">
                 <div className="container mx-auto px-4 max-w-6xl relative z-10">
                     <div className="text-center mb-16">
-                        <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Lý do đồng hành</span>
+                        <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Lý do đồng hành</span>
                         <h2 className="text-3xl sm:text-5xl font-extrabold">Vì Sao Nên Chọn VNGroup Tourist?</h2>
-                        <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-4 rounded-full"></div>
+                        <div className="w-16 h-1 bg-brand mx-auto mt-4 rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -595,9 +595,9 @@ export default function CompanyProfileClient() {
                             { title: 'CHẤT LƯỢNG ĐẢM BẢO', desc: 'Hệ thống đối tác cung cấp dịch vụ được kiểm soát chất lượng chặt chẽ trên toàn quốc và quốc tế.' },
                             { title: 'NHÂN SỰ TRẺ TRUNG', desc: 'Đội ngũ giàu năng lượng, nhạy bén xu hướng mới để hỗ trợ và xử lý phát sinh nhanh gọn.' }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-slate-50 border border-slate-200/80 p-8 rounded-2xl flex flex-col justify-between hover:border-[#00dba1]/30 hover:shadow-sm transition-all duration-300">
+                            <div key={idx} className="bg-slate-50 border border-slate-200/80 p-8 rounded-2xl flex flex-col justify-between hover:border-brand/30 hover:shadow-sm transition-all duration-300">
                                 <div>
-                                    <div className="w-8 h-8 rounded-lg bg-[#00dba1]/10 text-[#00a36c] font-bold text-xs flex items-center justify-center mb-5 border border-[#00dba1]/20">
+                                    <div className="w-8 h-8 rounded-lg bg-brand/10 text-brand-press font-bold text-xs flex items-center justify-center mb-5 border border-brand/20">
                                         0{idx + 1}
                                     </div>
                                     <h4 className="font-extrabold text-slate-950 text-lg mb-3 tracking-wide">{item.title}</h4>
@@ -608,19 +608,19 @@ export default function CompanyProfileClient() {
                     </div>
 
                     {/* Product Commitment */}
-                    <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-8 md:p-12 rounded-3xl border border-emerald-200/50 text-center max-w-4xl mx-auto shadow-sm">
+                    <div className="bg-gradient-to-r from-brand-tint to-brand-tint p-8 md:p-12 rounded-3xl border border-line text-center max-w-4xl mx-auto shadow-sm">
                         <h3 className="text-2xl font-bold mb-6 text-slate-950">Cam Kết Sản Phẩm & Dịch Vụ</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                             <div className="bg-white p-5 rounded-xl border border-slate-200">
-                                <h4 className="font-bold text-[#00b87a] text-base mb-2">Chất lượng tốt nhất</h4>
+                                <h4 className="font-bold text-brand-hover text-base mb-2">Chất lượng tốt nhất</h4>
                                 <p className="text-xs text-slate-600 leading-relaxed font-light">Cung cấp các sản phẩm chất lượng dịch vụ chuẩn chỉnh đi đôi với chi phí phù hợp nhất.</p>
                             </div>
                             <div className="bg-white p-5 rounded-xl border border-slate-200">
-                                <h4 className="font-bold text-[#00b87a] text-base mb-2">Dịch vụ độc đáo</h4>
+                                <h4 className="font-bold text-brand-hover text-base mb-2">Dịch vụ độc đáo</h4>
                                 <p className="text-xs text-slate-600 leading-relaxed font-light">Tạo ra những hành trình mới lạ mang lại giá trị trải nghiệm cao và cảm xúc khác biệt cho du khách.</p>
                             </div>
                             <div className="bg-white p-5 rounded-xl border border-slate-200">
-                                <h4 className="font-bold text-[#00b87a] text-base mb-2">Chính sách ưu việt</h4>
+                                <h4 className="font-bold text-brand-hover text-base mb-2">Chính sách ưu việt</h4>
                                 <p className="text-xs text-slate-600 leading-relaxed font-light">Đáp ứng nhu cầu trên góc độ mang lại lợi ích tốt nhất cho quý đối tác và khách hàng.</p>
                             </div>
                         </div>
@@ -632,9 +632,9 @@ export default function CompanyProfileClient() {
             <section id="profile-stats-section" className="py-24 bg-white relative">
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="text-center mb-16">
-                        <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Kết quả hành trình</span>
+                        <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Kết quả hành trình</span>
                         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Những Con Số "Biết Nói"</h2>
-                        <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-4 rounded-full"></div>
+                        <div className="w-16 h-1 bg-brand mx-auto mt-4 rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
@@ -660,12 +660,12 @@ export default function CompanyProfileClient() {
             <section className="py-24 bg-slate-50 border-t border-slate-100">
                 <div className="container mx-auto px-4 max-w-6xl">
                     <div className="text-center mb-16">
-                        <span className="text-[#00dba1] text-xs font-bold uppercase tracking-widest block mb-3">Đối tác đồng hành</span>
+                        <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Đối tác đồng hành</span>
                         <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-950">Dấu Ấn Hành Trình</h2>
                         <p className="text-slate-500 max-w-2xl mx-auto mt-4 font-light text-sm sm:text-base">
                             Mỗi hành trình đi qua là một cột mốc, mỗi khoảnh khắc đồng hành là một kỷ niệm đáng trân quý mà VNGroup Tourist vinh dự kiến tạo.
                         </p>
-                        <div className="w-16 h-1 bg-[#00dba1] mx-auto mt-4 rounded-full"></div>
+                        <div className="w-16 h-1 bg-brand mx-auto mt-4 rounded-full"></div>
                     </div>
 
                     {/* Journeys List */}
@@ -673,7 +673,7 @@ export default function CompanyProfileClient() {
                         {clientJourneys.map((item, idx) => (
                             <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                                 <div>
-                                    <span className="text-[10px] text-[#00b87a] font-bold tracking-wider uppercase block mb-2">Đoàn khách đoàn</span>
+                                    <span className="text-[10px] text-brand-hover font-bold tracking-wider uppercase block mb-2">Đoàn khách đoàn</span>
                                     <h4 className="font-extrabold text-slate-950 text-sm mb-4 leading-normal">{item.client}</h4>
                                 </div>
                                 <div className="pt-3 border-t border-slate-50 flex items-center justify-between text-xs text-slate-500">
@@ -687,10 +687,10 @@ export default function CompanyProfileClient() {
             </section>
 
             {/* Download Bottom Banner */}
-            <section className="py-20 bg-gradient-to-r from-[#e6fbf7] via-slate-50 to-teal-50 text-slate-950 text-center relative overflow-hidden border-t border-slate-100">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(0,219,161,0.04),transparent_50%)]"></div>
+            <section className="py-20 bg-gradient-to-r from-brand-tint via-cream to-brand-tint text-slate-950 text-center relative overflow-hidden border-t border-slate-100">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(188, 52, 46,0.04),transparent_50%)]"></div>
                 <div className="container mx-auto px-4 relative z-10 max-w-3xl">
-                    <Building2 className="w-12 h-12 text-[#00b87a] mx-auto mb-6" />
+                    <Building2 className="w-12 h-12 text-brand-hover mx-auto mb-6" />
                     <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-slate-950">Sở Hữu Bản In Hồ Sơ Năng Lực</h2>
                     <p className="text-slate-655 font-light mb-10 text-sm sm:text-base">
                         Để phục vụ cho nhu cầu lưu trữ, nghiên cứu hoặc trình ban lãnh đạo phê duyệt, quý khách vui lòng tải về bản PDF chất lượng cao đầy đủ của chúng tôi.
@@ -700,7 +700,7 @@ export default function CompanyProfileClient() {
                         <a 
                             href="/documents/company-profile.pdf" 
                             download="Company profile_VNGroup Tourist.pdf"
-                            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-[#00dba1] to-[#00b87a] hover:from-[#00c791] hover:to-[#00a36c] text-slate-950 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-[#00dba1]/20 cursor-pointer"
+                            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand to-brand-hover hover:from-brand hover:to-brand-press text-slate-950 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-brand/20 cursor-pointer"
                         >
                             <Download className="w-5 h-5 stroke-[2.5]" />
                             Tải Bản PDF Đầy Đủ

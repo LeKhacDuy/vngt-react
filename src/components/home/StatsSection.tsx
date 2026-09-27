@@ -36,13 +36,13 @@ export default function StatsSection() {
                         
                         {/* Heading & Paragraph */}
                         <div className="text-left mb-8">
-                            <div className="inline-flex items-center gap-2 bg-[#00dba1]/10 px-4 py-1.5 rounded-full mb-4">
-                                <span className="text-[#00a878] font-bold uppercase tracking-wider text-xs">Về chúng tôi</span>
+                            <div className="inline-flex items-center gap-2 bg-brand/10 px-4 py-1.5 rounded-full mb-4">
+                                <span className="text-brand-hover font-bold uppercase tracking-wider text-xs">Về chúng tôi</span>
                             </div>
                             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-850 tracking-tight mb-2 uppercase">
                                 VNGroup Tourist — Công ty du lịch uy tín tại TP.HCM
                             </h2>
-                            <p className="text-sm md:text-base font-bold text-[#00a878] mb-6">
+                            <p className="text-sm md:text-base font-bold text-brand-hover mb-6">
                                 Hành trình đẳng cấp – Trải nghiệm khác biệt
                             </p>
                             
@@ -71,7 +71,7 @@ export default function StatsSection() {
                                     key={item.id} 
                                     className="bg-white rounded-2xl p-5 border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] flex flex-col items-center text-center hover:shadow-md transition-shadow duration-300"
                                 >
-                                    <div className="text-2xl md:text-3xl font-extrabold text-[#00a878] mb-1">
+                                    <div className="text-2xl md:text-3xl font-extrabold text-brand-hover mb-1">
                                         {item.value}
                                     </div>
                                     <div className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">
@@ -87,7 +87,7 @@ export default function StatsSection() {
                         <div className="bg-white rounded-[36px] p-8 sm:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.03)] border border-gray-150/50 flex items-center justify-center aspect-square w-full max-w-[380px] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1">
                             <div className="relative w-full h-full aspect-square">
                                 <Image 
-                                    src="/images/b86a4bce511594545df567494e2a23251eb424c7.png" 
+                                    src="/images/logo-vngroup-tourist.png" 
                                     alt="VNGroup Tourist Logo" 
                                     fill 
                                     className="object-contain p-2"

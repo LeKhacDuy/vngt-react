@@ -27,10 +27,10 @@ export default function FeaturedPosts({ featuredArticle, trendingArticles }: Fea
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
-                            <span className="inline-block px-3 py-1 bg-[#00dba1] text-white text-xs font-bold uppercase tracking-wider mb-4 rounded-full">
+                            <span className="inline-block px-3 py-1 bg-brand text-white text-xs font-bold uppercase tracking-wider mb-4 rounded-full">
                                 {featuredArticle.categoryLabel}
                             </span>
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight group-hover:text-[#00dba1] transition-colors">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight group-hover:text-brand transition-colors">
                                 {featuredArticle.title}
                             </h2>
                             <p className="text-gray-300 text-lg line-clamp-2 max-w-2xl mb-6">
@@ -71,8 +71,8 @@ export default function FeaturedPosts({ featuredArticle, trendingArticles }: Fea
                                     />
                                 </div>
                                 <div className="flex flex-col justify-center">
-                                    <span className="text-xs font-bold text-[#00dba1] uppercase mb-1">{article.categoryLabel}</span>
-                                    <h4 className="font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-[#00dba1] transition-colors mb-2">
+                                    <span className="text-xs font-bold text-brand uppercase mb-1">{article.categoryLabel}</span>
+                                    <h4 className="font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-brand transition-colors mb-2">
                                         {article.title}
                                     </h4>
                                     <span className="text-xs text-gray-400">{article.readTime} đọc</span>

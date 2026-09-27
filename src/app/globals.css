@@ -1,8 +1,35 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------
+   Bang mau thuong hieu VNGroup Tourist
+   Lay tu logo moi: do #BC342E va xam than #404040.
+   Doi mau toan trang thi sua o day, khong sua trong tung component.
+   --------------------------------------------------------------- */
+@theme {
+  --color-brand:         #BC342E;
+  --color-brand-hover:   #A32A24;
+  --color-brand-press:   #8A221D;
+  --color-brand-tint:    #FCEFED;
+
+  --color-ink:           #2A2622;
+  --color-ink-2:         #5A524B;
+  --color-ink-3:         #8A8078;
+
+  --color-cream:         #FAF6F1;
+  --color-line:          #ECE3D9;
+
+  --color-gold:          #C9A227;
+  --color-gold-dark:     #B8901F;
+
+  --color-success:       #1F7A5C;
+  --color-success-tint:  #E8F5EF;
+  --color-warning:       #D98324;
+  --color-danger:        #A4161A;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF6F1;
+  --foreground: #2A2622;
 }
 
 @theme inline {
@@ -10,13 +37,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -104,7 +124,7 @@ body {
 
 /* High contrast premium gradient text */
 .gradient-text-primary {
-  background: linear-gradient(135deg, #00dba1 0%, #008f65 100%);
+  background: linear-gradient(135deg, #BC342E 0%, #8A221D 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -123,7 +143,7 @@ body {
 
 /* Soft ambient glow */
 .ambient-glow {
-  box-shadow: 0 0 40px 10px rgba(0, 219, 161, 0.15);
+  box-shadow: 0 0 40px 10px rgba(188, 52, 46, 0.15);
 }
 
 .ambient-glow-sapphire {

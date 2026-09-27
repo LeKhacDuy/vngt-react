@@ -44,7 +44,7 @@ function MiniTourCard({ tour, category }: { tour: Tour; category: string }) {
                 <div className="flex items-center justify-between">
                     <div>
                         <p className="text-xs text-gray-400">Từ</p>
-                        <p className="text-base font-bold text-[#00a878]">
+                        <p className="text-base font-bold text-brand-hover">
                             {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(tour.web_price)}
                         </p>
                     </div>
@@ -135,7 +135,7 @@ export default function FeaturedDestinationStrip({ destinations }: FeaturedDesti
                             </div>
                             <Link
                                 href={`/tours/international?destination=${dest.id}`}
-                                className="flex items-center gap-1 text-xs font-semibold text-[#00a878] hover:underline"
+                                className="flex items-center gap-1 text-xs font-semibold text-brand-hover hover:underline"
                             >
                                 Xem tất cả <ArrowRight className="w-3 h-3" />
                             </Link>

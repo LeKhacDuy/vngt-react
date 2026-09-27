@@ -244,7 +244,7 @@ export default function SchedulePage() {
                 {/* Filter Bar */}
                 <div className="bg-white rounded-xl shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
                     <div className="flex items-center gap-2 text-gray-700 font-bold">
-                        <Filter className="w-5 h-5 text-[#00dba1]" />
+                        <Filter className="w-5 h-5 text-brand" />
                         Bộ lọc:
                     </div>
 
@@ -253,7 +253,7 @@ export default function SchedulePage() {
                             <button
                                 key={m.value}
                                 onClick={() => setSelectedMonth(m.value)}
-                                className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all ${selectedMonth === m.value ? 'bg-[#00dba1] text-white shadow-md' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+                                className={`px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-all ${selectedMonth === m.value ? 'bg-brand text-white shadow-md' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                             >
                                 {m.label}
                             </button>
@@ -265,7 +265,7 @@ export default function SchedulePage() {
                 <div className="space-y-4">
                     {isLoading ? (
                         <div className="text-center py-20 bg-white rounded-2xl flex flex-col items-center justify-center gap-4 shadow-sm border border-gray-100">
-                            <div className="w-12 h-12 border-4 border-[#00dba1] border-t-transparent rounded-full animate-spin"></div>
+                            <div className="w-12 h-12 border-4 border-brand border-t-transparent rounded-full animate-spin"></div>
                             <p className="text-gray-500 text-lg font-medium animate-pulse">Đang tải lịch khởi hành từ CRM...</p>
                         </div>
                     ) : error ? (
@@ -273,7 +273,7 @@ export default function SchedulePage() {
                             <p className="text-red-500 text-lg font-medium mb-3">Đã xảy ra lỗi: {error}</p>
                             <button 
                                 onClick={() => window.location.reload()}
-                                className="px-5 py-2.5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-lg shadow transition-all active:scale-95"
+                                className="px-5 py-2.5 bg-brand hover:bg-brand-hover text-white font-bold rounded-lg shadow transition-all active:scale-95"
                             >
                                 Thử lại
                             </button>
@@ -290,7 +290,7 @@ export default function SchedulePage() {
                                 {/* Tour Info */}
                                 <div className="flex-1 text-center md:text-left">
                                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-sm text-gray-500 mb-2">
-                                        <Clock className="w-4 h-4 text-[#00dba1]" />
+                                        <Clock className="w-4 h-4 text-brand" />
                                         <span>{item.duration}</span>
                                         <span className="w-1 h-1 bg-gray-300 rounded-full mx-2 hidden sm:block"></span>
                                         <span className="bg-gray-100 px-2 py-1 rounded text-xs whitespace-pre-line text-left">
@@ -306,7 +306,7 @@ export default function SchedulePage() {
                                                 Dịp Lễ
                                             </span>
                                         )}
-                                        <span className={`px-3 py-1 rounded-full font-bold text-xs ${item.status === 'Available' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                        <span className={`px-3 py-1 rounded-full font-bold text-xs ${item.status === 'Available' ? 'bg-success-tint text-success' : 'bg-red-100 text-red-700'}`}>
                                             {item.status === 'Available' ? 'Còn chỗ' : 'Sắp hết'}
                                         </span>
                                         <span className="text-gray-500 hidden sm:inline">
@@ -317,10 +317,10 @@ export default function SchedulePage() {
 
                                 {/* Price & Action */}
                                 <div className="text-center md:text-right min-w-[180px] border-t md:border-t-0 md:border-l border-gray-100 pt-4 md:pt-0 md:pl-6 w-full md:w-auto mt-4 md:mt-0">
-                                    <div className="text-2xl font-bold text-[#f5a623] mb-3">{item.formattedPrice}</div>
+                                    <div className="text-2xl font-bold text-gold mb-3">{item.formattedPrice}</div>
                                     <button
                                         onClick={() => setActiveTour(item)}
-                                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-lg transition-all w-full md:w-auto justify-center shadow-md hover:shadow-lg cursor-pointer"
+                                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-brand hover:bg-brand-hover text-white font-bold rounded-lg transition-all w-full md:w-auto justify-center shadow-md hover:shadow-lg cursor-pointer"
                                     >
                                         Liên hệ <ArrowRight className="w-4 h-4" />
                                     </button>
@@ -359,7 +359,7 @@ export default function SchedulePage() {
                         <div className="p-6">
                             {isFormSubmitted ? (
                                 <div className="text-center py-8">
-                                    <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <div className="w-16 h-16 bg-success-tint text-success rounded-full flex items-center justify-center mx-auto mb-4">
                                         <CheckCircle className="w-10 h-10" />
                                     </div>
                                     <h4 className="text-2xl font-bold text-gray-900 mb-2">Gửi thành công!</h4>
@@ -389,7 +389,7 @@ export default function SchedulePage() {
                                             value={formData.name}
                                             onChange={e => setFormData({ ...formData, name: e.target.value })}
                                             placeholder="Ví dụ: Nguyễn Văn A"
-                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${formErrors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all ${formErrors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                                         />
                                         {formErrors.name && <p className="text-xs text-red-500">{formErrors.name}</p>}
                                     </div>
@@ -402,7 +402,7 @@ export default function SchedulePage() {
                                             value={formData.phone}
                                             onChange={e => setFormData({ ...formData, phone: e.target.value })}
                                             placeholder="09xx xxx xxx"
-                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${formErrors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all ${formErrors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                                         />
                                         {formErrors.phone && <p className="text-xs text-red-500">{formErrors.phone}</p>}
                                     </div>
@@ -415,7 +415,7 @@ export default function SchedulePage() {
                                             value={formData.email}
                                             onChange={e => setFormData({ ...formData, email: e.target.value })}
                                             placeholder="example@gmail.com"
-                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${formErrors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                            className={`w-full px-4 py-2.5 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all ${formErrors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                                         />
                                         {formErrors.email && <p className="text-xs text-red-500">{formErrors.email}</p>}
                                     </div>
@@ -429,7 +429,7 @@ export default function SchedulePage() {
                                                 min="1"
                                                 value={formData.adults}
                                                 onChange={e => setFormData({ ...formData, adults: Math.max(1, Number(e.target.value)) })}
-                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1]"
+                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand"
                                             />
                                         </div>
                                         <div className="space-y-1">
@@ -439,7 +439,7 @@ export default function SchedulePage() {
                                                 min="0"
                                                 value={formData.children}
                                                 onChange={e => setFormData({ ...formData, children: Math.max(0, Number(e.target.value)) })}
-                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1]"
+                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand"
                                             />
                                         </div>
                                         <div className="space-y-1">
@@ -449,7 +449,7 @@ export default function SchedulePage() {
                                                 min="0"
                                                 value={formData.babies}
                                                 onChange={e => setFormData({ ...formData, babies: Math.max(0, Number(e.target.value)) })}
-                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1]"
+                                                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand"
                                             />
                                         </div>
                                     </div>
@@ -462,7 +462,7 @@ export default function SchedulePage() {
                                             onChange={e => setFormData({ ...formData, message: e.target.value })}
                                             rows={2}
                                             placeholder="Thời gian bay mong muốn, ghi chú đặc biệt..."
-                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] resize-none"
+                                            className="w-full px-4 py-2 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand resize-none"
                                         />
                                     </div>
 
@@ -470,7 +470,7 @@ export default function SchedulePage() {
                                     <button
                                         type="submit"
                                         disabled={isSubmittingForm}
-                                        className="w-full mt-2 py-3 bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white font-bold rounded-xl hover:shadow-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                                        className="w-full mt-2 py-3 bg-gradient-to-r from-brand to-brand-hover text-white font-bold rounded-xl hover:shadow-lg transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                                     >
                                         {isSubmittingForm ? (
                                             <>

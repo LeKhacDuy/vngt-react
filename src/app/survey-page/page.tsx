@@ -47,7 +47,7 @@ function Stars({ value, onChange }: { value: RV; onChange: (v: RV) => void }) {
             style={{
               background: 'none', border: 'none', cursor: 'pointer', padding: 2,
               fontSize: 32, lineHeight: 1,
-              color: active >= n ? '#D4A017' : '#CBD5E0',
+              color: active >= n ? '#B8901F' : '#CBD5E0',
               transform: active >= n ? 'scale(1.15)' : 'scale(1)',
               transition: 'all .15s',
               textShadow: active >= n ? '0 2px 8px rgba(212,160,23,0.4)' : 'none',
@@ -55,7 +55,7 @@ function Stars({ value, onChange }: { value: RV; onChange: (v: RV) => void }) {
           >★</button>
         ))}
         {active > 0 && (
-          <span style={{ fontSize: 13, color: '#D4A017', fontWeight: 600, marginLeft: 8 }}>
+          <span style={{ fontSize: 13, color: '#B8901F', fontWeight: 600, marginLeft: 8 }}>
             {STAR_LABELS[active]}
           </span>
         )}
@@ -74,9 +74,9 @@ function YN({ value, onChange, yes = 'Có', no = 'Chưa chắc' }: {
           style={{
             flex: 1, padding: '13px 20px', borderRadius: 8, cursor: 'pointer',
             fontFamily: 'inherit', fontSize: 14, fontWeight: 600, transition: 'all .2s',
-            border: `2px solid ${value === v ? (v ? '#00b894' : '#E53E3E') : '#E2E8F0'}`,
+            border: `2px solid ${value === v ? (v ? '#A32A24' : '#E53E3E') : '#E2E8F0'}`,
             background: value === v ? (v ? '#F0FFF8' : '#FFF5F5') : '#F8FAFC',
-            color: value === v ? (v ? '#00b894' : '#E53E3E') : '#718096',
+            color: value === v ? (v ? '#A32A24' : '#E53E3E') : '#718096',
           }}
         >{label}</button>
       ))}
@@ -88,7 +88,7 @@ function Divider() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '48px 0' }}>
       <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#E2E8F0)' }} />
-      <span style={{ color: '#D4A017', fontSize: 18 }}>◆</span>
+      <span style={{ color: '#B8901F', fontSize: 18 }}>◆</span>
       <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,#E2E8F0,transparent)' }} />
     </div>
   );
@@ -99,16 +99,16 @@ function SectionBadge({ num, en, vi }: { num: string; en: string; vi: string }) 
     <div style={{ marginBottom: 36 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 6 }}>
         <div style={{
-          width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg,#1A202C,#2D3748)',
-          color: '#D4A017', fontSize: 12, fontWeight: 700, letterSpacing: 1,
+          width: 40, height: 40, borderRadius: 10, background: 'linear-gradient(135deg,#2A2622,#5A524B)',
+          color: '#B8901F', fontSize: 12, fontWeight: 700, letterSpacing: 1,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>{num}</div>
         <div>
-          <h2 style={{ fontSize: 20, fontWeight: 800, color: '#1A202C', margin: 0, letterSpacing: 1 }}>{en}</h2>
+          <h2 style={{ fontSize: 20, fontWeight: 800, color: '#2A2622', margin: 0, letterSpacing: 1 }}>{en}</h2>
           <p style={{ fontSize: 11, color: '#A0AEC0', letterSpacing: 2, margin: '2px 0 0', textTransform: 'uppercase' }}>{vi}</p>
         </div>
       </div>
-      <div style={{ height: 2, background: 'linear-gradient(90deg,#D4A017,transparent)', borderRadius: 2, marginTop: 12 }} />
+      <div style={{ height: 2, background: 'linear-gradient(90deg,#B8901F,transparent)', borderRadius: 2, marginTop: 12 }} />
     </div>
   );
 }
@@ -118,11 +118,11 @@ function Q({ num, label, children }: { num: number; label: string; children: Rea
     <div style={{ marginBottom: 32, padding: '20px 24px', background: '#F8FAFC', borderRadius: 12, border: '1px solid #EDF2F7' }}>
       <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 14 }}>
         <span style={{
-          minWidth: 24, height: 24, borderRadius: 6, background: '#1A202C',
-          color: '#D4A017', fontSize: 11, fontWeight: 700,
+          minWidth: 24, height: 24, borderRadius: 6, background: '#2A2622',
+          color: '#B8901F', fontSize: 11, fontWeight: 700,
           display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
         }}>{num}</span>
-        <span style={{ fontSize: 15, fontWeight: 600, color: '#2D3748', lineHeight: 1.5 }}>{label}</span>
+        <span style={{ fontSize: 15, fontWeight: 600, color: '#5A524B', lineHeight: 1.5 }}>{label}</span>
         <span style={{ marginLeft: 'auto', fontSize: 11, color: '#CBD5E0', flexShrink: 0 }}>Tuỳ chọn</span>
       </div>
       {children}
@@ -133,7 +133,7 @@ function Q({ num, label, children }: { num: number; label: string; children: Rea
 const inputStyle: React.CSSProperties = {
   width: '100%', padding: '12px 16px', borderRadius: 8,
   border: '2px solid #E2E8F0', background: '#fff',
-  fontSize: 15, fontFamily: 'inherit', color: '#1A202C', outline: 'none',
+  fontSize: 15, fontFamily: 'inherit', color: '#2A2622', outline: 'none',
   transition: 'border-color .2s', boxSizing: 'border-box',
 };
 
@@ -218,7 +218,7 @@ export default function SurveyPage() {
         </p>
         <a href="/" style={{
           display: 'inline-block', padding: '14px 40px', borderRadius: 50,
-          background: 'linear-gradient(135deg,#D4A017,#f0c040)', color: '#1A202C',
+          background: 'linear-gradient(135deg,#B8901F,#C9A227)', color: '#2A2622',
           fontWeight: 700, fontSize: 14, textDecoration: 'none', letterSpacing: 1,
         }}>🏠 Về trang chủ</a>
       </div>
@@ -231,8 +231,8 @@ export default function SurveyPage() {
       <style>{`
         *{box-sizing:border-box}
         button:hover{opacity:.9}
-        input:focus{border-color:#D4A017 !important;box-shadow:0 0 0 3px rgba(212,160,23,.15) !important}
-        textarea:focus{border-color:#D4A017 !important;box-shadow:0 0 0 3px rgba(212,160,23,.15) !important}
+        input:focus{border-color:#B8901F !important;box-shadow:0 0 0 3px rgba(212,160,23,.15) !important}
+        textarea:focus{border-color:#B8901F !important;box-shadow:0 0 0 3px rgba(212,160,23,.15) !important}
         @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
         /* ── MOBILE ── */
@@ -262,28 +262,28 @@ export default function SurveyPage() {
       `}</style>
 
       {/* TOP NAV — standalone, elegant */}
-      <div className="sv-nav" style={{ background: '#1A202C', padding: '0 40px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
+      <div className="sv-nav" style={{ background: '#2A2622', padding: '0 40px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 100 }}>
         <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#D4A017' }} />
+          <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#B8901F' }} />
           <span style={{ color: '#fff', fontWeight: 800, fontSize: 16, letterSpacing: 1 }}>VNGROUP</span>
-          <span style={{ color: '#D4A017', fontWeight: 300, fontSize: 16, letterSpacing: 1 }}>TOURIST</span>
+          <span style={{ color: '#B8901F', fontWeight: 300, fontSize: 16, letterSpacing: 1 }}>TOURIST</span>
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span className="sv-nav-label" style={{ color: 'rgba(255,255,255,.4)', fontSize: 11, letterSpacing: 3, textTransform: 'uppercase' }}>Khảo Sát Khách Hàng</span>
-          <div style={{ padding: '6px 16px', borderRadius: 20, background: '#D4A017', color: '#1A202C', fontSize: 12, fontWeight: 700 }}>
+          <div style={{ padding: '6px 16px', borderRadius: 20, background: '#B8901F', color: '#2A2622', fontSize: 12, fontWeight: 700 }}>
             {pct}%
           </div>
         </div>
       </div>
 
       {/* HERO */}
-      <div className="sv-hero" style={{ background: 'linear-gradient(135deg,#1A202C 0%,#2D3748 100%)', padding: '64px 32px 80px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <div className="sv-hero" style={{ background: 'linear-gradient(135deg,#2A2622 0%,#5A524B 100%)', padding: '64px 32px 80px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 100%,rgba(212,160,23,.12),transparent 60%)', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 600, margin: '0 auto' }}>
-          <p style={{ fontSize: 11, letterSpacing: 4, color: '#D4A017', fontWeight: 700, textTransform: 'uppercase', marginBottom: 16 }}>Customer Experience Survey</p>
+          <p style={{ fontSize: 11, letterSpacing: 4, color: '#B8901F', fontWeight: 700, textTransform: 'uppercase', marginBottom: 16 }}>Customer Experience Survey</p>
           <h1 style={{ fontSize: 42, fontWeight: 800, color: '#fff', lineHeight: 1.2, marginBottom: 16 }}>
             Khảo sát trải nghiệm<br />
-            <span style={{ color: '#D4A017' }}>chuyến đi của bạn</span>
+            <span style={{ color: '#B8901F' }}>chuyến đi của bạn</span>
           </h1>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,.65)', lineHeight: 1.8, marginBottom: 36 }}>
             Mỗi phản hồi của bạn giúp chúng tôi hoàn thiện hơn trong từng hành trình tiếp theo. Tất cả câu hỏi đều tùy chọn.
@@ -304,7 +304,7 @@ export default function SurveyPage() {
       <div className="sv-progress" style={{ background: '#fff', borderBottom: '1px solid #E2E8F0', padding: '14px 32px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 16 }}>
           <div style={{ flex: 1, height: 6, background: '#EDF2F7', borderRadius: 99, overflow: 'hidden' }}>
-            <div style={{ height: '100%', width: `${pct}%`, background: 'linear-gradient(90deg,#D4A017,#f0c040)', borderRadius: 99, transition: 'width .5s ease' }} />
+            <div style={{ height: '100%', width: `${pct}%`, background: 'linear-gradient(90deg,#B8901F,#C9A227)', borderRadius: 99, transition: 'width .5s ease' }} />
           </div>
           <span style={{ fontSize: 12, color: '#718096', fontWeight: 600, whiteSpace: 'nowrap' }}>{answered}/{TRACKED.length} câu đã trả lời</span>
         </div>
@@ -336,7 +336,7 @@ export default function SurveyPage() {
 
           <div className="sv-divider" style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '48px 0' }}>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#E2E8F0)' }} />
-            <span style={{ color: '#D4A017', fontSize: 18 }}>◆</span>
+            <span style={{ color: '#B8901F', fontSize: 18 }}>◆</span>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,#E2E8F0,transparent)' }} />
           </div>
           <div className="sv-card" style={{ background: '#fff', borderRadius: 16, padding: '32px 32px', marginBottom: 24, boxShadow: '0 2px 16px rgba(0,0,0,.06)', border: '1px solid #EDF2F7' }}>
@@ -355,7 +355,7 @@ export default function SurveyPage() {
 
           <div className="sv-divider" style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '48px 0' }}>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#E2E8F0)' }} />
-            <span style={{ color: '#D4A017', fontSize: 18 }}>◆</span>
+            <span style={{ color: '#B8901F', fontSize: 18 }}>◆</span>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,#E2E8F0,transparent)' }} />
           </div>
           <div className="sv-card" style={{ background: '#fff', borderRadius: 16, padding: '32px 32px', marginBottom: 24, boxShadow: '0 2px 16px rgba(0,0,0,.06)', border: '1px solid #EDF2F7' }}>
@@ -374,7 +374,7 @@ export default function SurveyPage() {
 
           <div className="sv-divider" style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '48px 0' }}>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#E2E8F0)' }} />
-            <span style={{ color: '#D4A017', fontSize: 18 }}>◆</span>
+            <span style={{ color: '#B8901F', fontSize: 18 }}>◆</span>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,#E2E8F0,transparent)' }} />
           </div>
           <div className="sv-card" style={{ background: '#fff', borderRadius: 16, padding: '32px 32px', marginBottom: 24, boxShadow: '0 2px 16px rgba(0,0,0,.06)', border: '1px solid #EDF2F7' }}>
@@ -389,7 +389,7 @@ export default function SurveyPage() {
 
           <div className="sv-divider" style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '48px 0' }}>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,transparent,#E2E8F0)' }} />
-            <span style={{ color: '#D4A017', fontSize: 18 }}>◆</span>
+            <span style={{ color: '#B8901F', fontSize: 18 }}>◆</span>
             <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg,#E2E8F0,transparent)' }} />
           </div>
           <div className="sv-card" style={{ background: '#fff', borderRadius: 16, padding: '32px 32px', marginBottom: 32, boxShadow: '0 2px 16px rgba(0,0,0,.06)', border: '1px solid #EDF2F7' }}>
@@ -410,15 +410,15 @@ export default function SurveyPage() {
           </div>
 
           {/* SUBMIT */}
-          <div style={{ background: 'linear-gradient(135deg,#1A202C,#2D3748)', borderRadius: 20, padding: '48px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'linear-gradient(135deg,#2A2622,#5A524B)', borderRadius: 20, padding: '48px 40px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 30% 50%,rgba(212,160,23,.12),transparent 60%)', pointerEvents: 'none' }} />
             <h3 style={{ fontSize: 26, fontWeight: 800, color: '#fff', marginBottom: 8, position: 'relative' }}>Hoàn tất khảo sát 🎊</h3>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,.6)', marginBottom: 32, position: 'relative' }}>Cảm ơn bạn đã dành thời gian! Mỗi phản hồi đều rất quý giá.</p>
             <button className="sv-submit-btn" type="submit" disabled={loading}
               style={{
                 padding: '16px 56px', borderRadius: 50, border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
-                background: loading ? '#555' : 'linear-gradient(135deg,#D4A017,#f0c040)',
-                color: '#1A202C', fontSize: 15, fontWeight: 800, letterSpacing: .5,
+                background: loading ? '#555' : 'linear-gradient(135deg,#B8901F,#C9A227)',
+                color: '#2A2622', fontSize: 15, fontWeight: 800, letterSpacing: .5,
                 fontFamily: 'inherit', transition: 'all .3s', position: 'relative',
                 boxShadow: loading ? 'none' : '0 8px 32px rgba(212,160,23,.4)',
               }}>
@@ -431,7 +431,7 @@ export default function SurveyPage() {
         {/* FOOTER */}
         <div className="sv-footer-bar" style={{ marginTop: 60, paddingTop: 32, borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           <div>
-            <p style={{ fontWeight: 800, color: '#1A202C', fontSize: 14 }}>VNGROUP TOURIST</p>
+            <p style={{ fontWeight: 800, color: '#2A2622', fontSize: 14 }}>VNGROUP TOURIST</p>
             <p style={{ color: '#A0AEC0', fontSize: 12, marginTop: 2 }}>93/8 Phạm Văn Hai, Tân Bình, TP.HCM</p>
           </div>
           <p style={{ color: '#A0AEC0', fontSize: 12 }}>info@vngrouptourist.com</p>

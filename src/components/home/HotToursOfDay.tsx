@@ -134,8 +134,8 @@ export default function HotToursOfDay() {
                                 onClick={() => setActiveTab(promo.id.toString())}
                                 className={`whitespace-nowrap px-6 py-2.5 rounded-full font-semibold transition-all duration-300 ${
                                     activeTab === promo.id.toString() 
-                                        ? 'bg-gradient-to-r from-[#00dba1] to-[#00a878] text-white shadow-md' 
-                                        : 'bg-white border border-gray-200 text-gray-600 hover:border-[#00dba1] hover:text-[#00dba1] shadow-sm'
+                                        ? 'bg-gradient-to-r from-brand to-brand-hover text-white shadow-md' 
+                                        : 'bg-white border border-gray-200 text-gray-600 hover:border-brand hover:text-brand shadow-sm'
                                 }`}
                             >
                                 {promo.name}

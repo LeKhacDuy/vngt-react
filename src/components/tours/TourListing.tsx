@@ -175,8 +175,8 @@ export default function TourListing({ category, title, description, introSection
                                     </div>
                                     <div className="border-t border-gray-100 my-3" />
                                     <div className="mt-auto flex justify-between items-center">
-                                        <div className="h-6 w-28 bg-[#00dba1]/15 rounded" />
-                                        <div className="h-9 w-20 bg-[#00dba1]/10 rounded-full" />
+                                        <div className="h-6 w-28 bg-brand/15 rounded" />
+                                        <div className="h-9 w-20 bg-brand/10 rounded-full" />
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@ export default function TourListing({ category, title, description, introSection
             <section className="bg-white border-b border-gray-200 py-8 lg:py-12">
                 <div className="container mx-auto px-4">
                     <nav className="flex items-center text-sm text-gray-500 mb-4">
-                        <Link href="/" className="hover:text-[#00dba1] transition-colors">Trang chủ</Link>
+                        <Link href="/" className="hover:text-brand transition-colors">Trang chủ</Link>
                         <ChevronRight className="w-4 h-4 mx-2" />
                         <span className="font-semibold text-gray-800">{title}</span>
                     </nav>
@@ -213,7 +213,7 @@ export default function TourListing({ category, title, description, introSection
                     <div className="flex overflow-x-auto gap-3 pb-6 mb-8 scrollbar-hide -mx-4 px-4 lg:mx-0 lg:px-0">
                         <button
                             onClick={() => setSelectedSubCategory('')}
-                            className={`flex items-center gap-2 px-5 py-3 rounded-xl border transition-all whitespace-nowrap ${selectedSubCategory === '' ? 'bg-[#00dba1]/10 border-[#00dba1] text-[#00dba1] font-bold' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'}`}
+                            className={`flex items-center gap-2 px-5 py-3 rounded-xl border transition-all whitespace-nowrap ${selectedSubCategory === '' ? 'bg-brand/10 border-brand text-brand font-bold' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'}`}
                         >
                             <span className="text-xl">🎯</span>
                             Tất cả
@@ -222,7 +222,7 @@ export default function TourListing({ category, title, description, introSection
                             <button
                                 key={tab.id}
                                 onClick={() => setSelectedSubCategory(tab.id)}
-                                className={`flex items-center gap-2 px-5 py-3 rounded-xl border transition-all whitespace-nowrap ${selectedSubCategory === tab.id ? 'bg-[#00dba1]/10 border-[#00dba1] text-[#00dba1] font-bold' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'}`}
+                                className={`flex items-center gap-2 px-5 py-3 rounded-xl border transition-all whitespace-nowrap ${selectedSubCategory === tab.id ? 'bg-brand/10 border-brand text-brand font-bold' : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'}`}
                             >
                                 <span className="text-xl">{tab.icon}</span>
                                 {tab.label}
@@ -282,7 +282,7 @@ export default function TourListing({ category, title, description, introSection
                     <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-300">
                         <div className="text-4xl mb-4">🔍</div>
                         <p className="text-gray-500 text-lg">Chưa có tour nào thuộc danh mục này.</p>
-                        <button onClick={() => { setSelectedSubCategory(''); setSelectedDestination(''); }} className="mt-4 text-[#00dba1] font-semibold hover:underline">
+                        <button onClick={() => { setSelectedSubCategory(''); setSelectedDestination(''); }} className="mt-4 text-brand font-semibold hover:underline">
                             Xem tất cả tour
                         </button>
                     </div>
@@ -293,7 +293,7 @@ export default function TourListing({ category, title, description, introSection
                     <div className="text-center">
                         <button
                             onClick={handleLoadMore}
-                            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#00dba1]/10 text-[#00dba1] font-bold rounded-full hover:bg-[#00dba1] hover:text-white transition-all duration-300"
+                            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-brand/10 text-brand font-bold rounded-full hover:bg-brand hover:text-white transition-all duration-300"
                         >
                             Xem thêm tour
                             <ChevronRight className="w-4 h-4 rotate-90" />

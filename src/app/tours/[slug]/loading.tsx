@@ -60,7 +60,7 @@ export default function TourDetailLoading() {
                                 <div className="space-y-4 mb-6">
                                     {[1, 2, 3].map((i) => (
                                         <div key={i} className="flex items-center gap-3">
-                                            <div className="w-5 h-5 bg-[#00dba1]/20 rounded" />
+                                            <div className="w-5 h-5 bg-brand/20 rounded" />
                                             <div className="h-4 w-20 bg-gray-200 rounded" />
                                             <div className="h-4 w-32 bg-gray-200 rounded" />
                                         </div>
@@ -69,7 +69,7 @@ export default function TourDetailLoading() {
 
                                 {/* Buttons */}
                                 <div className="flex gap-3">
-                                    <div className="flex-1 h-12 bg-gradient-to-r from-[#00dba1]/30 to-[#00b894]/30 rounded-xl" />
+                                    <div className="flex-1 h-12 bg-gradient-to-r from-brand/30 to-brand-hover/30 rounded-xl" />
                                     <div className="w-12 h-12 bg-gray-100 rounded-xl" />
                                     <div className="w-12 h-12 bg-gray-100 rounded-xl" />
                                 </div>
@@ -83,7 +83,7 @@ export default function TourDetailLoading() {
             <section className="container mx-auto px-4 py-8">
                 <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
                     <div className="flex items-center gap-2 mb-6">
-                        <div className="w-8 h-8 rounded-full bg-[#00dba1]/10" />
+                        <div className="w-8 h-8 rounded-full bg-brand/10" />
                         <div className="h-7 w-36 bg-gray-200 rounded-lg" />
                     </div>
                     <div className="space-y-0">
@@ -118,7 +118,7 @@ export default function TourDetailLoading() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {[1, 2, 3, 4, 5, 6].map((i) => (
                                 <div key={i} className="flex gap-3 bg-gray-50 p-3 rounded-lg">
-                                    <div className="w-5 h-5 bg-[#00dba1]/20 rounded flex-shrink-0" />
+                                    <div className="w-5 h-5 bg-brand/20 rounded flex-shrink-0" />
                                     <div className="h-4 w-full bg-gray-200 rounded" />
                                 </div>
                             ))}
@@ -127,12 +127,12 @@ export default function TourDetailLoading() {
 
                     {/* Itinerary Skeleton */}
                     <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
-                        <div className="h-8 w-52 bg-gray-200 rounded-lg mb-8 border-l-4 border-[#00dba1]/30 pl-4" />
+                        <div className="h-8 w-52 bg-gray-200 rounded-lg mb-8 border-l-4 border-brand/30 pl-4" />
 
-                        <div className="border-l-2 border-[#00dba1]/30 ml-3 space-y-10 pl-8">
+                        <div className="border-l-2 border-brand/30 ml-3 space-y-10 pl-8">
                             {[1, 2, 3].map((i) => (
                                 <div key={i} className="relative">
-                                    <span className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-[#00dba1]/30 ring-4 ring-white" />
+                                    <span className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-brand/30 ring-4 ring-white" />
                                     <div className="h-6 w-48 bg-gray-200 rounded-lg mb-3" />
                                     <div className="space-y-2 mb-4">
                                         <div className="h-4 w-full bg-gray-100 rounded" />
@@ -154,8 +154,8 @@ export default function TourDetailLoading() {
                         <div className="h-6 w-32 bg-gray-200 rounded-lg mb-4" />
                         <div className="space-y-4">
                             {/* Phone */}
-                            <div className="flex items-center gap-3 p-4 bg-[#00dba1]/5 rounded-xl">
-                                <div className="w-10 h-10 rounded-full bg-[#00dba1]/20" />
+                            <div className="flex items-center gap-3 p-4 bg-brand/5 rounded-xl">
+                                <div className="w-10 h-10 rounded-full bg-brand/20" />
                                 <div className="space-y-2">
                                     <div className="h-3 w-16 bg-gray-200 rounded" />
                                     <div className="h-5 w-28 bg-gray-200 rounded" />

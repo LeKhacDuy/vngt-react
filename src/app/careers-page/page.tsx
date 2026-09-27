@@ -54,14 +54,14 @@ export default function CareersPage() {
                 />
                 <div className="absolute inset-0 bg-black/60"></div>
                 <div className="container mx-auto px-4 relative z-10 text-center text-white">
-                    <span className="inline-block py-1 px-3 rounded-full bg-[#00dba1]/20 border border-[#00dba1] text-[#00dba1] font-bold text-sm mb-4 backdrop-blur-sm">
+                    <span className="inline-block py-1 px-3 rounded-full bg-brand/20 border border-brand text-brand font-bold text-sm mb-4 backdrop-blur-sm">
                         TUYỂN DỤNG
                     </span>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6">Gia nhập đội ngũ <br /> VNGroup Tourist</h1>
                     <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-8">
                         Cùng chúng tôi kiến tạo những hành trình hạnh phúc và mang lại giá trị cho cộng đồng du lịch Việt Nam.
                     </p>
-                    <a href="#jobs" className="px-8 py-4 bg-[#00dba1] text-white font-bold rounded-full hover:bg-[#00c28e] transition-all inline-flex items-center gap-2">
+                    <a href="#jobs" className="px-8 py-4 bg-brand text-white font-bold rounded-full hover:bg-brand-hover transition-all inline-flex items-center gap-2">
                         Xem vị trí đang tuyển <ArrowRight className="w-5 h-5" />
                     </a>
                 </div>
@@ -72,13 +72,13 @@ export default function CareersPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tại sao chọn VNGroup?</h2>
-                        <div className="w-20 h-1 bg-[#00dba1] mx-auto rounded-full"></div>
+                        <div className="w-20 h-1 bg-brand mx-auto rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {benefits.map((item, idx) => (
                             <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 text-center group">
-                                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#00dba1] group-hover:text-white transition-colors">
+                                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand group-hover:text-white transition-colors">
                                     <item.icon className="w-8 h-8" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
@@ -97,14 +97,14 @@ export default function CareersPage() {
                             <h2 className="text-3xl font-bold text-gray-900">Vị trí đang tuyển</h2>
                             <p className="text-gray-500 mt-2">Tìm kiếm cơ hội phù hợp với bạn</p>
                         </div>
-                        <Link href="#" className="hidden md:flex items-center gap-2 text-[#00dba1] font-bold hover:underline">
+                        <Link href="#" className="hidden md:flex items-center gap-2 text-brand font-bold hover:underline">
                             Xem tất cả <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
 
                     <div className="space-y-4">
                         {jobs.map((job) => (
-                            <div key={job.id} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#00dba1] hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                            <div key={job.id} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-brand hover:shadow-md transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                                 <div>
                                     <div className="flex items-center gap-3 mb-2">
                                         <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
@@ -120,8 +120,8 @@ export default function CareersPage() {
                                 </div>
 
                                 <div className="text-left md:text-right w-full md:w-auto flex flex-row md:flex-col items-center md:items-end justify-between gap-4">
-                                    <div className="text-[#00dba1] font-bold text-lg">{job.salary}</div>
-                                    <button className="px-6 py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-[#00dba1] transition-colors whitespace-nowrap">
+                                    <div className="text-brand font-bold text-lg">{job.salary}</div>
+                                    <button className="px-6 py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-brand transition-colors whitespace-nowrap">
                                         Ứng tuyển
                                     </button>
                                 </div>

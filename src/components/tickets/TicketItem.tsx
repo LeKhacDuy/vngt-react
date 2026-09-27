@@ -23,7 +23,7 @@ export default function TicketItem({ ticket }: { ticket: Ticket }) {
                 </div>
 
                 <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="px-3 py-1 bg-[#00dba1]/10 text-[#00dba1] text-xs font-bold rounded-full uppercase tracking-wider backdrop-blur-sm">
+                    <span className="px-3 py-1 bg-brand/10 text-brand text-xs font-bold rounded-full uppercase tracking-wider backdrop-blur-sm">
                         {ticket.brand}
                     </span>
                     <span className="px-3 py-1 bg-gray-900/10 text-gray-800 text-xs font-bold rounded-full uppercase tracking-wider backdrop-blur-sm">
@@ -34,7 +34,7 @@ export default function TicketItem({ ticket }: { ticket: Ticket }) {
 
             {/* Content */}
             <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 min-h-[56px] group-hover:text-[#00dba1] transition-colors">
+                <h3 className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 min-h-[56px] group-hover:text-brand transition-colors">
                     {ticket.title}
                 </h3>
 
@@ -50,10 +50,10 @@ export default function TicketItem({ ticket }: { ticket: Ticket }) {
                 {/* Pricing Table */}
                 <div className="space-y-2 mb-6">
                     {ticket.pricing.map((price, idx) => (
-                        <div key={idx} className="flex justify-between items-center p-3 bg-[#00dba1]/5 rounded-xl border border-[#00dba1]/10 dashed">
+                        <div key={idx} className="flex justify-between items-center p-3 bg-brand/5 rounded-xl border border-brand/10 dashed">
                             <span className="text-sm font-medium text-gray-600 uppercase tracking-wide">{price.audience}</span>
                             <div className="flex flex-col items-end">
-                                <span className="font-bold text-[#00a86b] text-lg">{formatPrice(Number(price.price))}</span>
+                                <span className="font-bold text-brand-press text-lg">{formatPrice(Number(price.price))}</span>
                                 <span className="text-[10px] text-gray-400">{price.priceLabel}</span>
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function TicketItem({ ticket }: { ticket: Ticket }) {
                         href="https://zalo.me/0931867376"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block w-full text-center py-3 rounded-xl bg-gray-900 text-white font-bold hover:bg-[#00dba1] transition-colors shadow-lg hover:shadow-[#00dba1]/30"
+                        className="block w-full text-center py-3 rounded-xl bg-gray-900 text-white font-bold hover:bg-brand transition-colors shadow-lg hover:shadow-brand/30"
                     >
                         Liên hệ đặt vé
                     </a>

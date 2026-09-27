@@ -53,14 +53,14 @@ export default function InboundToursPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#fffaf5] flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f5a623]"></div>
+            <div className="min-h-screen bg-cream flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold"></div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-[#fffaf5] font-sans selection:bg-[#f5a623] selection:text-white pb-20">
+        <div className="min-h-screen bg-cream font-sans selection:bg-gold selection:text-white pb-20">
 
             {/* Custom Hero with InboundIntro integrated */}
             <div className="pt-8">
@@ -72,7 +72,7 @@ export default function InboundToursPage() {
                 {/* 1. Explore by Region (Visual Grid) */}
                 <section className="mb-20">
                     <div className="text-center mb-10">
-                        <span className="text-[#f5a623] font-bold tracking-widest uppercase text-sm">Discover Vietnam</span>
+                        <span className="text-gold font-bold tracking-widest uppercase text-sm">Discover Vietnam</span>
                         <h2 className="text-3xl md:text-5xl font-serif text-gray-900 mt-2">Explore by Region</h2>
                     </div>
 
@@ -91,7 +91,7 @@ export default function InboundToursPage() {
                                     <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 delay-100">
                                         {region.desc}
                                     </p>
-                                    <div className="w-12 h-1 bg-[#f5a623] mt-4 rounded-full origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></div>
+                                    <div className="w-12 h-1 bg-gold mt-4 rounded-full origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-200"></div>
                                 </div>
                             </div>
                         ))}
@@ -103,7 +103,7 @@ export default function InboundToursPage() {
                     <div className="flex flex-wrap justify-center gap-4">
                         <button
                             onClick={() => setSelectedTheme('all')}
-                            className={`px-6 py-3 rounded-full border-2 transition-all font-bold ${selectedTheme === 'all' ? 'border-[#f5a623] bg-[#f5a623] text-white' : 'border-gray-200 bg-white text-gray-500 hover:border-[#f5a623] hover:text-[#f5a623]'}`}
+                            className={`px-6 py-3 rounded-full border-2 transition-all font-bold ${selectedTheme === 'all' ? 'border-gold bg-gold text-white' : 'border-gray-200 bg-white text-gray-500 hover:border-gold hover:text-gold'}`}
                         >
                             All Experiences
                         </button>
@@ -143,21 +143,21 @@ export default function InboundToursPage() {
                             <div className="flex-1 py-2 lg:pr-8 w-full text-left">
                                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-3">
                                     <div className="flex items-center gap-1">
-                                        <Clock className="w-4 h-4 text-[#f5a623]" />
+                                        <Clock className="w-4 h-4 text-gold" />
                                         {tour.duration} Ngày
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <Calendar className="w-4 h-4 text-[#f5a623]" />
+                                        <Calendar className="w-4 h-4 text-gold" />
                                         Daily Departure
                                     </div>
                                     <div className="flex items-center gap-1">
-                                        <MapPin className="w-4 h-4 text-[#f5a623]" />
+                                        <MapPin className="w-4 h-4 text-gold" />
                                         {/* Fallback code/id if name missing, ideally mapped from regions */}
                                         Vietnam
                                     </div>
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-serif group-hover:text-[#f5a623] transition-colors">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-serif group-hover:text-gold transition-colors">
                                     <Link href={`/tours/${tour.tour_code || tour.id}`}>
                                         {tour.name}
                                     </Link>
@@ -171,7 +171,7 @@ export default function InboundToursPage() {
                                     <div>
                                         <span className="text-gray-400 text-sm block">Starting from</span>
                                         <div className="flex items-baseline gap-2">
-                                            <span className="text-2xl font-bold text-[#f5a623]">
+                                            <span className="text-2xl font-bold text-gold">
                                                 {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tour.web_price)}
                                             </span>
                                             {/* <span className="text-sm text-gray-400 line-through">{tour.originalPrice}</span> */}
@@ -180,7 +180,7 @@ export default function InboundToursPage() {
 
                                     <Link
                                         href={`/tours/${tour.tour_code || tour.id}`}
-                                        className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-[#f5a623] transition-colors group/btn"
+                                        className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-gold transition-colors group/btn"
                                     >
                                         View Itinerary
                                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

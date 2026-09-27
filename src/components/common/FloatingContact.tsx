@@ -38,9 +38,9 @@ export default function FloatingContact() {
                     50% { transform: scale(1.1); }
                 }
                 @keyframes ripple {
-                    0% { box-shadow: 0 0 0 0 rgba(0, 219, 161, 0.7); }
-                    70% { box-shadow: 0 0 0 15px rgba(0, 219, 161, 0); }
-                    100% { box-shadow: 0 0 0 0 rgba(0, 219, 161, 0); }
+                    0% { box-shadow: 0 0 0 0 rgba(188, 52, 46, 0.7); }
+                    70% { box-shadow: 0 0 0 15px rgba(188, 52, 46, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(188, 52, 46, 0); }
                 }
                 .animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
                 .animate-zoom { animation: zoom 2s ease-in-out infinite; }
@@ -78,7 +78,7 @@ export default function FloatingContact() {
             {/* Phone/Hotline (Ripple effect) */}
             <Link
                 href={hotline}
-                className="w-14 h-14 bg-[#00dba1] rounded-full flex items-center justify-center text-white shadow-lg transition-transform relative group animate-ripple"
+                className="w-14 h-14 bg-brand rounded-full flex items-center justify-center text-white shadow-lg transition-transform relative group animate-ripple"
             >
                 <div className="absolute right-full mr-3 bg-white text-gray-800 text-xs font-bold px-2 py-1 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                     Gọi ngay

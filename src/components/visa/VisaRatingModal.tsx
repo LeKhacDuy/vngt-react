@@ -35,7 +35,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
     };
 
     const getResult = () => {
-        if (totalScore >= 80) return { title: 'Xuất sắc!', desc: 'Hồ sơ của bạn rất mạnh, tỷ lệ đậu VISA rất cao. Bạn có thể tự tin nộp hồ sơ.', color: 'text-green-600' };
+        if (totalScore >= 80) return { title: 'Xuất sắc!', desc: 'Hồ sơ của bạn rất mạnh, tỷ lệ đậu VISA rất cao. Bạn có thể tự tin nộp hồ sơ.', color: 'text-success' };
         if (totalScore >= 60) return { title: 'Tốt!', desc: 'Hồ sơ của bạn khá ổn, có thể cần bổ sung thêm một số giấy tờ để tăng tỷ lệ đậu.', color: 'text-blue-600' };
         if (totalScore >= 40) return { title: 'Cần cải thiện', desc: 'Hồ sơ cần được cải thiện nhiều điểm. Chúng tôi khuyên bạn nên tư vấn chuyên gia.', color: 'text-yellow-600' };
         return { title: 'Cần hỗ trợ', desc: 'Hồ sơ cần được chuẩn bị kỹ lưỡng. Hãy liên hệ với chúng tôi để được tư vấn chi tiết.', color: 'text-red-600' };
@@ -80,10 +80,10 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                                     <button
                                         key={c.id}
                                         onClick={() => handleCountrySelect(c.id)}
-                                        className="flex flex-col items-center justify-center p-6 border-2 border-gray-100 rounded-2xl hover:border-[#00dba1] hover:bg-[#00dba1]/5 transition-all group"
+                                        className="flex flex-col items-center justify-center p-6 border-2 border-gray-100 rounded-2xl hover:border-brand hover:bg-brand/5 transition-all group"
                                     >
                                         <span className="text-4xl mb-3 group-hover:scale-110 transition-transform">{c.flag}</span>
-                                        <span className="font-bold text-gray-700 group-hover:text-[#00dba1]">{c.name}</span>
+                                        <span className="font-bold text-gray-700 group-hover:text-brand">{c.name}</span>
                                     </button>
                                 ))}
                             </div>
@@ -97,7 +97,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
 
                             {/* Q1 */}
                             <div className="space-y-4">
-                                <h5 className="font-bold text-[#00dba1]">I. LỊCH SỬ DU LỊCH</h5>
+                                <h5 className="font-bold text-brand">I. LỊCH SỬ DU LỊCH</h5>
                                 <div className="grid gap-3">
                                     {[
                                         { val: 0, label: 'Hộ chiếu trắng' },
@@ -108,8 +108,8 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                                         { val: 30, label: 'Các nước ĐNÁ + Nhật, Hàn' },
                                         { val: 40, label: 'Hàn, Nhật, Âu, Mỹ, Úc' }
                                     ].map(opt => (
-                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-[#00dba1] has-[:checked]:bg-[#00dba1]/5 transition-all">
-                                            <input type="radio" name="travel" className="w-5 h-5 accent-[#00dba1] mr-3"
+                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-brand has-[:checked]:bg-brand/5 transition-all">
+                                            <input type="radio" name="travel" className="w-5 h-5 accent-brand mr-3"
                                                 checked={formData.travel_history === opt.val}
                                                 onChange={() => setFormData({ ...formData, travel_history: opt.val })} />
                                             <span className="text-gray-700 font-medium">{opt.label}</span>
@@ -120,7 +120,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
 
                             {/* Q2 */}
                             <div className="space-y-4">
-                                <h5 className="font-bold text-[#00dba1]">II. CÔNG VIỆC HIỆN TẠI</h5>
+                                <h5 className="font-bold text-brand">II. CÔNG VIỆC HIỆN TẠI</h5>
                                 <div className="grid gap-3">
                                     {[
                                         { val: 0, label: 'Tự do (Không chứng minh được)' },
@@ -130,8 +130,8 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                                         { val: 20, label: 'Nhân viên (CK > 1 năm + BHXH)' },
                                         { val: 30, label: 'Viên chức nhà nước' }
                                     ].map(opt => (
-                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-[#00dba1] has-[:checked]:bg-[#00dba1]/5 transition-all">
-                                            <input type="radio" name="job" className="w-5 h-5 accent-[#00dba1] mr-3"
+                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-brand has-[:checked]:bg-brand/5 transition-all">
+                                            <input type="radio" name="job" className="w-5 h-5 accent-brand mr-3"
                                                 checked={formData.employment === opt.val}
                                                 onChange={() => setFormData({ ...formData, employment: opt.val })} />
                                             <span className="text-gray-700 font-medium">{opt.label}</span>
@@ -142,7 +142,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
 
                             {/* Q3 */}
                             <div className="space-y-4">
-                                <h5 className="font-bold text-[#00dba1]">III. TÀI CHÍNH (SỔ TIẾT KIỆM)</h5>
+                                <h5 className="font-bold text-brand">III. TÀI CHÍNH (SỔ TIẾT KIỆM)</h5>
                                 <div className="grid gap-3">
                                     {[
                                         { val: 0, label: 'Không có sổ tiết kiệm' },
@@ -151,8 +151,8 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                                         { val: 20, label: 'Sổ tiết kiệm > 300tr' },
                                         { val: 25, label: 'Sổ tiết kiệm > 500tr' }
                                     ].map(opt => (
-                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-[#00dba1] has-[:checked]:bg-[#00dba1]/5 transition-all">
-                                            <input type="radio" name="finance" className="w-5 h-5 accent-[#00dba1] mr-3"
+                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-brand has-[:checked]:bg-brand/5 transition-all">
+                                            <input type="radio" name="finance" className="w-5 h-5 accent-brand mr-3"
                                                 checked={formData.savings === opt.val}
                                                 onChange={() => setFormData({ ...formData, savings: opt.val })} />
                                             <span className="text-gray-700 font-medium">{opt.label}</span>
@@ -163,7 +163,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
 
                             {/* Q4 */}
                             <div className="space-y-4">
-                                <h5 className="font-bold text-[#00dba1]">IV. TÀI SẢN KHÁC</h5>
+                                <h5 className="font-bold text-brand">IV. TÀI SẢN KHÁC</h5>
                                 <div className="grid gap-3">
                                     {[
                                         { val: 0, label: 'Không có nhà đất' },
@@ -171,8 +171,8 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                                         { val: 15, label: '1 nhà đất + xe hơi' },
                                         { val: 20, label: '2 nhà đất trở lên + xe hơi' }
                                     ].map(opt => (
-                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-[#00dba1] has-[:checked]:bg-[#00dba1]/5 transition-all">
-                                            <input type="radio" name="assets" className="w-5 h-5 accent-[#00dba1] mr-3"
+                                        <label key={opt.val + opt.label} className="flex items-center p-3 border border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 has-[:checked]:border-brand has-[:checked]:bg-brand/5 transition-all">
+                                            <input type="radio" name="assets" className="w-5 h-5 accent-brand mr-3"
                                                 checked={formData.assets === opt.val}
                                                 onChange={() => setFormData({ ...formData, assets: opt.val })} />
                                             <span className="text-gray-700 font-medium">{opt.label}</span>
@@ -185,7 +185,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                                 <button onClick={() => setStep('country')} className="px-6 py-2 rounded-full border border-gray-300 font-semibold hover:bg-gray-50">
                                     Quay lại
                                 </button>
-                                <button onClick={calculateScore} className="px-8 py-2 rounded-full bg-[#00dba1] text-white font-bold hover:bg-[#00c791] shadow-lg shadow-[#00dba1]/30">
+                                <button onClick={calculateScore} className="px-8 py-2 rounded-full bg-brand text-white font-bold hover:bg-brand shadow-lg shadow-brand/30">
                                     Tính điểm ngay
                                 </button>
                             </div>
@@ -195,7 +195,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                     {/* Step 3: Result */}
                     {step === 'result' && (
                         <div className="text-center py-10">
-                            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#00dba1] to-[#00a86b] flex flex-col items-center justify-center text-white mx-auto mb-6 shadow-xl ring-4 ring-green-100">
+                            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-brand to-brand-press flex flex-col items-center justify-center text-white mx-auto mb-6 shadow-xl ring-4 ring-brand/20">
                                 <span className="text-4xl font-bold">{totalScore}</span>
                                 <span className="text-sm opacity-90">điểm</span>
                             </div>
@@ -206,10 +206,10 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <button onClick={resetForm} className="px-8 py-3 rounded-full border-2 border-[#00dba1] text-[#00dba1] font-bold hover:bg-[#00dba1]/5">
+                                <button onClick={resetForm} className="px-8 py-3 rounded-full border-2 border-brand text-brand font-bold hover:bg-brand/5">
                                     Kiểm tra lại
                                 </button>
-                                <button onClick={() => setStep('consult')} className="px-8 py-3 rounded-full bg-[#00dba1] text-white font-bold hover:bg-[#00c791] shadow-lg shadow-[#00dba1]/30">
+                                <button onClick={() => setStep('consult')} className="px-8 py-3 rounded-full bg-brand text-white font-bold hover:bg-brand shadow-lg shadow-brand/30">
                                     Tư vấn chi tiết
                                 </button>
                             </div>
@@ -219,7 +219,7 @@ export default function VisaRatingModal({ isOpen, onClose }: VisaRatingModalProp
                     {/* Step 4: Consult (Simplified placeholder) */}
                     {step === 'consult' && (
                         <div className="text-center py-10">
-                            <Check className="w-16 h-16 text-[#00dba1] mx-auto mb-4" />
+                            <Check className="w-16 h-16 text-success mx-auto mb-4" />
                             <h3 className="text-xl font-bold mb-2">Đăng ký thành công!</h3>
                             <p className="text-gray-600">
                                 Chúng tôi đã nhận được thông tin và sẽ liên hệ với bạn trong thời gian sớm nhất để tư vấn chi tiết về hồ sơ.

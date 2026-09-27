@@ -59,9 +59,9 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                 <div className="container mx-auto px-4">
                     {/* Breadcrumbs */}
                     <div className="flex items-center text-sm text-gray-500 mb-6">
-                        <a href="/" className="hover:text-[#00dba1]">Trang chủ</a>
+                        <a href="/" className="hover:text-brand">Trang chủ</a>
                         <span className="mx-2">/</span>
-                        <a href={`/tours/${tour.category}`} className="hover:text-[#00dba1] capitalize">{tour.category} Tours</a>
+                        <a href={`/tours/${tour.category}`} className="hover:text-brand capitalize">{tour.category} Tours</a>
                         <span className="mx-2">/</span>
                         <span className="text-gray-800 line-clamp-1">{tour.name}</span>
                     </div>
@@ -83,7 +83,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                             {galleryImages.length > 0 && (
                                 <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
                                     {galleryImages.map((img, idx) => (
-                                        <div key={idx} className="relative w-24 h-16 lg:w-32 lg:h-20 flex-shrink-0 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity border-2 border-transparent hover:border-[#00dba1]">
+                                        <div key={idx} className="relative w-24 h-16 lg:w-32 lg:h-20 flex-shrink-0 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity border-2 border-transparent hover:border-brand">
                                             <Image src={img} alt="" fill className="object-cover" />
                                         </div>
                                     ))}
@@ -91,7 +91,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                             )}
                             {/* Fallback if no images at all */}
                             {!mainImage && galleryImages.length === 0 && (
-                                <div className="h-[200px] rounded-2xl bg-gradient-to-br from-[#00dba1]/20 to-blue-500/20 flex items-center justify-center">
+                                <div className="h-[200px] rounded-2xl bg-gradient-to-br from-brand/20 to-blue-500/20 flex items-center justify-center">
                                     <div className="text-center">
                                         <div className="text-4xl mb-2">🌍</div>
                                         <p className="text-gray-500 text-sm">Hình ảnh đang được cập nhật</p>
@@ -137,24 +137,24 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
 
                                 <div className="space-y-4 mb-6">
                                     <div className="flex items-center gap-3 text-gray-700">
-                                        <Clock className="w-5 h-5 text-[#00dba1]" />
+                                        <Clock className="w-5 h-5 text-brand" />
                                         <span className="font-medium">Thời gian:</span>
                                         <span>{tour.duration}</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-700">
-                                        <Calendar className="w-5 h-5 text-[#00dba1]" />
+                                        <Calendar className="w-5 h-5 text-brand" />
                                         <span className="font-medium">Khởi hành:</span>
                                         <span>{tour.departure}</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-700">
-                                        <MapPin className="w-5 h-5 text-[#00dba1]" />
+                                        <MapPin className="w-5 h-5 text-brand" />
                                         <span className="font-medium">Phương tiện:</span>
                                         <span>Hàng không quốc gia / Xe đời mới</span>
                                     </div>
                                 </div>
 
                                 <div className="flex gap-3">
-                                    <button className="flex-1 py-3 px-6 bg-gradient-to-r from-[#00dba1] to-[#00b894] text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all">
+                                    <button className="flex-1 py-3 px-6 bg-gradient-to-r from-brand to-brand-hover text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all">
                                         Đặt ngay
                                     </button>
                                     <button className="p-3 border border-gray-200 rounded-xl hover:bg-gray-50 text-gray-600 transition-colors">
@@ -176,7 +176,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                     <section className="container mx-auto px-4 py-8">
                         <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
                             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-[#00dba1]/10 flex items-center justify-center text-[#00dba1]">$</div>
+                                <div className="w-8 h-8 rounded-full bg-brand/10 flex items-center justify-center text-brand">$</div>
                                 Bảng giá tour
                             </h2>
                             <div className="overflow-x-auto">
@@ -225,7 +225,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                             <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 {tour.inclusions.map((item, i) => (
                                     <li key={i} className="flex gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg">
-                                        <Check className="w-5 h-5 text-[#00dba1] flex-shrink-0 mt-0.5" />
+                                        <Check className="w-5 h-5 text-success flex-shrink-0 mt-0.5" />
                                         <span className="text-sm">{item}</span>
                                     </li>
                                 ))}
@@ -255,16 +255,16 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
 
                     {/* Itinerary */}
                     <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-[#00dba1] pl-4">Lịch trình chi tiết</h2>
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-brand pl-4">Lịch trình chi tiết</h2>
 
                         {tour.itinerary ? (
-                            <div className="border-l-2 border-[#00dba1]/30 ml-3 space-y-10 pl-8 relative">
+                            <div className="border-l-2 border-brand/30 ml-3 space-y-10 pl-8 relative">
                                 {tour.itinerary.map((day, idx) => (
                                     <div key={idx} className="relative group">
-                                        <span className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-[#00dba1] text-white flex items-center justify-center text-xs font-bold ring-4 ring-white transition-transform group-hover:scale-110 shadow-md">
+                                        <span className="absolute -left-[41px] top-0 w-6 h-6 rounded-full bg-brand text-white flex items-center justify-center text-xs font-bold ring-4 ring-white transition-transform group-hover:scale-110 shadow-md">
                                             {day.day}
                                         </span>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#00dba1] transition-colors">{day.title}</h3>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand transition-colors">{day.title}</h3>
                                         <p className="text-gray-600 leading-relaxed mb-4 whitespace-pre-line text-justify">
                                             {day.description}
                                         </p>
@@ -290,8 +290,8 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                     <div className="bg-white rounded-2xl p-6 shadow-sm sticky top-24">
                         <h3 className="font-bold text-lg mb-4 text-gray-900">Hỗ trợ tư vấn</h3>
                         <div className="space-y-4">
-                            <a href="tel:0931867376" className="flex items-center gap-3 p-4 bg-[#00dba1]/5 rounded-xl hover:bg-[#00dba1]/10 transition-colors group">
-                                <div className="w-10 h-10 rounded-full bg-[#00dba1] flex items-center justify-center text-white shadow-lg shadow-[#00dba1]/30 group-hover:scale-110 transition-transform">
+                            <a href="tel:0931867376" className="flex items-center gap-3 p-4 bg-brand/5 rounded-xl hover:bg-brand/10 transition-colors group">
+                                <div className="w-10 h-10 rounded-full bg-brand flex items-center justify-center text-white shadow-lg shadow-brand/30 group-hover:scale-110 transition-transform">
                                     <Phone className="w-5 h-5" />
                                 </div>
                                 <div>
@@ -335,7 +335,7 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                                 <h2 className="text-2xl lg:text-3xl font-bold text-gray-900">
                                     Cẩm nang du lịch
                                 </h2>
-                                <a href="/guide-page" className="text-[#00dba1] font-medium hover:underline flex items-center gap-1">
+                                <a href="/guide-page" className="text-brand font-medium hover:underline flex items-center gap-1">
                                     Xem tất cả <div className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[10px]">&rarr;</div>
                                 </a>
                             </div>
@@ -358,10 +358,10 @@ export default function TourDetailView({ tour, articles = [] }: TourDetailViewPr
                                             )}
                                         </div>
                                         <div className="p-5 flex flex-col flex-grow">
-                                            <h3 className="font-bold text-lg text-gray-900 mb-2 line-clamp-2 group-hover:text-[#00dba1] transition-colors">
+                                            <h3 className="font-bold text-lg text-gray-900 mb-2 line-clamp-2 group-hover:text-brand transition-colors">
                                                 {article.title}
                                             </h3>
-                                            <div className="mt-auto flex items-center text-sm text-[#00dba1] font-medium opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                                            <div className="mt-auto flex items-center text-sm text-brand font-medium opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
                                                 Đọc tiếp &rarr;
                                             </div>
                                         </div>

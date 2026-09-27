@@ -41,7 +41,7 @@ export default function GroupTours() {
         return (
             <section className="py-20 bg-[#0f172a] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-                    <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#00dba1]/10 blur-[100px]"></div>
+                    <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand/10 blur-[100px]"></div>
                     <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]"></div>
                 </div>
                 <div className="container mx-auto px-4 relative z-10 animate-pulse">
@@ -51,7 +51,7 @@ export default function GroupTours() {
                             <div className="h-10 w-72 bg-white/10 rounded-lg mb-2" />
                             <div className="h-5 w-96 bg-white/5 rounded" />
                         </div>
-                        <div className="h-12 w-48 bg-[#00dba1]/20 rounded-full" />
+                        <div className="h-12 w-48 bg-brand/20 rounded-full" />
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[1, 2, 3, 4].map(i => (
@@ -69,7 +69,7 @@ export default function GroupTours() {
         <section className="py-20 lg:py-28 bg-gradient-to-br from-[#090d16] via-[#0f172a] to-[#070a10] relative overflow-hidden">
             {/* Abstract Background Shapes */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-                <div className="absolute -top-[20%] -left-[10%] w-[55%] h-[55%] rounded-full bg-[#00dba1]/8 blur-[100px] animate-pulse duration-[6000ms]"></div>
+                <div className="absolute -top-[20%] -left-[10%] w-[55%] h-[55%] rounded-full bg-brand/8 blur-[100px] animate-pulse duration-[6000ms]"></div>
                 <div className="absolute top-[40%] -right-[10%] w-[45%] h-[45%] rounded-full bg-blue-600/8 blur-[120px] animate-pulse duration-[8000ms]"></div>
             </div>
 
@@ -77,11 +77,11 @@ export default function GroupTours() {
                 {/* Section Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 relative z-10">
                     <div>
-                        <span className="text-[#00dba1] bg-[#00dba1]/10 px-3.5 py-1.5 rounded-full inline-block font-extrabold uppercase tracking-widest text-xs mb-3">
+                        <span className="text-brand bg-brand/10 px-3.5 py-1.5 rounded-full inline-block font-extrabold uppercase tracking-widest text-xs mb-3">
                             Dành cho doanh nghiệp
                         </span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
-                            Tour Khách Đoàn <span className="bg-gradient-to-r from-[#00dba1] to-blue-400 bg-clip-text text-transparent">Cao Cấp</span>
+                            Tour Khách Đoàn <span className="bg-gradient-to-r from-brand to-blue-400 bg-clip-text text-transparent">Cao Cấp</span>
                         </h2>
                         <p className="text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
                             Giải pháp lữ hành toàn diện, thiết kế riêng biệt cho doanh nghiệp và tổ chức với chi phí tối ưu cùng dịch vụ chuẩn mực.
@@ -90,7 +90,7 @@ export default function GroupTours() {
 
                     <Link 
                         href="/tours/group" 
-                        className="group flex items-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white text-xs font-extrabold uppercase tracking-widest hover:shadow-[0_8px_25px_rgba(0,219,161,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
+                        className="group flex items-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-brand to-brand-hover text-white text-xs font-extrabold uppercase tracking-widest hover:shadow-[0_8px_25px_rgba(188, 52, 46,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
                     >
                         Nhận báo giá ngay <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -115,19 +115,19 @@ export default function GroupTours() {
                                     </div>
 
                                     {/* Glassmorphic floating text panel */}
-                                    <div className="absolute bottom-4 left-4 right-4 p-5 rounded-[22px] glass-panel-dark transition-all duration-500 group-hover:border-[#00dba1]/30 group-hover:shadow-[0_12px_40px_rgba(0,219,161,0.12)]">
+                                    <div className="absolute bottom-4 left-4 right-4 p-5 rounded-[22px] glass-panel-dark transition-all duration-500 group-hover:border-brand/30 group-hover:shadow-[0_12px_40px_rgba(188, 52, 46,0.12)]">
                                         <div className="text-gray-300 text-xs font-semibold mb-2.5 flex items-center gap-2">
                                             <span className="bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-md text-white font-bold">{tour.duration}</span>
                                             <span>• {tour.departure}</span>
                                         </div>
-                                        <h3 className="text-[15px] font-extrabold text-white mb-2 line-clamp-2 leading-snug group-hover:text-[#00dba1] transition-colors duration-300">
+                                        <h3 className="text-[15px] font-extrabold text-white mb-2 line-clamp-2 leading-snug group-hover:text-brand transition-colors duration-300">
                                             {tour.name}
                                         </h3>
                                         <div className="flex items-end gap-2 mb-3.5">
-                                            <span className="text-[#00dba1] font-extrabold text-base tracking-tight">{tour.price}</span>
+                                            <span className="text-brand font-extrabold text-base tracking-tight">{tour.price}</span>
                                             {tour.originalPrice && <span className="text-gray-400/80 text-xs line-through">{tour.originalPrice}</span>}
                                         </div>
-                                        <div className="w-full py-2.5 bg-gradient-to-r from-[#00dba1] to-[#00b87a] hover:from-[#00c993] hover:to-[#00a878] text-white rounded-xl text-center text-xs font-extrabold uppercase tracking-wider transition-all duration-300 shadow-md shadow-[#00dba1]/25 shimmer-btn">
+                                        <div className="w-full py-2.5 bg-gradient-to-r from-brand to-brand-hover hover:from-[#00c993] hover:to-brand-hover text-white rounded-xl text-center text-xs font-extrabold uppercase tracking-wider transition-all duration-300 shadow-md shadow-brand/25 shimmer-btn">
                                             Xem chi tiết
                                         </div>
                                     </div>

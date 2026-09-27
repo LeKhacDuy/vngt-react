@@ -54,7 +54,7 @@ export default function TravelGuideSection() {
                     {/* Header Skeleton */}
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                         <div className="max-w-2xl">
-                            <div className="h-4 w-24 bg-[#00dba1]/20 rounded mb-3" />
+                            <div className="h-4 w-24 bg-brand/20 rounded mb-3" />
                             <div className="h-12 w-72 bg-gray-200 rounded-lg mb-4" />
                             <div className="h-5 w-96 bg-gray-200 rounded" />
                         </div>
@@ -74,7 +74,7 @@ export default function TravelGuideSection() {
                                     <div className="w-32 h-32 md:w-36 md:h-36 rounded-xl bg-gray-200 flex-shrink-0" />
                                     <div className="flex-1 space-y-3 py-1">
                                         <div className="flex gap-2">
-                                            <div className="h-4 w-14 bg-[#00dba1]/10 rounded" />
+                                            <div className="h-4 w-14 bg-brand/10 rounded" />
                                             <div className="h-4 w-20 bg-gray-100 rounded" />
                                         </div>
                                         <div className="h-5 w-full bg-gray-200 rounded" />
@@ -102,11 +102,11 @@ export default function TravelGuideSection() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div className="max-w-2xl">
-                        <span className="text-[#00dba1] font-bold tracking-widest uppercase text-sm mb-3 block">Travel Blog</span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Cẩm Nang <span className="text-[#00dba1]">Du Lịch</span></h2>
+                        <span className="text-brand font-bold tracking-widest uppercase text-sm mb-3 block">Travel Blog</span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Cẩm Nang <span className="text-brand">Du Lịch</span></h2>
                         <p className="text-gray-500 text-lg">Khám phá những điểm đến tuyệt vời, mẹo du lịch hữu ích và ẩm thực đặc sắc qua lăng kính của VNG Tourist.</p>
                     </div>
-                    <Link href="/guide" className="hidden md:flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-gray-200 text-gray-700 font-bold hover:border-[#00dba1] hover:text-[#00dba1] transition-all shadow-sm hover:shadow-md">
+                    <Link href="/guide" className="hidden md:flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all shadow-sm hover:shadow-md">
                         Xem tất cả <ArrowRight className="w-5 h-5" />
                     </Link>
                 </div>
@@ -125,7 +125,7 @@ export default function TravelGuideSection() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
                                 <div className="absolute top-6 left-6">
-                                    <span className="bg-[#00dba1] text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                                    <span className="bg-brand text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                                         Tiêu điểm
                                     </span>
                                 </div>
@@ -135,14 +135,14 @@ export default function TravelGuideSection() {
                                         <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full"><Calendar className="w-4 h-4" /> {formatDate(tipsArticle.created_at)}</span>
                                         <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full"><Clock className="w-4 h-4" /> 5 phút đọc</span>
                                     </div>
-                                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight group-hover:text-[#00dba1] transition-colors line-clamp-2">
+                                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight group-hover:text-brand transition-colors line-clamp-2">
                                         {tipsArticle.title}
                                     </h3>
                                     <p className="text-gray-300 text-lg line-clamp-2 mb-6 max-w-2xl font-light">
                                         {tipsArticle.title} - Trải nghiệm hành trình đầy cảm hứng cùng VNG Tourist. Bấm để xem chi tiết bài viết.
                                     </p>
-                                    <span className="inline-flex items-center gap-3 text-white font-bold group-hover:gap-4 transition-all border-b-2 border-[#00dba1] pb-1">
-                                        Đọc bài viết <ArrowRight className="w-5 h-5 text-[#00dba1]" />
+                                    <span className="inline-flex items-center gap-3 text-white font-bold group-hover:gap-4 transition-all border-b-2 border-brand pb-1">
+                                        Đọc bài viết <ArrowRight className="w-5 h-5 text-brand" />
                                     </span>
                                 </div>
                             </Link>
@@ -163,15 +163,15 @@ export default function TravelGuideSection() {
                                 </div>
                                 <div className="flex flex-col flex-1 py-1 pr-2">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#00dba1] bg-[#00dba1]/10 px-2 py-0.5 rounded">
+                                        <span className="text-[10px] font-bold uppercase tracking-wider text-brand bg-brand/10 px-2 py-0.5 rounded">
                                             {index === 0 ? 'Mới nhất' : 'Phổ biến'}
                                         </span>
                                         <span className="text-xs text-gray-400 font-medium flex items-center gap-1"><Calendar className="w-3 h-3" /> {formatDate(article.created_at)}</span>
                                     </div>
-                                    <h4 className="font-bold text-gray-800 text-lg leading-snug mb-2 line-clamp-2 group-hover:text-[#00dba1] transition-colors">
+                                    <h4 className="font-bold text-gray-800 text-lg leading-snug mb-2 line-clamp-2 group-hover:text-brand transition-colors">
                                         {article.title}
                                     </h4>
-                                    <span className="text-xs font-semibold text-gray-400 group-hover:text-[#00dba1] flex items-center gap-1 mt-auto">
+                                    <span className="text-xs font-semibold text-gray-400 group-hover:text-brand flex items-center gap-1 mt-auto">
                                         Xem chi tiết <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                     </span>
                                 </div>
@@ -179,7 +179,7 @@ export default function TravelGuideSection() {
                         ))}
 
                         {/* View More Mobile Context */}
-                        <Link href="/guide" className="lg:hidden w-full flex items-center justify-center gap-2 bg-white px-6 py-4 rounded-xl border border-gray-200 text-gray-700 font-bold hover:border-[#00dba1] hover:text-[#00dba1] transition-all shadow-sm">
+                        <Link href="/guide" className="lg:hidden w-full flex items-center justify-center gap-2 bg-white px-6 py-4 rounded-xl border border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all shadow-sm">
                             Xem tất cả bài viết <ArrowRight className="w-5 h-5" />
                         </Link>
                     </div>

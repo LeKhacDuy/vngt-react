@@ -35,7 +35,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
                     <span>{article.readTime}</span>
                 </div>
 
-                <h3 className="font-bold text-gray-900 text-lg mb-3 line-clamp-2 group-hover:text-[#00dba1] transition-colors leading-snug">
+                <h3 className="font-bold text-gray-900 text-lg mb-3 line-clamp-2 group-hover:text-brand transition-colors leading-snug">
                     <Link href={`/guide/${article.id}`}>{article.title}</Link>
                 </h3>
 

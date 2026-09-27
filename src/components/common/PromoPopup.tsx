@@ -61,7 +61,7 @@ export default function PromoPopup() {
                             setIsOpen(false);
                             window.open('https://zalo.me/0931867376', '_blank');
                         }}
-                        className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                        className="bg-gradient-to-r from-brand to-brand-hover text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                     >
                         🎁 ĐĂNG KÝ TOUR NGAY
                     </button>

@@ -14,7 +14,7 @@ export default function LuxuryLandingPage() {
     };
 
     return (
-        <div className="bg-[#0f1014] min-h-screen text-white/90 selection:bg-[#c6a355] selection:text-black font-sans">
+        <div className="bg-ink min-h-screen text-white/90 selection:bg-gold selection:text-black font-sans">
 
             {/* Hero Section */}
             <section className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
@@ -26,22 +26,22 @@ export default function LuxuryLandingPage() {
                         className="object-cover opacity-60 scale-105 animate-[kenburns_20s_infinite_alternate]"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f1014] via-[#0f1014]/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent"></div>
                 </div>
 
                 <div className="relative z-10 text-center container px-4">
-                    <div className="inline-block mb-4 px-4 py-1 border border-[#c6a355]/50 text-[#c6a355] text-xs md:text-sm tracking-[0.3em] uppercase rounded-full bg-black/30 backdrop-blur-md">
+                    <div className="inline-block mb-4 px-4 py-1 border border-gold/50 text-gold text-xs md:text-sm tracking-[0.3em] uppercase rounded-full bg-black/30 backdrop-blur-md">
                         VNGROUP TOURIST ELITE
                     </div>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 tracking-tight">
-                        Beyond <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c6a355] to-[#f9d98c] italic">Luxury</span>
+                        Beyond <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#f9d98c] italic">Luxury</span>
                     </h1>
                     <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
                         Hành trình thượng lưu được thiết kế riêng cho những vị khách quý tộc. Nơi đẳng cấp không chỉ là đích đến, mà là từng khoảnh khắc trải nghiệm.
                     </p>
-                    <button className="group relative px-8 py-4 bg-transparent border border-[#c6a355] text-[#c6a355] hover:bg-[#c6a355] hover:text-[#0f1014] transition-all duration-500 rounded-sm uppercase tracking-widest text-sm font-bold">
+                    <button className="group relative px-8 py-4 bg-transparent border border-gold text-gold hover:bg-gold hover:text-ink transition-all duration-500 rounded-sm uppercase tracking-widest text-sm font-bold">
                         <span className="relative z-10">Khám phá bộ sưu tập</span>
-                        <div className="absolute inset-0 bg-[#c6a355] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                        <div className="absolute inset-0 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                     </button>
                 </div>
             </section>
@@ -49,8 +49,8 @@ export default function LuxuryLandingPage() {
             {/* Privileges Section */}
             <section className="py-24 container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-serif text-[#c6a355] mb-4">Đặc Quyền Thượng Lưu</h2>
-                    <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#c6a355] to-transparent mx-auto"></div>
+                    <h2 className="text-3xl md:text-4xl font-serif text-gold mb-4">Đặc Quyền Thượng Lưu</h2>
+                    <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto"></div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -60,10 +60,10 @@ export default function LuxuryLandingPage() {
                         { icon: Wine, title: 'Ẩm Thực Tinh Hoa', desc: 'Thưởng thức thực đơn Michelin được thiết kế riêng bởi các đầu bếp trứ danh.' },
                         { icon: User, title: 'Quản Gia Riêng', desc: 'Đội ngũ phục vụ chuyên nghiệp, sẵn sàng hỗ trợ 24/7 theo yêu cầu cá nhân.' }
                     ].map((item, idx) => (
-                        <div key={idx} className="p-8 border border-white/5 bg-white/5 hover:bg-[#c6a355]/10 hover:border-[#c6a355]/30 transition-all duration-500 group rounded-xl text-center">
-                            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#c6a355] to-[#8d6e30] p-[1px]">
-                                <div className="w-full h-full bg-[#0f1014] rounded-full flex items-center justify-center">
-                                    <item.icon className="w-8 h-8 text-[#c6a355] group-hover:scale-110 transition-transform duration-500" />
+                        <div key={idx} className="p-8 border border-white/5 bg-white/5 hover:bg-gold/10 hover:border-gold/30 transition-all duration-500 group rounded-xl text-center">
+                            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold to-[#8d6e30] p-[1px]">
+                                <div className="w-full h-full bg-ink rounded-full flex items-center justify-center">
+                                    <item.icon className="w-8 h-8 text-gold group-hover:scale-110 transition-transform duration-500" />
                                 </div>
                             </div>
                             <h3 className="text-xl font-bold text-white mb-3 font-serif">{item.title}</h3>
@@ -79,9 +79,9 @@ export default function LuxuryLandingPage() {
                     <div className="flex justify-between items-end mb-20 px-4">
                         <div>
                             <h2 className="text-4xl md:text-5xl font-serif text-white mb-2">Bộ Sưu Tập 2026</h2>
-                            <p className="text-[#c6a355] font-light tracking-wider uppercase text-sm">Limited Edition Journeys</p>
+                            <p className="text-gold font-light tracking-wider uppercase text-sm">Limited Edition Journeys</p>
                         </div>
-                        <Link href="#" className="hidden md:flex items-center gap-2 text-gray-400 hover:text-[#c6a355] transition-colors border-b border-transparent hover:border-[#c6a355] pb-1">
+                        <Link href="#" className="hidden md:flex items-center gap-2 text-gray-400 hover:text-gold transition-colors border-b border-transparent hover:border-gold pb-1">
                             Xem tất cả hành trình <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
@@ -92,15 +92,15 @@ export default function LuxuryLandingPage() {
 
                                 {/* Image Side */}
                                 <div className="w-full lg:w-3/5 relative aspect-[16/9] overflow-hidden rounded-[2px]">
-                                    <div className="absolute inset-0 bg-[#c6a355]/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                                    <div className="absolute inset-0 bg-gold/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                                     <Image
                                         src={tour.image}
                                         alt={tour.name}
                                         fill
                                         className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110 grayscale-[20%] group-hover:grayscale-0"
                                     />
-                                    <div className="absolute bottom-6 left-6 z-20 bg-black/60 backdrop-blur-md px-6 py-3 border-l-2 border-[#c6a355]">
-                                        <p className="text-[#c6a355] text-xs font-bold uppercase tracking-widest mb-1">Giá khởi điểm</p>
+                                    <div className="absolute bottom-6 left-6 z-20 bg-black/60 backdrop-blur-md px-6 py-3 border-l-2 border-gold">
+                                        <p className="text-gold text-xs font-bold uppercase tracking-widest mb-1">Giá khởi điểm</p>
                                         <p className="text-2xl font-serif text-white">{tour.price}</p>
                                     </div>
                                 </div>
@@ -108,10 +108,10 @@ export default function LuxuryLandingPage() {
                                 {/* Content Side */}
                                 <div className="w-full lg:w-2/5 px-4 lg:px-0">
                                     <div className="flex items-center gap-4 mb-6">
-                                        <span className="text-5xl font-serif text-[#c6a355]/20 font-bold">0{index + 1}</span>
-                                        <div className="h-[1px] bg-[#c6a355]/30 flex-grow"></div>
+                                        <span className="text-5xl font-serif text-gold/20 font-bold">0{index + 1}</span>
+                                        <div className="h-[1px] bg-gold/30 flex-grow"></div>
                                     </div>
-                                    <h3 className="text-3xl md:text-4xl font-serif text-white mb-6 leading-tight group-hover:text-[#c6a355] transition-colors duration-500">
+                                    <h3 className="text-3xl md:text-4xl font-serif text-white mb-6 leading-tight group-hover:text-gold transition-colors duration-500">
                                         <Link href={`/tours/${tour.slug}`}>{tour.name}</Link>
                                     </h3>
                                     <p className="text-gray-400 text-lg font-light leading-relaxed mb-8 line-clamp-3">
@@ -120,24 +120,24 @@ export default function LuxuryLandingPage() {
 
                                     <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-10 text-sm text-gray-300">
                                         <div className="flex items-center gap-3">
-                                            <ClockIcon className="w-4 h-4 text-[#c6a355]" />
+                                            <ClockIcon className="w-4 h-4 text-gold" />
                                             <span>{tour.duration}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <MapPinIcon className="w-4 h-4 text-[#c6a355]" />
+                                            <MapPinIcon className="w-4 h-4 text-gold" />
                                             <span>{tour.destination === 'VN' ? 'Việt Nam' : 'Quốc tế'}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <Plane className="w-4 h-4 text-[#c6a355]" />
+                                            <Plane className="w-4 h-4 text-gold" />
                                             <span>Khởi hành: {tour.departure}</span>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <Lock className="w-4 h-4 text-[#c6a355]" />
+                                            <Lock className="w-4 h-4 text-gold" />
                                             <span>Private Tour</span>
                                         </div>
                                     </div>
 
-                                    <Link href={`/tours/${tour.slug}`} className="inline-block px-10 py-4 bg-[#c6a355] text-[#0f1014] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                                    <Link href={`/tours/${tour.slug}`} className="inline-block px-10 py-4 bg-gold text-ink font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
                                         Xem chi tiết
                                     </Link>
                                 </div>
@@ -157,16 +157,16 @@ export default function LuxuryLandingPage() {
                         fill
                         className="object-cover opacity-20"
                     />
-                    <div className="absolute inset-0 bg-[#0f1014]/80"></div>
+                    <div className="absolute inset-0 bg-ink/80"></div>
                 </div>
 
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <Crown className="w-12 h-12 text-[#c6a355] mx-auto mb-6" />
+                    <Crown className="w-12 h-12 text-gold mx-auto mb-6" />
                     <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">Thiết Kế Hành Trình Riêng</h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light mb-12 leading-relaxed">
                         Bạn muốn một chuyến đi bằng chuyên cơ riêng? Một bữa tối lãng mạn trên du thuyền tại Venice? Hay một kỳ nghỉ biệt lập tại hòn đảo tư nhân? Hãy để các chuyên gia của chúng tôi hiện thực hóa giấc mơ của bạn.
                     </p>
-                    <button className="px-12 py-5 bg-gradient-to-r from-[#c6a355] to-[#f9d98c] text-[#0f1014] font-bold text-lg uppercase tracking-widest hover:shadow-[0_0_30px_rgba(198,163,85,0.4)] transition-all duration-500 rounded-sm">
+                    <button className="px-12 py-5 bg-gradient-to-r from-gold to-[#f9d98c] text-ink font-bold text-lg uppercase tracking-widest hover:shadow-[0_0_30px_rgba(198,163,85,0.4)] transition-all duration-500 rounded-sm">
                         Liên hệ Private Client
                     </button>
                 </div>

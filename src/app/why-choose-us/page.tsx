@@ -50,7 +50,7 @@ export default function WhyChooseUsPage() {
     return (
         <div className="min-h-screen bg-gray-50 font-sans pb-20">
             {/* Hero Section */}
-            <section className="relative pt-24 pb-32 overflow-hidden bg-gradient-to-br from-[#00dba1] via-[#00c791] to-[#009b70]">
+            <section className="relative pt-24 pb-32 overflow-hidden bg-gradient-to-br from-brand via-brand to-[#009b70]">
                 {/* Decorative Elements */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                     <div className="absolute -top-40 -right-40 w-96 h-96 bg-white opacity-10 rounded-full blur-3xl"></div>
@@ -94,8 +94,8 @@ export default function WhyChooseUsPage() {
                     </div>
 
                     <div className="bg-white rounded-2xl p-8 shadow-xl shadow-gray-200/50 border border-gray-100 hover:-translate-y-2 transition-transform duration-300 text-center group">
-                        <div className="w-16 h-16 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <ShieldCheck className="w-8 h-8 text-[#00dba1]" />
+                        <div className="w-16 h-16 mx-auto bg-success-tint rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <ShieldCheck className="w-8 h-8 text-success" />
                         </div>
                         <h3 className="text-xl font-bold text-gray-800 mb-3">HDV Nhiệt tình</h3>
                         <p className="text-gray-600">Có khách ấn tượng mãi vì sự chuyên nghiệp và hướng dẫn viên cực kỳ nhiệt tình.</p>
@@ -114,10 +114,10 @@ export default function WhyChooseUsPage() {
             {/* Deep Message */}
             <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto bg-gradient-to-br from-[#00dba1]/10 to-[#00dba1]/5 rounded-3xl p-10 md:p-16 border border-[#00dba1]/20 relative">
-                        <MessageCircle className="absolute top-8 left-8 w-12 h-12 text-[#00dba1]/20" />
+                    <div className="max-w-4xl mx-auto bg-gradient-to-br from-brand/10 to-brand/5 rounded-3xl p-10 md:p-16 border border-brand/20 relative">
+                        <MessageCircle className="absolute top-8 left-8 w-12 h-12 text-brand/20" />
                         <p className="text-2xl md:text-3xl text-gray-800 font-medium leading-relaxed text-center relative z-10">
-                            "Với VNGroup Tourist, một chuyến đi không chỉ là lịch trình, khách sạn hay điểm tham quan. Đó còn là cách mình chăm sóc khách trong suốt hành trình, xử lý từng chi tiết nhỏ và để khách trở về với cảm giác: <span className="text-[#00dba1] font-bold">đi đáng tiền, được quan tâm, và muốn quay lại.</span>"
+                            "Với VNGroup Tourist, một chuyến đi không chỉ là lịch trình, khách sạn hay điểm tham quan. Đó còn là cách mình chăm sóc khách trong suốt hành trình, xử lý từng chi tiết nhỏ và để khách trở về với cảm giác: <span className="text-brand font-bold">đi đáng tiền, được quan tâm, và muốn quay lại.</span>"
                         </p>
                     </div>
                 </div>
@@ -130,7 +130,7 @@ export default function WhyChooseUsPage() {
                         <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                             Lướt tiếp để xem feedback thật từ khách hàng nhà VNGroup Tourist nha ✨
                         </h2>
-                        <div className="w-24 h-1 bg-[#00dba1] mx-auto rounded-full mt-6"></div>
+                        <div className="w-24 h-1 bg-brand mx-auto rounded-full mt-6"></div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -159,7 +159,7 @@ export default function WhyChooseUsPage() {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center bg-gray-900 rounded-[3rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
                         {/* Background glowing effects */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#00dba1] opacity-20 blur-[100px] rounded-full"></div>
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-brand opacity-20 blur-[100px] rounded-full"></div>
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500 opacity-20 blur-[100px] rounded-full"></div>
                         
                         <div className="relative z-10">
@@ -172,7 +172,7 @@ export default function WhyChooseUsPage() {
                             
                             <Link 
                                 href="/contact-page" 
-                                className="inline-flex items-center gap-2 px-10 py-5 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,219,161,0.4)]"
+                                className="inline-flex items-center gap-2 px-10 py-5 bg-brand hover:bg-brand-hover text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(188, 52, 46,0.4)]"
                             >
                                 <PhoneCall className="w-5 h-5" />
                                 INBOX NHẬN TƯ VẤN NGAY

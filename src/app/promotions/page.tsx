@@ -90,15 +90,15 @@ export default function PromotionsPage() {
         <div className="min-h-screen bg-gray-50">
 
             {/* Header */}
-            <section className="bg-gradient-to-br from-[#00dba1]/10 via-white to-[#00dba1]/5 py-16 border-b border-gray-100">
+            <section className="bg-gradient-to-br from-brand/10 via-white to-brand/5 py-16 border-b border-gray-100">
                 <div className="container mx-auto px-4">
                     <nav className="text-sm text-gray-600 mb-6">
-                        <Link href="/" className="hover:text-[#00dba1] transition-colors">Trang chủ</Link>
+                        <Link href="/" className="hover:text-brand transition-colors">Trang chủ</Link>
                         <span className="mx-2">/</span>
-                        <span className="text-[#00dba1] font-semibold">Chương trình khuyến mãi</span>
+                        <span className="text-brand font-semibold">Chương trình khuyến mãi</span>
                     </nav>
                     <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-4">
-                        Chương Trình <span className="text-[#00dba1]">Khuyến Mãi</span>
+                        Chương Trình <span className="text-brand">Khuyến Mãi</span>
                     </h1>
                 </div>
             </section>
@@ -118,7 +118,7 @@ export default function PromotionsPage() {
                             <select
                                 value={selectedPromotion}
                                 onChange={(e) => setSelectedPromotion(e.target.value)}
-                                className="px-5 py-3 bg-white border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent flex-1 md:flex-none min-w-[200px]"
+                                className="px-5 py-3 bg-white border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent flex-1 md:flex-none min-w-[200px]"
                             >
                                 <option value="all">Tất cả chương trình</option>
                                 {promotions.map(promo => (
@@ -129,7 +129,7 @@ export default function PromotionsPage() {
                             <select
                                 value={selectedDestination}
                                 onChange={(e) => setSelectedDestination(e.target.value)}
-                                className="px-5 py-3 bg-white border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent flex-1 md:flex-none"
+                                className="px-5 py-3 bg-white border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent flex-1 md:flex-none"
                             >
                                 <option value="">Tất cả điểm đến</option>
                                 <option value="đà nẵng">Đà Nẵng</option>
@@ -144,7 +144,7 @@ export default function PromotionsPage() {
                             <select
                                 value={priceSort}
                                 onChange={(e) => setPriceSort(e.target.value)}
-                                className="px-5 py-3 bg-white border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent flex-1 md:flex-none"
+                                className="px-5 py-3 bg-white border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent flex-1 md:flex-none"
                             >
                                 <option value="price_asc">Giá: Thấp đến cao</option>
                                 <option value="price_desc">Giá: Cao đến thấp</option>
@@ -155,7 +155,7 @@ export default function PromotionsPage() {
                     {/* Tours Grid */}
                     {loading ? (
                         <div className="flex justify-center py-20">
-                            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00dba1]"></div>
+                            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand"></div>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -174,7 +174,7 @@ export default function PromotionsPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-r from-[#00dba1] to-[#00a878] relative overflow-hidden">
+            <section className="py-20 bg-gradient-to-r from-brand to-brand-hover relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
@@ -193,7 +193,7 @@ export default function PromotionsPage() {
                             placeholder="Nhập email của bạn..."
                             className="flex-1 px-6 py-4 rounded-xl border-2 border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white"
                         />
-                        <button className="px-8 py-4 bg-white text-[#00a878] font-bold rounded-xl hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all">
+                        <button className="px-8 py-4 bg-white text-brand-hover font-bold rounded-xl hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all">
                             Đăng ký
                         </button>
                     </div>

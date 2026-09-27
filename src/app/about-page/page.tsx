@@ -99,13 +99,13 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-3xl">
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white text-sm font-semibold mb-6 animate-fade-in-up">
-                            <span className="w-2 h-2 bg-[#00dba1] rounded-full animate-pulse"></span>
+                            <span className="w-2 h-2 bg-brand rounded-full animate-pulse"></span>
                             Thành lập từ 09/03/2023
                         </div>
 
                         <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up delay-100">
                             Hành trình đẳng cấp <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00dba1] to-[#00a86b]">Trải nghiệm khác biệt</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-press">Trải nghiệm khác biệt</span>
                         </h1>
 
                         <p className="text-xl text-gray-200 mb-8 font-light leading-relaxed max-w-2xl animate-fade-in-up delay-200">
@@ -115,7 +115,7 @@ export default function AboutPage() {
                         <div className="flex gap-4 animate-fade-in-up delay-300">
                             <Link
                                 href="#services"
-                                className="px-8 py-4 bg-[#00dba1] hover:bg-[#00c28e] text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-[#00dba1]/50 hover:-translate-y-1"
+                                className="px-8 py-4 bg-brand hover:bg-brand-hover text-white font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-brand/50 hover:-translate-y-1"
                             >
                                 Khám phá dịch vụ
                             </Link>
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-2xl font-bold text-gray-900 uppercase tracking-widest text-center">Những con số biết nói</h2>
-                        <div className="w-20 h-1 bg-[#00dba1] mx-auto mt-4 rounded-full"></div>
+                        <div className="w-20 h-1 bg-brand mx-auto mt-4 rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -146,8 +146,8 @@ export default function AboutPage() {
                             { icon: GraduationCap, count: 100, label: 'Nhân sự đào tạo', suffix: '%' }
                         ].map((stat, idx) => (
                             <div key={idx} className="text-center group">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#00dba1] transition-colors duration-500">
-                                    <stat.icon className="w-8 h-8 text-[#00dba1] group-hover:text-white transition-colors duration-500" />
+                                <div className="w-16 h-16 mx-auto mb-4 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-brand transition-colors duration-500">
+                                    <stat.icon className="w-8 h-8 text-brand group-hover:text-white transition-colors duration-500" />
                                 </div>
                                 <div className="text-5xl font-bold text-gray-900 mb-2">
                                     {stat.count}{stat.suffix}
@@ -176,12 +176,12 @@ export default function AboutPage() {
                                 <div key={idx} className={`flex flex-col md:flex-row items-center justify-between gap-8 ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                                     <div className="w-full md:w-5/12"></div>
 
-                                    <div className="z-10 bg-[#00dba1] w-12 h-12 rounded-full border-4 border-white shadow-lg flex items-center justify-center flex-shrink-0">
+                                    <div className="z-10 bg-brand w-12 h-12 rounded-full border-4 border-white shadow-lg flex items-center justify-center flex-shrink-0">
                                         <div className="w-3 h-3 bg-white rounded-full"></div>
                                     </div>
 
                                     <div className="w-full md:w-5/12 bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                                        <span className="text-[#00dba1] font-bold text-xl mb-2 block">{item.year}</span>
+                                        <span className="text-brand font-bold text-xl mb-2 block">{item.year}</span>
                                         <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
                                         <p className="text-gray-600">{item.desc}</p>
                                     </div>
@@ -203,12 +203,12 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, idx) => (
                             <div key={idx} className="group p-8 bg-white rounded-3xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                                <div className="w-16 h-16 mb-6 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#00dba1] transition-colors duration-500">
-                                    <service.icon className="w-8 h-8 text-[#00dba1] group-hover:text-white transition-colors duration-500" />
+                                <div className="w-16 h-16 mb-6 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-brand transition-colors duration-500">
+                                    <service.icon className="w-8 h-8 text-brand group-hover:text-white transition-colors duration-500" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
                                 <p className="text-gray-600 leading-relaxed mb-6">{service.desc}</p>
-                                <span className="inline-flex items-center gap-2 text-[#00dba1] font-semibold group-hover:translate-x-2 transition-transform">
+                                <span className="inline-flex items-center gap-2 text-brand font-semibold group-hover:translate-x-2 transition-transform">
                                     Xem chi tiết <ChevronRight className="w-4 h-4" />
                                 </span>
                             </div>
@@ -223,13 +223,13 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl lg:text-5xl font-bold mb-4">Giá trị cốt lõi - TRUST</h2>
-                        <div className="w-24 h-1 bg-[#00dba1] mx-auto rounded-full"></div>
+                        <div className="w-24 h-1 bg-brand mx-auto rounded-full"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
                         {values.map((value, idx) => (
                             <div key={idx} className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
-                                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-[#00dba1] to-[#00a86b] rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-lg shadow-[#00dba1]/30">
+                                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-brand to-brand-press rounded-full flex items-center justify-center text-3xl font-bold text-white shadow-lg shadow-brand/30">
                                     {value.letter}
                                 </div>
                                 <h3 className="font-bold text-xl mb-1">{value.title}</h3>
@@ -240,9 +240,9 @@ export default function AboutPage() {
                     </div>
 
                     {/* ESG Commitment */}
-                    <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-3xl border border-green-500/30 backdrop-blur-md">
+                    <div className="max-w-4xl mx-auto p-8 bg-gradient-to-r from-ink to-ink rounded-3xl border border-brand/30 backdrop-blur-md">
                         <div className="flex items-center gap-6">
-                            <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center flex-shrink-0 animate-pulse">
+                            <div className="w-16 h-16 bg-brand rounded-2xl flex items-center justify-center flex-shrink-0 animate-pulse">
                                 <Leaf className="w-8 h-8 text-white" />
                             </div>
                             <div>
@@ -267,7 +267,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {testimonials.map((item) => (
                             <div key={item.id} className="p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:shadow-xl transition-all duration-300 relative">
-                                <Quote className="w-10 h-10 text-[#00dba1]/20 absolute top-6 right-6" />
+                                <Quote className="w-10 h-10 text-brand/20 absolute top-6 right-6" />
                                 <div className="flex gap-1 mb-4">
                                     {[...Array(5)].map((_, i) => (
                                         <Star key={i} className={`w-4 h-4 ${i < Math.floor(item.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
@@ -295,7 +295,7 @@ export default function AboutPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Đội ngũ lãnh đạo</h2>
                         <p className="text-xl text-gray-600">Những con người tâm huyết xây dựng VNGroup Tourist</p>
-                        <div className="w-20 h-1 bg-[#00dba1] mx-auto mt-6 rounded-full"></div>
+                        <div className="w-20 h-1 bg-brand mx-auto mt-6 rounded-full"></div>
                     </div>
 
                     <div className="flex flex-col md:flex-row justify-center gap-10 max-w-3xl mx-auto">
@@ -314,7 +314,7 @@ export default function AboutPage() {
 
                                     {/* Badge chức vụ */}
                                     <div className="absolute top-4 left-4">
-                                        <span className="px-3 py-1.5 bg-[#00dba1] text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-lg">
+                                        <span className="px-3 py-1.5 bg-brand text-white text-xs font-bold rounded-full uppercase tracking-widest shadow-lg">
                                             {member.position}
                                         </span>
                                     </div>
@@ -338,7 +338,7 @@ export default function AboutPage() {
             {/* CTA Section */}
             <section className="py-24 bg-gradient-to-r from-gray-900 to-gray-800 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-0 left-0 w-96 h-96 bg-[#00dba1] rounded-full blur-3xl"></div>
+                    <div className="absolute top-0 left-0 w-96 h-96 bg-brand rounded-full blur-3xl"></div>
                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
                 </div>
 
@@ -353,7 +353,7 @@ export default function AboutPage() {
                         <div className="flex flex-wrap justify-center gap-4">
                             <Link
                                 href="/contact-page"
-                                className="px-10 py-4 bg-[#00dba1] hover:bg-[#00c28e] text-white rounded-full font-bold text-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-[#00dba1]/30 hover:-translate-y-1"
+                                className="px-10 py-4 bg-brand hover:bg-brand-hover text-white rounded-full font-bold text-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-brand/30 hover:-translate-y-1"
                             >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

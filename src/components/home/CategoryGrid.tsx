@@ -29,7 +29,7 @@ export default function CategoryGrid() {
                             <div className="relative w-12 h-12 transition-transform duration-300 group-hover:-translate-y-1">
                                 <Image src={cat.icon} alt={cat.name} fill className="object-contain" />
                             </div>
-                            <span className="text-sm font-semibold text-gray-800 text-center whitespace-nowrap lg:whitespace-normal group-hover:text-[#00dba1] transition-colors">
+                            <span className="text-sm font-semibold text-gray-800 text-center whitespace-nowrap lg:whitespace-normal group-hover:text-brand transition-colors">
                                 {cat.name}
                             </span>
                         </Link>

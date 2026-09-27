@@ -55,7 +55,7 @@ export default function ArticleDetailPage() {
                         </nav>
 
                         {/* Category Badge */}
-                        <span className="inline-block px-4 py-1.5 bg-[#00dba1] text-white text-sm font-bold rounded-full mb-4">
+                        <span className="inline-block px-4 py-1.5 bg-brand text-white text-sm font-bold rounded-full mb-4">
                             {article.categoryLabel}
                         </span>
 
@@ -97,7 +97,7 @@ export default function ArticleDetailPage() {
                         <article className="lg:col-span-2">
                             <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-sm">
                                 {/* Excerpt/Intro */}
-                                <p className="text-xl text-gray-600 leading-relaxed mb-8 font-medium italic border-l-4 border-[#00dba1] pl-6">
+                                <p className="text-xl text-gray-600 leading-relaxed mb-8 font-medium italic border-l-4 border-brand pl-6">
                                     {article.excerpt}
                                 </p>
 
@@ -117,11 +117,11 @@ export default function ArticleDetailPage() {
                                         Chúng tôi đang cập nhật nội dung chi tiết cho bài viết này. Vui lòng quay lại sau hoặc liên hệ với chúng tôi để được tư vấn thêm.
                                     </p>
 
-                                    <div className="mt-8 p-6 bg-[#00dba1]/10 rounded-2xl border border-[#00dba1]/20">
+                                    <div className="mt-8 p-6 bg-brand/10 rounded-2xl border border-brand/20">
                                         <h3 className="text-lg font-bold text-gray-900 mb-2">📞 Liên hệ tư vấn</h3>
                                         <p className="text-gray-600 mb-0">
-                                            Hotline: <strong className="text-[#00dba1]">0931 867 376</strong><br />
-                                            Email: <strong className="text-[#00dba1]">info@vngrouptourist.com</strong>
+                                            Hotline: <strong className="text-brand">0931 867 376</strong><br />
+                                            Email: <strong className="text-brand">info@vngrouptourist.com</strong>
                                         </p>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ export default function ArticleDetailPage() {
                                             <Link
                                                 key={idx}
                                                 href={`/guide-page?tag=${encodeURIComponent(tag)}`}
-                                                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-[#00dba1] hover:text-white transition-colors"
+                                                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-brand hover:text-white transition-colors"
                                             >
                                                 #{tag}
                                             </Link>
@@ -159,7 +159,7 @@ export default function ArticleDetailPage() {
                             <div className="mt-8">
                                 <Link
                                     href="/guide-page"
-                                    className="inline-flex items-center gap-2 text-[#00dba1] font-semibold hover:underline"
+                                    className="inline-flex items-center gap-2 text-brand font-semibold hover:underline"
                                 >
                                     <ArrowLeft className="w-5 h-5" />
                                     Quay lại danh sách bài viết
@@ -207,7 +207,7 @@ export default function ArticleDetailPage() {
                                                     />
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <h4 className="font-medium text-gray-900 line-clamp-2 group-hover:text-[#00dba1] transition-colors text-sm">
+                                                    <h4 className="font-medium text-gray-900 line-clamp-2 group-hover:text-brand transition-colors text-sm">
                                                         {related.title}
                                                     </h4>
                                                     <p className="text-xs text-gray-500 mt-1">{related.readTime}</p>
@@ -219,14 +219,14 @@ export default function ArticleDetailPage() {
                             )}
 
                             {/* CTA */}
-                            <div className="bg-gradient-to-br from-[#00dba1] to-[#00b894] rounded-2xl p-6 text-white">
+                            <div className="bg-gradient-to-br from-brand to-brand-hover rounded-2xl p-6 text-white">
                                 <h3 className="font-bold text-xl mb-3">Đặt tour ngay!</h3>
                                 <p className="text-white/80 text-sm mb-4">
                                     Liên hệ để được tư vấn và đặt tour với giá tốt nhất.
                                 </p>
                                 <Link
                                     href="/tours/international"
-                                    className="block w-full py-3 bg-white text-[#00dba1] font-bold rounded-xl text-center hover:bg-gray-100 transition-colors"
+                                    className="block w-full py-3 bg-white text-brand font-bold rounded-xl text-center hover:bg-gray-100 transition-colors"
                                 >
                                     Xem các tour
                                 </Link>

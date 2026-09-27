@@ -79,7 +79,7 @@ export default function GuidePage() {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00dba1] mx-auto"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand mx-auto"></div>
                     <p className="mt-4 text-gray-500">Đang tải bài viết...</p>
                 </div>
             </div>
@@ -107,7 +107,7 @@ export default function GuidePage() {
                             <input
                                 type="text"
                                 placeholder="Tìm kiếm bài viết..."
-                                className="w-full pl-12 pr-4 py-3 bg-gray-100 border-none rounded-full focus:ring-2 focus:ring-[#00dba1] focus:bg-white transition-all"
+                                className="w-full pl-12 pr-4 py-3 bg-gray-100 border-none rounded-full focus:ring-2 focus:ring-brand focus:bg-white transition-all"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                             />
@@ -132,10 +132,10 @@ export default function GuidePage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                                    <span className="inline-block px-4 py-1.5 bg-[#00dba1] text-white text-sm font-bold rounded-full mb-4">
+                                    <span className="inline-block px-4 py-1.5 bg-brand text-white text-sm font-bold rounded-full mb-4">
                                         Nổi bật
                                     </span>
-                                    <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-[#00dba1] transition-colors">
+                                    <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-brand transition-colors">
                                         {featuredArticle.title}
                                     </h2>
                                     <div className="flex items-center gap-4 text-gray-300 text-sm">
@@ -169,7 +169,7 @@ export default function GuidePage() {
                                             />
                                         </div>
                                         <div className="flex-1 min-w-0 flex flex-col justify-center">
-                                            <h4 className="font-bold text-gray-900 line-clamp-2 group-hover:text-[#00dba1] transition-colors mb-2">
+                                            <h4 className="font-bold text-gray-900 line-clamp-2 group-hover:text-brand transition-colors mb-2">
                                                 {article.title}
                                             </h4>
                                             <span className="text-sm text-gray-500 flex items-center gap-1">
@@ -202,7 +202,7 @@ export default function GuidePage() {
                                             key={cat}
                                             onClick={() => setActiveCategory(cat)}
                                             className={`text-left px-4 py-3 rounded-xl transition-all flex justify-between items-center group ${activeCategory === cat
-                                                ? 'bg-[#00dba1] text-white shadow-lg shadow-[#00dba1]/30'
+                                                ? 'bg-brand text-white shadow-lg shadow-brand/30'
                                                 : 'bg-white text-gray-600 hover:bg-gray-100'
                                                 }`}
                                         >
@@ -219,7 +219,7 @@ export default function GuidePage() {
                             {searchQuery && (
                                 <div className="mb-6 flex items-center justify-between">
                                     <h2 className="text-xl font-bold text-gray-900">
-                                        Kết quả cho: <span className="text-[#00dba1]">&quot;{searchQuery}&quot;</span>
+                                        Kết quả cho: <span className="text-brand">&quot;{searchQuery}&quot;</span>
                                     </h2>
                                     <button onClick={() => setSearchQuery('')} className="text-sm text-gray-500 hover:text-red-500 underline">
                                         Xóa tìm kiếm
@@ -249,7 +249,7 @@ export default function GuidePage() {
                                             </div>
                                         </div>
                                         <div className="p-5">
-                                            <h3 className="font-bold text-gray-900 line-clamp-2 group-hover:text-[#00dba1] transition-colors mb-3">
+                                            <h3 className="font-bold text-gray-900 line-clamp-2 group-hover:text-brand transition-colors mb-3">
                                                 {article.title}
                                             </h3>
                                             <div className="flex items-center gap-4 text-sm text-gray-500">

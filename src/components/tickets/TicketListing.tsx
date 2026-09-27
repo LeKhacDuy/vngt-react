@@ -45,7 +45,7 @@ export default function TicketListing() {
             <section className="bg-white border-b border-gray-200 py-8 lg:py-12 shadow-sm">
                 <div className="container mx-auto px-4">
                     <nav className="flex items-center text-sm text-gray-500 mb-4">
-                        <Link href="/" className="hover:text-[#00dba1] transition-colors">Trang chủ</Link>
+                        <Link href="/" className="hover:text-brand transition-colors">Trang chủ</Link>
                         <ChevronRight className="w-4 h-4 mx-2" />
                         <span className="font-semibold text-gray-800">Vé tham quan du lịch</span>
                     </nav>
@@ -62,7 +62,7 @@ export default function TicketListing() {
                             <div className="space-y-2">
                                 <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Thương hiệu</label>
                                 <select
-                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#00dba1] focus:ring-1 focus:ring-[#00dba1] transition-all"
+                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all"
                                     value={filters.brand}
                                     onChange={(e) => setFilters({ ...filters, brand: e.target.value })}
                                 >
@@ -77,7 +77,7 @@ export default function TicketListing() {
                             <div className="space-y-2">
                                 <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Khu / Điểm đến</label>
                                 <select
-                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#00dba1] focus:ring-1 focus:ring-[#00dba1] transition-all"
+                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all"
                                     value={filters.location}
                                     onChange={(e) => setFilters({ ...filters, location: e.target.value })}
                                 >
@@ -92,7 +92,7 @@ export default function TicketListing() {
                             <div className="space-y-2">
                                 <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Loại vé</label>
                                 <select
-                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#00dba1] focus:ring-1 focus:ring-[#00dba1] transition-all"
+                                    className="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all"
                                     value={filters.category}
                                     onChange={(e) => setFilters({ ...filters, category: e.target.value })}
                                 >
@@ -112,7 +112,7 @@ export default function TicketListing() {
                                     <input
                                         type="text"
                                         placeholder="Tìm theo tên..."
-                                        className="w-full p-3 pl-10 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#00dba1] focus:ring-1 focus:ring-[#00dba1] transition-all"
+                                        className="w-full p-3 pl-10 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all"
                                         value={filters.search}
                                         onChange={(e) => setFilters({ ...filters, search: e.target.value })}
                                     />
@@ -143,7 +143,7 @@ export default function TicketListing() {
                     <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-300">
                         <div className="text-4xl mb-4">🎫</div>
                         <p className="text-gray-500 text-lg">Không tìm thấy vé nào phù hợp.</p>
-                        <button onClick={resetFilters} className="mt-4 text-[#00dba1] font-bold hover:underline">
+                        <button onClick={resetFilters} className="mt-4 text-brand font-bold hover:underline">
                             Xem tất cả vé
                         </button>
                     </div>

@@ -70,7 +70,7 @@ export default function ArticleDetailPage() {
         return (
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00dba1] mx-auto"></div>
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand mx-auto"></div>
                     <p className="mt-4 text-gray-500">Đang tải nội dung bài viết...</p>
                 </div>
             </div>
@@ -106,7 +106,7 @@ export default function ArticleDetailPage() {
                         </nav>
 
                         {/* Category Badge */}
-                        <span className="inline-block px-4 py-1.5 bg-[#00dba1] text-white text-sm font-bold rounded-full mb-4">
+                        <span className="inline-block px-4 py-1.5 bg-brand text-white text-sm font-bold rounded-full mb-4">
                             Cẩm nang du lịch
                         </span>
 
@@ -144,7 +144,7 @@ export default function ArticleDetailPage() {
                                             <div key={idx} className="article-section">
                                                 {/* Section Title */}
                                                 {section.title && (
-                                                    <h2 className="text-2xl font-bold text-[#00dba1] mb-6 pb-3 border-b-2 border-[#00dba1]/20">
+                                                    <h2 className="text-2xl font-bold text-brand mb-6 pb-3 border-b-2 border-brand/20">
                                                         {section.title}
                                                     </h2>
                                                 )}
@@ -210,7 +210,7 @@ export default function ArticleDetailPage() {
                                 ) : article.content ? (
                                     <div
                                         className="prose prose-lg max-w-none text-gray-700 leading-relaxed
-                                            prose-headings:text-gray-900 prose-h2:text-2xl prose-h2:font-bold prose-h2:text-[#00dba1]
+                                            prose-headings:text-gray-900 prose-h2:text-2xl prose-h2:font-bold prose-h2:text-brand
                                             prose-h3:text-xl prose-h3:font-semibold prose-p:mb-4 
                                             prose-img:rounded-2xl prose-img:my-6"
                                         dangerouslySetInnerHTML={{ __html: article.content }}
@@ -218,11 +218,11 @@ export default function ArticleDetailPage() {
                                 ) : (
                                     <div className="text-center py-12">
                                         <p className="text-gray-500 mb-6">Nội dung bài viết đang được cập nhật.</p>
-                                        <div className="p-6 bg-[#00dba1]/10 rounded-2xl border border-[#00dba1]/20 inline-block text-left">
+                                        <div className="p-6 bg-brand/10 rounded-2xl border border-brand/20 inline-block text-left">
                                             <h3 className="text-lg font-bold text-gray-900 mb-2">📞 Liên hệ tư vấn</h3>
                                             <p className="text-gray-600 mb-0">
-                                                Hotline: <strong className="text-[#00dba1]">0931 867 376</strong><br />
-                                                Email: <strong className="text-[#00dba1]">info@vngrouptourist.com</strong>
+                                                Hotline: <strong className="text-brand">0931 867 376</strong><br />
+                                                Email: <strong className="text-brand">info@vngrouptourist.com</strong>
                                             </p>
                                         </div>
                                     </div>
@@ -245,7 +245,7 @@ export default function ArticleDetailPage() {
                             <div className="mt-8">
                                 <Link
                                     href="/guide-page"
-                                    className="inline-flex items-center gap-2 text-[#00dba1] font-semibold hover:underline"
+                                    className="inline-flex items-center gap-2 text-brand font-semibold hover:underline"
                                 >
                                     <ArrowLeft className="w-5 h-5" />
                                     Quay lại danh sách bài viết
@@ -275,7 +275,7 @@ export default function ArticleDetailPage() {
                                                     />
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <h4 className="font-medium text-gray-900 line-clamp-2 group-hover:text-[#00dba1] transition-colors text-sm">
+                                                    <h4 className="font-medium text-gray-900 line-clamp-2 group-hover:text-brand transition-colors text-sm">
                                                         {related.title}
                                                     </h4>
                                                     <p className="text-xs text-gray-500 mt-1">5 phút đọc</p>
@@ -287,14 +287,14 @@ export default function ArticleDetailPage() {
                             )}
 
                             {/* CTA */}
-                            <div className="bg-gradient-to-br from-[#00dba1] to-[#00b894] rounded-2xl p-6 text-white">
+                            <div className="bg-gradient-to-br from-brand to-brand-hover rounded-2xl p-6 text-white">
                                 <h3 className="font-bold text-xl mb-3">Đặt tour ngay!</h3>
                                 <p className="text-white/80 text-sm mb-4">
                                     Liên hệ để được tư vấn và đặt tour với giá tốt nhất.
                                 </p>
                                 <Link
                                     href="/tours/international"
-                                    className="block w-full py-3 bg-white text-[#00dba1] font-bold rounded-xl text-center hover:bg-gray-100 transition-colors"
+                                    className="block w-full py-3 bg-white text-brand font-bold rounded-xl text-center hover:bg-gray-100 transition-colors"
                                 >
                                     Xem các tour
                                 </Link>

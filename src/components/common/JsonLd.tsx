@@ -24,7 +24,7 @@ export const travelAgencySchema = {
   '@type': 'TravelAgency',
   name: 'VNGroup Tourist',
   url: siteUrl,
-  logo: `${siteUrl}/images/b86a4bce511594545df567494e2a23251eb424c7.png`,
+  logo: `${siteUrl}/images/logo-vngroup-tourist.png`,
   description:
     'Công ty du lịch uy tín tại TP.HCM. Chuyên tổ chức tour trong nước, quốc tế, MICE, visa và vé máy bay.',
   telephone: '+84-931-867-376',

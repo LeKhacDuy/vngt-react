@@ -101,7 +101,7 @@ export default function ContactPage() {
             <div className="container mx-auto px-4 relative z-20 -mt-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-white p-6 rounded-2xl shadow-lg flex items-center gap-4 hover:-translate-y-1 transition-transform">
-                        <div className="w-12 h-12 bg-[#00dba1]/10 rounded-full flex items-center justify-center text-[#00dba1]">
+                        <div className="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center text-brand">
                             <Phone className="w-6 h-6" />
                         </div>
                         <div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
 
                             {/* Left Column: Info */}
                             <div className="lg:col-span-5 bg-gradient-to-br from-gray-900 to-gray-800 p-8 lg:p-16 text-white relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#00dba1] rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-brand rounded-full blur-[100px] opacity-20 -mr-20 -mt-20"></div>
                                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20 -ml-20 -mb-20"></div>
 
                                 <div className="relative z-10 h-full flex flex-col justify-between">
@@ -147,7 +147,7 @@ export default function ContactPage() {
 
                                         <div className="space-y-8">
                                             <div className="flex gap-4">
-                                                <MapPin className="w-6 h-6 text-[#00dba1] mt-1 flex-shrink-0" />
+                                                <MapPin className="w-6 h-6 text-brand mt-1 flex-shrink-0" />
                                                 <div>
                                                     <h3 className="font-bold text-lg mb-1">Trụ sở chính</h3>
                                                     <p className="text-gray-300 text-sm leading-relaxed">
@@ -158,7 +158,7 @@ export default function ContactPage() {
                                             </div>
 
                                             <div className="flex gap-4">
-                                                <MapPin className="w-6 h-6 text-[#00dba1] mt-1 flex-shrink-0" />
+                                                <MapPin className="w-6 h-6 text-brand mt-1 flex-shrink-0" />
                                                 <div>
                                                     <h3 className="font-bold text-lg mb-1">Văn phòng đại diện</h3>
                                                     <p className="text-gray-300 text-sm leading-relaxed">
@@ -169,7 +169,7 @@ export default function ContactPage() {
                                             </div>
 
                                             <div className="flex gap-4">
-                                                <Phone className="w-6 h-6 text-[#00dba1] mt-1 flex-shrink-0" />
+                                                <Phone className="w-6 h-6 text-brand mt-1 flex-shrink-0" />
                                                 <div>
                                                     <h3 className="font-bold text-lg mb-1">Điện thoại</h3>
                                                     <p className="text-gray-300 text-sm">0931.867.376</p>
@@ -178,7 +178,7 @@ export default function ContactPage() {
                                             </div>
 
                                             <div className="flex gap-4">
-                                                <Mail className="w-6 h-6 text-[#00dba1] mt-1 flex-shrink-0" />
+                                                <Mail className="w-6 h-6 text-brand mt-1 flex-shrink-0" />
                                                 <div>
                                                     <h3 className="font-bold text-lg mb-1">Email</h3>
                                                     <p className="text-gray-300 text-sm">info@vngrouptourist.com</p>
@@ -191,13 +191,13 @@ export default function ContactPage() {
                                     <div className="mt-12">
                                         <h3 className="text-sm uppercase font-semibold text-gray-400 mb-4">Kết nối mạng xã hội</h3>
                                         <div className="flex gap-4">
-                                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00dba1] transition-all">
+                                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand transition-all">
                                                 <Facebook className="w-5 h-5 text-white" />
                                             </a>
-                                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00dba1] transition-all">
+                                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand transition-all">
                                                 <Instagram className="w-5 h-5 text-white" />
                                             </a>
-                                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#00dba1] transition-all">
+                                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand transition-all">
                                                 <Youtube className="w-5 h-5 text-white" />
                                             </a>
                                         </div>
@@ -211,9 +211,9 @@ export default function ContactPage() {
                                 <p className="text-gray-500 mb-10">Điền vào form bên dưới, chúng tôi sẽ liên hệ trong vòng 24h.</p>
 
                                 {isSubmitted ? (
-                                    <div className="bg-green-50 rounded-3xl p-8 text-center animate-in fade-in zoom-in duration-300">
-                                        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                            <CheckCircle className="w-10 h-10 text-green-600" />
+                                    <div className="bg-success-tint rounded-3xl p-8 text-center animate-in fade-in zoom-in duration-300">
+                                        <div className="w-20 h-20 bg-success-tint rounded-full flex items-center justify-center mx-auto mb-6">
+                                            <CheckCircle className="w-10 h-10 text-success" />
                                         </div>
                                         <h3 className="text-2xl font-bold text-gray-900 mb-3">Gửi thành công!</h3>
                                         <p className="text-gray-600 mb-8 max-w-sm mx-auto">
@@ -237,7 +237,7 @@ export default function ContactPage() {
                                                     value={formData.name}
                                                     onChange={handleChange}
                                                     placeholder="Ví dụ: Nguyễn Văn A"
-                                                    className={`w-full px-5 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                                    className={`w-full px-5 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                                                 />
                                                 {errors.name && <p className="text-xs text-red-500 ml-1">{errors.name}</p>}
                                             </div>
@@ -250,7 +250,7 @@ export default function ContactPage() {
                                                     value={formData.phone}
                                                     onChange={handleChange}
                                                     placeholder="09xx xxx xxx"
-                                                    className={`w-full px-5 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                                    className={`w-full px-5 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                                                 />
                                                 {errors.phone && <p className="text-xs text-red-500 ml-1">{errors.phone}</p>}
                                             </div>
@@ -264,7 +264,7 @@ export default function ContactPage() {
                                                 value={formData.email}
                                                 onChange={handleChange}
                                                 placeholder="example@gmail.com"
-                                                className={`w-full px-5 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                                                className={`w-full px-5 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
                                             />
                                             {errors.email && <p className="text-xs text-red-500 ml-1">{errors.email}</p>}
                                         </div>
@@ -276,7 +276,7 @@ export default function ContactPage() {
                                                     name="tourType"
                                                     value={formData.tourType}
                                                     onChange={handleChange}
-                                                    className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all appearance-none"
+                                                    className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all appearance-none"
                                                 >
                                                     <option value="">Chọn dịch vụ quan tâm</option>
                                                     <option value="domestic">Tour trong nước</option>
@@ -296,7 +296,7 @@ export default function ContactPage() {
                                                     value={formData.people}
                                                     onChange={handleChange}
                                                     placeholder="Số người dự kiến"
-                                                    className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all"
+                                                    className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all"
                                                 />
                                             </div>
                                         </div>
@@ -309,14 +309,14 @@ export default function ContactPage() {
                                                 onChange={handleChange}
                                                 rows={4}
                                                 placeholder="Hãy mô tả chi tiết nhu cầu của bạn (điểm đến, ngân sách, ngày đi...)"
-                                                className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00dba1] focus:border-transparent transition-all resize-none"
+                                                className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all resize-none"
                                             />
                                         </div>
 
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full px-8 py-4 bg-gradient-to-r from-[#00dba1] to-[#00a86b] text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                            className="w-full px-8 py-4 bg-gradient-to-r from-brand to-brand-press text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                         >
                                             {isSubmitting ? (
                                                 <>
@@ -347,7 +347,7 @@ export default function ContactPage() {
 
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                         {partners.filter(p => p.category === 'airline' || p.category === 'finance').slice(0, 5).map(partner => (
-                            <div key={partner.id} className="text-xl font-bold text-gray-500 hover:text-[#00dba1] transition-colors cursor-default">
+                            <div key={partner.id} className="text-xl font-bold text-gray-500 hover:text-brand transition-colors cursor-default">
                                 {partner.name}
                             </div>
                         ))}

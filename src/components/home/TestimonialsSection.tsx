@@ -43,16 +43,16 @@ export default function TestimonialsSection() {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <div className="flex items-center justify-center gap-2 mb-3">
-                        <Quote className="w-8 h-8 text-[#00dba1] fill-current opacity-50" />
+                        <Quote className="w-8 h-8 text-brand fill-current opacity-50" />
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 uppercase tracking-wide">Cảm Nhận Khách Hàng</h2>
                     </div>
-                    <div className="w-24 h-1 bg-[#00dba1] mx-auto rounded-full"></div>
+                    <div className="w-24 h-1 bg-brand mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimonials.map((item) => (
                         <div key={item.id} className="bg-gray-50 rounded-3xl p-8 relative hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-xl">
-                            <Quote className="absolute top-8 left-8 w-10 h-10 text-[#00dba1]/20 -scale-x-100" />
+                            <Quote className="absolute top-8 left-8 w-10 h-10 text-brand/20 -scale-x-100" />
 
                             <p className="text-gray-600 italic mb-8 relative z-10 leading-relaxed min-h-[120px]">
                                 "{item.content}"

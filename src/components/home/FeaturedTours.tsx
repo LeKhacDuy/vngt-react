@@ -85,8 +85,8 @@ export default function FeaturedTours() {
                                     </div>
                                     <div className="border-t border-gray-100 my-3" />
                                     <div className="flex justify-between items-center">
-                                        <div className="h-6 w-28 bg-[#00dba1]/15 rounded" />
-                                        <div className="h-9 w-20 bg-[#00dba1]/10 rounded-full" />
+                                        <div className="h-6 w-28 bg-brand/15 rounded" />
+                                        <div className="h-9 w-20 bg-brand/10 rounded-full" />
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@ export default function FeaturedTours() {
                         <p className="text-gray-600">Những điểm đến được yêu thích nhất hiện nay</p>
                     </div>
 
-                    <Link href="/tours" className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#00dba1] text-[#00dba1] font-semibold hover:bg-[#00dba1] hover:text-white transition-all">
+                    <Link href="/tours" className="group flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand text-brand font-semibold hover:bg-brand hover:text-white transition-all">
                         Xem tất cả <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>

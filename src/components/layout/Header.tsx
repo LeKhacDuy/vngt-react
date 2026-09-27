@@ -35,7 +35,7 @@ export default function Header() {
                 : "bg-white/95 backdrop-blur-sm shadow-sm"
         )}>
             {/* Top Bar - Hidden on mobile/tablet */}
-            <div className="hidden lg:block bg-gradient-to-br from-[#00dba1] to-[#00c791] text-white text-sm py-2">
+            <div className="hidden lg:block bg-gradient-to-br from-brand to-brand text-white text-sm py-2">
                 <div className="container mx-auto px-4 flex justify-between items-center h-9">
                     <p className="font-medium tracking-wide">Hành trình đẳng cấp – Trải nghiệm khác biệt.</p>
                     <div className="flex items-center gap-6">
@@ -61,7 +61,7 @@ export default function Header() {
                         <div className="relative w-[150px] h-[30px] lg:w-[180px] lg:h-[36px]">
                             {/* Using the long filename as is for now */}
                             <Image
-                                src="/images/b86a4bce511594545df567494e2a23251eb424c7.png"
+                                src="/images/logo-vngroup-tourist.png"
                                 alt="VNGROUP TOURIST"
                                 fill
                                 className="object-contain"
@@ -84,17 +84,17 @@ export default function Header() {
                                 <li key={item.name}>
                                     <Link
                                         href={item.href}
-                                        className="relative block px-2.5 xl:px-3.5 py-2 text-[13px] font-bold text-gray-700 uppercase hover:text-[#00dba1] transition-all duration-300 whitespace-nowrap group"
+                                        className="relative block px-2.5 xl:px-3.5 py-2 text-[13px] font-bold text-gray-700 uppercase hover:text-brand transition-all duration-300 whitespace-nowrap group"
                                     >
                                         <span className="relative z-10">{item.name}</span>
-                                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] rounded-full bg-[#00dba1] transition-all duration-300 group-hover:w-4/5" />
+                                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] rounded-full bg-brand transition-all duration-300 group-hover:w-4/5" />
                                     </Link>
                                 </li>
                             ))}
                             <li>
                                 <Link
                                     href="/promotions"
-                                    className="flex items-center gap-2 ml-2 bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white font-bold text-[13px] uppercase px-5 py-2.5 rounded-full hover:shadow-[0_8px_20px_rgba(0,219,161,0.25)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
+                                    className="flex items-center gap-2 ml-2 bg-gradient-to-r from-brand to-brand-hover text-white font-bold text-[13px] uppercase px-5 py-2.5 rounded-full hover:shadow-[0_8px_20px_rgba(188, 52, 46,0.25)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
                                 >
                                     {/* Using generic icon if image missing, or image */}
                                     <div className="relative w-[18px] h-[18px]">
@@ -142,7 +142,7 @@ export default function Header() {
                         <li>
                             <Link
                                 href="/visa-page"
-                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-brand/5 hover:text-brand transition-all duration-300"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Dịch vụ Visa
@@ -151,7 +151,7 @@ export default function Header() {
                         <li>
                             <Link
                                 href="/guide-page"
-                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-brand/5 hover:text-brand transition-all duration-300"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Cẩm nang du lịch
@@ -160,7 +160,7 @@ export default function Header() {
                         <li>
                             <Link
                                 href="/company-profile"
-                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-brand/5 hover:text-brand transition-all duration-300"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Hồ sơ năng lực
@@ -169,7 +169,7 @@ export default function Header() {
                         <li>
                             <Link
                                 href="/about-page"
-                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                className="block py-3 px-4 rounded-xl text-base font-bold text-gray-800 uppercase hover:bg-brand/5 hover:text-brand transition-all duration-300"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Về chúng tôi
@@ -190,7 +190,7 @@ export default function Header() {
                             <li key={item.name}>
                                 <Link
                                     href={item.href}
-                                    className="block py-3 px-4 rounded-xl text-base font-bold text-gray-700 uppercase hover:bg-[#00dba1]/5 hover:text-[#00dba1] transition-all duration-300"
+                                    className="block py-3 px-4 rounded-xl text-base font-bold text-gray-700 uppercase hover:bg-brand/5 hover:text-brand transition-all duration-300"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     {item.name}
@@ -200,7 +200,7 @@ export default function Header() {
                         <li className="pt-2">
                             <Link
                                 href="/promotions"
-                                className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#00dba1] to-[#00b87a] text-white p-4 rounded-2xl font-bold uppercase hover:shadow-[0_8px_20px_rgba(0,219,161,0.2)] transition-all duration-300 shimmer-btn"
+                                className="flex items-center justify-center gap-3 bg-gradient-to-r from-brand to-brand-hover text-white p-4 rounded-2xl font-bold uppercase hover:shadow-[0_8px_20px_rgba(188, 52, 46,0.2)] transition-all duration-300 shimmer-btn"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 <div className="relative w-[18px] h-[18px]">
