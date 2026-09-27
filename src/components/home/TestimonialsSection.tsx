@@ -32,7 +32,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 sm:py-20 bg-white relative overflow-hidden">
             {/* Background Pattern (Doodles simulation) */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
                 style={{
@@ -49,12 +49,15 @@ export default function TestimonialsSection() {
                     <div className="w-24 h-1 bg-brand mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Trên điện thoại cho vuốt ngang thay vì xếp chồng: ba ô
+                    cảm nhận xếp dọc chiếm hơn 1500px, khách phải cuộn rất lâu
+                    mới qua hết. Từ md trở lên vẫn là lưới ba cột như cũ. */}
+                <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0">
                     {testimonials.map((item) => (
-                        <div key={item.id} className="bg-gray-50 rounded-3xl p-8 relative hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-xl">
-                            <Quote className="absolute top-8 left-8 w-10 h-10 text-brand/20 -scale-x-100" />
+                        <div key={item.id} className="shrink-0 w-[85%] snap-start md:w-auto md:shrink bg-gray-50 rounded-3xl p-6 sm:p-8 relative md:hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-xl">
+                            <Quote className="absolute top-6 left-6 sm:top-8 sm:left-8 w-8 h-8 sm:w-10 sm:h-10 text-brand/20 -scale-x-100" />
 
-                            <p className="text-gray-600 italic mb-8 relative z-10 leading-relaxed min-h-[120px]">
+                            <p className="text-gray-600 italic mb-5 sm:mb-8 relative z-10 leading-relaxed text-[15px] sm:text-base md:min-h-[120px]">
                                 "{item.content}"
                             </p>
 

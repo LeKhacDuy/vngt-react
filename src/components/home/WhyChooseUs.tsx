@@ -35,7 +35,7 @@ const memberships = [
 
 export default function WhyChooseUs() {
     return (
-        <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <section className="py-12 sm:py-20 lg:py-28 bg-white relative overflow-hidden">
             {/* Subtle background decorations */}
             <div className="absolute top-0 left-0 w-72 h-72 bg-brand/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3" />
@@ -54,15 +54,19 @@ export default function WhyChooseUs() {
                     </p>
                 </div>
 
-                {/* Membership Grid */}
-                <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+                {/* Danh sách hiệp hội.
+                    Trên điện thoại xếp 2 cột thay vì 1 cột: bảy thẻ chiếm
+                    nguyên chiều ngang thì phải cuộn gần 1800px mới hết, trong
+                    khi đây chỉ là phần chứng nhận uy tín, không phải nội dung
+                    chính khách cần xem. */}
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-6 lg:gap-8">
                     {memberships.map((item, idx) => (
                         <div
                             key={idx}
-                            className="group relative flex flex-col items-center text-center p-6 lg:p-8 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-brand/30 hover:bg-white hover:shadow-xl hover:shadow-brand/5 hover:-translate-y-2 transition-all duration-500 w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)]"
+                            className="group relative flex flex-col items-center text-center p-4 sm:p-6 lg:p-8 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-brand/30 hover:bg-white hover:shadow-xl hover:shadow-brand/5 hover:-translate-y-2 transition-all duration-500 w-[calc(50%-6px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-24px)]"
                         >
                             {/* Logo Container */}
-                            <div className="relative w-24 h-24 lg:w-28 lg:h-28 rounded-2xl bg-white shadow-md group-hover:shadow-lg transition-shadow duration-500 mb-6 overflow-hidden flex items-center justify-center p-3 border border-gray-100 group-hover:border-brand/20">
+                            <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl bg-white shadow-md group-hover:shadow-lg transition-shadow duration-500 mb-3 sm:mb-6 overflow-hidden flex items-center justify-center p-2 sm:p-3 border border-gray-100 group-hover:border-brand/20">
                                 <Image
                                     src={item.logo}
                                     alt={item.name}
@@ -73,18 +77,18 @@ export default function WhyChooseUs() {
                             </div>
 
                             {/* Name */}
-                            <h3 className="text-sm lg:text-base font-bold text-gray-800 leading-snug group-hover:text-brand transition-colors duration-300">
+                            <h3 className="text-[12px] sm:text-sm lg:text-base font-bold text-gray-800 leading-snug group-hover:text-brand transition-colors duration-300">
                                 {item.name}
                             </h3>
 
                             {/* Decorative accent line */}
-                            <div className="mt-4 w-8 h-1 rounded-full bg-gray-200 group-hover:bg-brand group-hover:w-12 transition-all duration-500" />
+                            <div className="hidden sm:block mt-4 w-8 h-1 rounded-full bg-gray-200 group-hover:bg-brand group-hover:w-12 transition-all duration-500" />
                         </div>
                     ))}
                 </div>
 
                 {/* Bottom Trust Badge */}
-                <div className="mt-16 flex flex-col items-center">
+                <div className="mt-8 sm:mt-16 flex flex-col items-center">
                     <div className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-brand/10 to-blue-500/10 rounded-full border border-brand/20">
                         <div className="w-2 h-2 rounded-full bg-brand animate-pulse" />
                         <p className="text-sm font-semibold text-gray-700">

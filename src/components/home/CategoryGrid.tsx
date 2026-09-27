@@ -16,7 +16,7 @@ const categories = [
 
 export default function CategoryGrid() {
     return (
-        <section className="py-10 lg:py-16">
+        <section className="py-10 sm:py-16">
             <div className="container mx-auto px-4">
                 <h2 className="sr-only">Danh mục tour du lịch theo mùa và chủ đề</h2>
                 <div className="flex flex-nowrap lg:grid lg:grid-cols-8 gap-4 lg:gap-8 overflow-x-auto pb-4 lg:pb-0 scrollbar-hide md:justify-between">

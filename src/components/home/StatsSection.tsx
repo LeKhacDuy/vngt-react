@@ -27,9 +27,9 @@ const stats = [
 
 export default function StatsSection() {
     return (
-        <section className="py-16 md:py-24 bg-[#f8fafc] border-y border-gray-100">
+        <section className="py-10 sm:py-16 md:py-24 bg-[#f8fafc] border-y border-gray-100">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-center">
                     
                     {/* Left Column: Text description + Stats cards (8 cols) */}
                     <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between h-full">
@@ -82,8 +82,11 @@ export default function StatsSection() {
                         </div>
                     </div>
 
-                    {/* Right Column: Logo Box (4 cols) */}
-                    <div className="lg:col-span-5 xl:col-span-4 flex justify-center">
+                    {/* Cột phải: hộp logo.
+                        Ẩn trên điện thoại — ô vuông này cao khoảng 380px mà
+                        chỉ để trưng logo, trong khi logo đã có sẵn ở đầu trang
+                        và chân trang. Bỏ đi để khách bớt phải cuộn. */}
+                    <div className="hidden lg:flex lg:col-span-5 xl:col-span-4 justify-center">
                         <div className="bg-white rounded-[36px] p-8 sm:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.03)] border border-gray-150/50 flex items-center justify-center aspect-square w-full max-w-[380px] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1">
                             <div className="relative w-full h-full aspect-square">
                                 <Image 

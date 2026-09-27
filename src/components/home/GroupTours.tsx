@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { tourService, Tour, getImageUrl } from '@/services/tour.service';
+import { getFallbackGroupTours } from '@/data/fallback';
 
 export default function GroupTours() {
     const [tours, setTours] = useState<any[]>([]);
@@ -13,6 +14,8 @@ export default function GroupTours() {
     useEffect(() => {
         const fetchTours = async () => {
             try {
+                // Nạp dữ liệu sẵn có trước, API trả về thì ghi đè
+                setTours(getFallbackGroupTours(4));
                 const response = await tourService.getGroupTours();
                 if (response && response.data) {
                     const mappedTours = response.data.slice(0, 4).map((item: Tour) => ({
@@ -39,7 +42,7 @@ export default function GroupTours() {
 
     if (isLoading) {
         return (
-            <section className="py-20 bg-[#0f172a] relative overflow-hidden">
+            <section className="py-12 sm:py-20 bg-[#0f172a] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                     <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand/10 blur-[100px]"></div>
                     <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]"></div>
@@ -66,7 +69,7 @@ export default function GroupTours() {
     if (tours.length === 0) return null;
 
     return (
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#090d16] via-[#0f172a] to-[#070a10] relative overflow-hidden">
+        <section className="py-12 sm:py-20 lg:py-28 bg-gradient-to-br from-[#090d16] via-[#0f172a] to-[#070a10] relative overflow-hidden">
             {/* Abstract Background Shapes */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
                 <div className="absolute -top-[20%] -left-[10%] w-[55%] h-[55%] rounded-full bg-brand/8 blur-[100px] animate-pulse duration-[6000ms]"></div>
@@ -90,7 +93,7 @@ export default function GroupTours() {
 
                     <Link 
                         href="/tours/group" 
-                        className="group flex items-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-brand to-brand-hover text-white text-xs font-extrabold uppercase tracking-widest hover:shadow-[0_8px_25px_rgba(188, 52, 46,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
+                        className="group flex items-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-brand to-brand-hover text-white text-xs font-extrabold uppercase tracking-widest hover:shadow-[0_8px_25px_rgba(188,52,46,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
                     >
                         Nhận báo giá ngay <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -115,7 +118,7 @@ export default function GroupTours() {
                                     </div>
 
                                     {/* Glassmorphic floating text panel */}
-                                    <div className="absolute bottom-4 left-4 right-4 p-5 rounded-[22px] glass-panel-dark transition-all duration-500 group-hover:border-brand/30 group-hover:shadow-[0_12px_40px_rgba(188, 52, 46,0.12)]">
+                                    <div className="absolute bottom-4 left-4 right-4 p-5 rounded-[22px] glass-panel-dark transition-all duration-500 group-hover:border-brand/30 group-hover:shadow-[0_12px_40px_rgba(188,52,46,0.12)]">
                                         <div className="text-gray-300 text-xs font-semibold mb-2.5 flex items-center gap-2">
                                             <span className="bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-md text-white font-bold">{tour.duration}</span>
                                             <span>• {tour.departure}</span>

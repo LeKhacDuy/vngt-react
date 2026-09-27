@@ -6,6 +6,8 @@ import { Search, MapPin, Calendar, ArrowLeft, ArrowRight, ChevronDown, Globe, X,
 import { tourService } from '@/services/tour.service';
 import { useRouter } from 'next/navigation';
 
+// Ảnh banner cho màn hình lớn. Đây là ảnh thiết kế sẵn, tỉ lệ 2,9:1 và đã có
+// sẵn chữ vẽ trong ảnh nên chỉ hợp với bố cục nằm ngang.
 const HERO_IMAGES = [
     '/cover/cover1.jpg',
     '/cover/cover2.jpg',
@@ -14,6 +16,18 @@ const HERO_IMAGES = [
     '/cover/cover_teambuilding.jpg',
     '/cover/cover_thailand.jpg',
     '/cover/cover_china.jpg'
+];
+
+// Ảnh riêng cho điện thoại. Nhét banner ngang 2,9:1 vào khung dọc của điện
+// thoại thì ảnh bị phóng gần 5 lần, chỉ còn thấy một mẩu vô nghĩa và chữ vẽ
+// trong ảnh mất sạch. Nên ở đây dùng ảnh điểm đến không có chữ, rồi viết tiêu
+// đề bằng chữ thật đè lên.
+const MOBILE_HERO_IMAGES = [
+    '/images/inbound/halong-north.png',
+    '/images/inbound/sapa-north.png',
+    '/images/inbound/danang-central.png',
+    '/hanh-trinh-tinh-hoa-trung-hoa/images/beijing_forbiddencity.png',
+    '/images/inbound/nhatrang-south.png'
 ];
 
 interface Destination {
@@ -51,12 +65,14 @@ export default function HeroSection() {
     const [tourCategory, setTourCategory] = useState<'domestic' | 'international'>('domestic');
     const [activeTab, setActiveTab] = useState<'tours' | 'flight_hotel' | 'hotel' | 'flight' | 'visa'>('tours');
 
+    // shortLabel dùng cho điện thoại: nhãn đầy đủ quá dài nên trên màn hình
+    // hẹp chỉ hiện được tab đầu tiên, các tab sau bị cắt ngang chữ.
     const TABS = [
-        { id: 'tours', label: 'TOUR TRỌN GÓI', icon: Compass },
-        { id: 'flight_hotel', label: 'VÉ MÁY BAY + KHÁCH SẠN', icon: Bed },
-        { id: 'hotel', label: 'KHÁCH SẠN', icon: Hotel },
-        { id: 'flight', label: 'VÉ MÁY BAY', icon: Plane },
-        { id: 'visa', label: 'DỊCH VỤ VISA', icon: ShieldCheck }
+        { id: 'tours', label: 'TOUR TRỌN GÓI', shortLabel: 'TOUR', icon: Compass },
+        { id: 'flight_hotel', label: 'VÉ MÁY BAY + KHÁCH SẠN', shortLabel: 'BAY + KS', icon: Bed },
+        { id: 'hotel', label: 'KHÁCH SẠN', shortLabel: 'KHÁCH SẠN', icon: Hotel },
+        { id: 'flight', label: 'VÉ MÁY BAY', shortLabel: 'VÉ BAY', icon: Plane },
+        { id: 'visa', label: 'DỊCH VỤ VISA', shortLabel: 'VISA', icon: ShieldCheck }
     ];
 
     const POPULAR_SEARCHES = [
@@ -217,26 +233,55 @@ export default function HeroSection() {
 
     return (
         <section className="relative w-full min-h-[580px] sm:min-h-[620px] lg:min-h-0 lg:h-auto lg:aspect-[3000/1039] flex flex-col justify-end py-10 lg:py-0 lg:block lg:mb-28 bg-gray-900">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0 overflow-hidden bg-gray-900">
-                {HERO_IMAGES.map((src, idx) => (
-                    <div
-                        key={idx}
-                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                            idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                        }`}
-                    >
-                        <Image
-                            src={src}
-                            alt={`Hero Banner ${idx + 1}`}
-                            fill
-                            className="object-cover"
-                            priority={idx === 0}
-                            quality={100}
-                        />
-                    </div>
-                ))}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 z-20 pointer-events-none" />
+            {/* Ảnh nền — điện thoại và máy tính dùng hai bộ ảnh khác nhau */}
+            <div className="absolute inset-0 z-0 overflow-hidden bg-ink">
+
+                {/* Điện thoại: ảnh điểm đến, khung dọc */}
+                <div className="lg:hidden">
+                    {MOBILE_HERO_IMAGES.map((src, idx) => (
+                        <div
+                            key={src}
+                            className={`absolute inset-0 transition-opacity duration-1000 ${
+                                idx === currentSlide % MOBILE_HERO_IMAGES.length ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        >
+                            <Image
+                                src={src}
+                                alt=""
+                                fill
+                                sizes="100vw"
+                                className="object-cover"
+                                priority={idx === 0}
+                            />
+                        </div>
+                    ))}
+                    {/* Làm tối ảnh vừa đủ để chữ trắng đè lên còn đọc được.
+                        Đậm ở trên cho phần tiêu đề, nhạt ở giữa để lộ ảnh. */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-ink/65 via-ink/20 to-ink/55" />
+                </div>
+
+                {/* Máy tính: banner thiết kế sẵn */}
+                <div className="hidden lg:block">
+                    {HERO_IMAGES.map((src, idx) => (
+                        <div
+                            key={src}
+                            className={`absolute inset-0 transition-opacity duration-1000 ${
+                                idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                            }`}
+                        >
+                            <Image
+                                src={src}
+                                alt={`Hero Banner ${idx + 1}`}
+                                fill
+                                sizes="100vw"
+                                className="object-cover"
+                                priority={idx === 0}
+                                quality={100}
+                            />
+                        </div>
+                    ))}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 z-20 pointer-events-none" />
+                </div>
             </div>
 
             {/* Arrow navigation */}
@@ -256,21 +301,26 @@ export default function HeroSection() {
             {/* Content */}
             <div className="container mx-auto relative z-10 w-full px-4 flex flex-col justify-between h-full lg:h-full lg:flex lg:items-end lg:justify-center">
                 
-                {/* Hero headline - Visually hidden (sr-only) to prevent overlap with pre-designed text on the banner image, while maintaining 100% SEO strength */}
-                <div className="sr-only">
-                    <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[62px] font-extrabold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] mb-4 lg:mb-5 tracking-tight">
+                {/* Tiêu đề.
+                    Trên điện thoại hiện chữ thật, vì ảnh nền bên dưới là ảnh
+                    điểm đến không có chữ sẵn.
+                    Trên máy tính thì ẩn đi (vẫn còn cho bộ đọc màn hình và
+                    SEO), vì banner đã vẽ sẵn chữ, hiện thêm sẽ chồng lên nhau. */}
+                <div className="not-sr-only lg:sr-only pt-6 sm:pt-10 text-center">
+                    <h1 className="text-[27px] sm:text-4xl font-extrabold text-white leading-[1.18] mb-3 tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
                         Hành Trình Đẳng Cấp,<br />
-                        <span className="bg-gradient-to-r from-brand to-[#00f5b9] bg-clip-text text-transparent drop-shadow-none">Trải Nghiệm Khác Biệt</span>
+                        <span className="text-brand-tint">Trải Nghiệm Khác Biệt</span>
                     </h1>
-                    <p className="text-xs sm:text-base md:text-xl text-white/95 font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] max-w-2xl mx-auto leading-relaxed">
-                        VNGroup Tourist — Chuyên tổ chức tour trong nước & quốc tế uy tín, tour MICE, dịch vụ Visa hàng đầu tại TP.HCM.
+                    <p className="text-[13px] sm:text-base text-white/90 font-medium max-w-md mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                        VNGroup Tourist — Chuyên tổ chức tour trong nước &amp; quốc tế uy tín, tour MICE, dịch vụ Visa hàng đầu tại TP.HCM.
                     </p>
                 </div>
 
                 <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-[75%] z-20">
 
-                    {/* Tabs Menu (Unified Segment Control) */}
-                    <div className="inline-flex items-center p-1 bg-white/90 backdrop-blur-xl rounded-t-[20px] rounded-b-lg border border-white/50 border-b-0 shadow-sm max-w-full overflow-x-auto gap-0.5 ml-2 lg:ml-6 relative z-30 translate-y-[2px]">
+                    {/* Thanh tab. Trên điện thoại cho trượt ngang và ẩn thanh
+                        cuộn, dùng nhãn rút gọn để cả 5 tab cùng lọt màn hình. */}
+                    <div className="flex lg:inline-flex items-center p-1 bg-white/90 backdrop-blur-xl rounded-t-[20px] rounded-b-lg border border-white/50 border-b-0 shadow-sm max-w-full overflow-x-auto scrollbar-hide gap-0.5 ml-2 lg:ml-6 relative z-30 translate-y-[2px]">
                         {TABS.map((tab) => {
                             const Icon = tab.icon;
                             const isActive = activeTab === tab.id;
@@ -278,14 +328,15 @@ export default function HeroSection() {
                                 <button
                                     key={tab.id}
                                     onClick={() => handleTabClick(tab)}
-                                    className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg lg:rounded-xl font-bold text-xs sm:text-[13px] whitespace-nowrap transition-all duration-300 ${
+                                    className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-5 py-2.5 rounded-lg lg:rounded-xl font-bold text-[11px] sm:text-[13px] whitespace-nowrap transition-all duration-300 ${
                                         isActive
-                                            ? 'bg-gradient-to-r from-brand to-brand-hover text-white shadow-[0_4px_12px_rgba(188, 52, 46,0.18)]'
+                                            ? 'bg-gradient-to-r from-brand to-brand-hover text-white shadow-[0_4px_12px_rgba(188,52,46,0.18)]'
                                             : 'text-gray-600 hover:text-brand-hover hover:bg-gray-50/50'
                                     }`}
                                 >
-                                    <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white animate-pulse' : 'text-gray-500'}`} />
-                                    <span>{tab.label}</span>
+                                    <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? 'text-white' : 'text-gray-500'}`} />
+                                    <span className="lg:hidden">{tab.shortLabel}</span>
+                                    <span className="hidden lg:inline">{tab.label}</span>
                                 </button>
                             );
                         })}
@@ -300,7 +351,7 @@ export default function HeroSection() {
                         <div className="flex flex-col lg:flex-row items-stretch gap-0 bg-transparent rounded-[24px] overflow-hidden">
 
                             {/* ── Category Selector (Trong nước / Nước ngoài) ── */}
-                            <div className="flex-shrink-0 flex flex-row lg:flex-col justify-center items-center lg:items-start gap-6 lg:gap-2 px-6 py-4 lg:py-3.5 select-none border-b lg:border-b-0 lg:border-r border-gray-100 lg:w-44 bg-transparent">
+                            <div className="flex-shrink-0 flex flex-row lg:flex-col justify-center items-center lg:items-start gap-6 lg:gap-2 px-4 sm:px-6 py-2.5 sm:py-4 lg:py-3.5 select-none border-b lg:border-b-0 lg:border-r border-gray-100 lg:w-44 bg-transparent">
                                 <label className="flex items-center gap-3 cursor-pointer group">
                                     <input
                                         type="radio"
@@ -354,10 +405,10 @@ export default function HeroSection() {
                             <div className={`flex-1 min-w-0 relative border-b lg:border-b-0 lg:border-r border-gray-100 transition-all duration-300 ${isDepartureDropdownOpen ? 'bg-brand-tint/40' : 'bg-transparent'}`} ref={departureDropdownRef}>
                                 {/* Trigger */}
                                 <div
-                                    className="flex items-center gap-3 px-6 py-4 lg:py-3.5 cursor-pointer select-none w-full h-full"
+                                    className="flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-4 lg:py-3.5 cursor-pointer select-none w-full h-full"
                                     onClick={() => setIsDepartureDropdownOpen(!isDepartureDropdownOpen)}
                                 >
-                                    <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                    <div className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                                         isDepartureDropdownOpen ? 'bg-brand text-white' : 'bg-gray-100 text-gray-500 shadow-sm'
                                     }`}>
                                         <Compass className="w-4 h-4" />
@@ -403,10 +454,10 @@ export default function HeroSection() {
                             <div className={`flex-1 min-w-0 relative border-b lg:border-b-0 lg:border-r border-gray-100 transition-all duration-300 ${isDropdownOpen ? 'bg-brand-tint/40' : 'bg-transparent'}`} ref={dropdownRef}>
                                 {/* Trigger */}
                                 <div
-                                    className="flex items-center gap-3 px-6 py-4 lg:py-3.5 cursor-pointer select-none w-full h-full"
+                                    className="flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-4 lg:py-3.5 cursor-pointer select-none w-full h-full"
                                     onClick={handleOpenDropdown}
                                 >
-                                    <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                    <div className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                                         isDropdownOpen ? 'bg-brand text-white' : 'bg-gray-100 text-gray-500 shadow-sm'
                                     }`}>
                                         <MapPin className="w-4 h-4" />
@@ -496,12 +547,12 @@ export default function HeroSection() {
 
                             {/* ── Departure date ── */}
                             <div
-                                className={`flex-1 min-w-0 flex items-center gap-3 px-6 py-4 lg:py-3.5 border-b lg:border-b-0 border-gray-100 transition-all duration-300 ${
+                                className={`flex-1 min-w-0 flex items-center gap-3 px-4 sm:px-6 py-2.5 sm:py-4 lg:py-3.5 border-b lg:border-b-0 border-gray-100 transition-all duration-300 ${
                                     focusedField === 'date' ? 'bg-brand-tint/40' : 'bg-transparent'
                                 }`}
                                 onClick={() => (document.getElementById('input-date') as HTMLInputElement)?.showPicker?.()}
                             >
-                                <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                <div className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
                                     focusedField === 'date' ? 'bg-brand text-white' : 'bg-white/80 text-gray-500 shadow-sm'
                                 }`}>
                                     <Calendar className="w-4 h-4" />
@@ -528,7 +579,7 @@ export default function HeroSection() {
                             <div className="flex items-center justify-center p-3 lg:p-2 lg:pl-4 bg-transparent">
                                 <button
                                     onClick={handleSearch}
-                                    className="w-full lg:w-auto h-12 lg:h-14 px-8 rounded-2xl lg:rounded-[22px] flex items-center justify-center gap-2 font-bold text-white text-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95 shimmer-btn shadow-[0_6px_20px_rgba(188, 52, 46,0.2)] hover:shadow-[0_10px_25px_rgba(188, 52, 46,0.35)]"
+                                    className="w-full lg:w-auto h-12 lg:h-14 px-8 rounded-2xl lg:rounded-[22px] flex items-center justify-center gap-2 font-bold text-white text-sm transition-all duration-300 hover:-translate-y-0.5 active:scale-95 shimmer-btn shadow-[0_6px_20px_rgba(188,52,46,0.2)] hover:shadow-[0_10px_25px_rgba(188,52,46,0.35)]"
                                     style={{
                                         background: 'linear-gradient(135deg, #BC342E 0%, #A32A24 100%)',
                                     }}

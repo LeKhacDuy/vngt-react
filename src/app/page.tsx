@@ -33,23 +33,35 @@ export default function Home() {
     <div className="pb-20">
       <PromoPopup />
       <HeroSection />
-      {/* CategoryGrid: Default White - Đưa lên đầu để khơi gợi cảm hứng khám phá sớm */}
+
+      {/* Thứ tự đặt theo việc khách vào trang để làm gì: xem tour trước,
+          rồi mới tới phần chứng minh công ty đáng tin.
+          Trước đây hiệp hội và bài giới thiệu nằm ngay sau khối tour đầu
+          tiên, chiếm 42% chiều dài trang trong khi tour chỉ được 17% —
+          khách phải cuộn qua 7 logo hiệp hội mới thấy tour tiếp theo. */}
+
+      {/* Danh mục theo mùa và chủ đề: điều hướng nhanh */}
       <CategoryGrid />
-      {/* HotToursOfDay: Tour hot trong ngày - Tạo tâm lý khẩn cấp */}
+
+      {/* Tour trong ngày, tạo cảm giác cần quyết nhanh */}
       <HotToursOfDay />
-      {/* FeaturedTours: Gray 50 - Các tour nổi bật chính */}
+
+      {/* Các khối tour chính */}
       <FeaturedTours />
-      {/* Memberships Section / WhyChooseUs: Đưa lên sớm để củng cố độ tin cậy của thương hiệu */}
-      <WhyChooseUs />
-      {/* StatsSection: Ocean Gradient - Đi liền sau phần Why Choose Us để bổ trợ số liệu thực tế */}
-      <StatsSection />
-      {/* GroupTours: Premium Dark - Tour đoàn phân khúc cao cấp */}
       <GroupTours />
-      {/* TestimonialsSection: White - Phản hồi từ khách hàng thực tế */}
+
+      {/* Số liệu và giới thiệu công ty */}
+      <StatsSection />
+
+      {/* Chứng nhận hội viên các hiệp hội */}
+      <WhyChooseUs />
+
+      {/* Khách hàng nói gì */}
       <TestimonialsSection />
-      {/* TravelGuideSection: Gray 50 - Cẩm nang chia sẻ kinh nghiệm du lịch */}
+
+      {/* Cẩm nang du lịch */}
       <TravelGuideSection />
-      
+
     </div>
   );
 }

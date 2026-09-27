@@ -5,6 +5,7 @@ import Link from 'next/link';
 import TourCard from '@/components/common/TourCard';
 import { ArrowRight } from 'lucide-react';
 import { tourService, Tour, getImageUrl } from '@/services/tour.service';
+import { getFallbackHotTours } from '@/data/fallback';
 
 export default function FeaturedTours() {
     const [tours, setTours] = useState<any[]>([]);
@@ -14,6 +15,8 @@ export default function FeaturedTours() {
         const fetchTours = async () => {
             try {
                 // Fetch HOT tours as per reference code
+                // Nạp dữ liệu sẵn có trước, API trả về thì ghi đè
+                setTours(getFallbackHotTours(4));
                 const response = await tourService.getHotTours();
 
                 if (response && response.data) {

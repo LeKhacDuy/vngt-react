@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowRight, Calendar, Clock, MapPin, Tag } from 'lucide-react';
 import { articleService, Article } from '@/services/article.service';
 import { getImageUrl } from '@/services/tour.service';
+import { getFallbackArticles } from '@/data/fallback';
 
 export default function TravelGuideSection() {
     const [articles, setArticles] = useState<Article[]>([]);
@@ -14,6 +15,8 @@ export default function TravelGuideSection() {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
+                // Nạp dữ liệu sẵn có trước, API trả về thì ghi đè
+                setArticles(getFallbackArticles(6));
                 const response = await articleService.getArticles({ limit: 10 });
                 if (response && response.success) {
                     setArticles(response.articles || []);
@@ -49,7 +52,7 @@ export default function TravelGuideSection() {
 
     if (loading) {
         return (
-            <section className="py-24 bg-[#FAFAFA]">
+            <section className="py-14 sm:py-24 bg-[#FAFAFA]">
                 <div className="container mx-auto px-4 animate-pulse">
                     {/* Header Skeleton */}
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -64,11 +67,11 @@ export default function TravelGuideSection() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                         {/* Hero Article Skeleton */}
                         <div className="lg:col-span-7 xl:col-span-8">
-                            <div className="h-[500px] lg:h-[600px] rounded-[2rem] bg-gray-200" />
+                            <div className="h-[300px] sm:h-[420px] lg:h-[600px] rounded-[2rem] bg-gray-200" />
                         </div>
 
                         {/* Sidebar Skeleton */}
-                        <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
+                        <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 sm:gap-6">
                             {[1, 2, 3].map((i) => (
                                 <div key={i} className="flex gap-5 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 items-center">
                                     <div className="w-32 h-32 md:w-36 md:h-36 rounded-xl bg-gray-200 flex-shrink-0" />
@@ -97,7 +100,7 @@ export default function TravelGuideSection() {
     };
 
     return (
-        <section className="py-24 bg-[#FAFAFA]">
+        <section className="py-14 sm:py-24 bg-[#FAFAFA]">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -115,7 +118,7 @@ export default function TravelGuideSection() {
                     {/* Hero Article (Left - Large) */}
                     {tipsArticle && (
                         <div className="lg:col-span-7 xl:col-span-8">
-                            <Link href={`/guide/${tipsArticle.slug || tipsArticle.id}`} className="group block relative h-[500px] lg:h-[600px] rounded-[2rem] overflow-hidden shadow-2xl">
+                            <Link href={`/guide/${tipsArticle.slug || tipsArticle.id}`} className="group block relative h-[300px] sm:h-[420px] lg:h-[600px] rounded-[2rem] overflow-hidden shadow-2xl">
                                 <Image
                                     src={getImageUrl(tipsArticle.intro_image)}
                                     alt={tipsArticle.title}
@@ -150,7 +153,7 @@ export default function TravelGuideSection() {
                     )}
 
                     {/* Sidebar List (Right) */}
-                    <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
+                    <div className="lg:col-span-5 xl:col-span-4 flex flex-col gap-4 sm:gap-6">
                         {sidebarList.map((article, index) => (
                             <Link key={article.id} href={`/guide/${article.slug || article.id}`} className="group flex gap-5 bg-white p-4 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 flex-1 items-center">
                                 <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-xl overflow-hidden flex-shrink-0 shadow-inner">
