@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         description: 'Xem trực tuyến và tải về hồ sơ năng lực Công ty Du lịch VNGroup Tourist mới nhất 2026. Uy tín, chất lượng, trải nghiệm khác biệt.',
         images: [
             {
-                url: '/cover/Cover Website tour nước ngoài.jpg',
+                url: '/cover/cover_international.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'VNGroup Tourist Company Profile'

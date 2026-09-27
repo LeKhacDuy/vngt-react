@@ -9,11 +9,11 @@ import { useRouter } from 'next/navigation';
 const HERO_IMAGES = [
     '/cover/cover1.jpg',
     '/cover/cover2.jpg',
-    '/cover/Cover Website tour nước ngoài.jpg',
-    '/cover/Cover Website tour nội địa.jpg',
-    '/cover/Cover website Teambuilding Gala Dinner.jpg',
-    '/cover/Cover website Thái Lan.jpg',
-    '/cover/Cover website Trung Quốc.jpg'
+    '/cover/cover_international.jpg',
+    '/cover/cover_domestic.jpg',
+    '/cover/cover_teambuilding.jpg',
+    '/cover/cover_thailand.jpg',
+    '/cover/cover_china.jpg'
 ];
 
 interface Destination {
