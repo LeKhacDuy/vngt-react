@@ -28,6 +28,7 @@ export default function Header() {
     };
 
     return (
+        <>
         <header className={cn(
             "sticky top-0 z-50 w-full transition-all duration-500",
             isScrolled
@@ -121,22 +122,35 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            <div
-                className={cn(
-                    "fixed inset-0 bg-black/80 z-40 transition-opacity duration-300 lg:hidden",
-                    isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
+        </header>
 
-            {/* Mobile Menu Sidebar */}
-            <div
-                className={cn(
-                    "fixed top-0 right-0 w-[85%] max-w-[340px] h-full bg-white/95 backdrop-blur-xl border-l border-gray-100/50 rounded-l-[32px] z-50 transition-all duration-500 ease-out transform overflow-y-auto lg:hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)]",
-                    isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-                )}
-            >
+            {/* Menu dien thoai — phai de NGOAI the <header>.
+                <header> co backdrop-blur-sm. Thuoc tinh backdrop-filter bien
+                the do thanh khung tham chieu cho moi phan tu position: fixed
+                nam trong no. Khi menu con nam trong header, no bam theo header
+                cao 53px chu khong theo man hinh, nen luc dong bi day sang phai
+                va keo chieu rong trang tu 390px len 721px — sinh ra dai trang
+                trong o ben phai tren dien thoai.
+                Khung boc ben duoi dung bang man hinh va clip phan thua, nen
+                ngan keo luc dong khong lam trang rong them. */}
+            <div className="fixed inset-0 z-40 overflow-hidden pointer-events-none lg:hidden">
+
+                {/* Lop mo phia sau */}
+                <div
+                    className={cn(
+                        "absolute inset-0 bg-black/80 transition-opacity duration-300",
+                        isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                />
+
+                {/* Ngan keo */}
+                <div
+                    className={cn(
+                        "absolute top-0 right-0 w-[85%] max-w-[340px] h-full bg-white/95 backdrop-blur-xl border-l border-gray-100/50 rounded-l-[32px] transition-all duration-500 ease-out transform overflow-y-auto shadow-[0_20px_60px_rgba(0,0,0,0.15)]",
+                        isMobileMenuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
+                    )}
+                >
                 <div className="p-6 pt-24">
                     <ul className="space-y-2">
                         <li>
@@ -217,7 +231,8 @@ export default function Header() {
                         </p>
                     </div>
                 </div>
+                </div>
             </div>
-        </header>
+        </>
     );
 }
