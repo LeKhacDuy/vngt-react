@@ -94,7 +94,7 @@ export default function Header() {
                             <li>
                                 <Link
                                     href="/promotions"
-                                    className="flex items-center gap-2 ml-2 bg-gradient-to-r from-brand to-brand-hover text-white font-bold text-[13px] uppercase px-5 py-2.5 rounded-full hover:shadow-[0_8px_20px_rgba(188, 52, 46,0.25)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
+                                    className="flex items-center gap-2 ml-2 bg-gradient-to-r from-brand to-brand-hover text-white font-bold text-[13px] uppercase px-5 py-2.5 rounded-full hover:shadow-[0_8px_20px_rgba(188,52,46,0.25)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
                                 >
                                     {/* Using generic icon if image missing, or image */}
                                     <div className="relative w-[18px] h-[18px]">
@@ -200,7 +200,7 @@ export default function Header() {
                         <li className="pt-2">
                             <Link
                                 href="/promotions"
-                                className="flex items-center justify-center gap-3 bg-gradient-to-r from-brand to-brand-hover text-white p-4 rounded-2xl font-bold uppercase hover:shadow-[0_8px_20px_rgba(188, 52, 46,0.2)] transition-all duration-300 shimmer-btn"
+                                className="flex items-center justify-center gap-3 bg-gradient-to-r from-brand to-brand-hover text-white p-4 rounded-2xl font-bold uppercase hover:shadow-[0_8px_20px_rgba(188,52,46,0.2)] transition-all duration-300 shimmer-btn"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 <div className="relative w-[18px] h-[18px]">

@@ -143,7 +143,7 @@ body {
 
 /* Soft ambient glow */
 .ambient-glow {
-  box-shadow: 0 0 40px 10px rgba(188, 52, 46, 0.15);
+  box-shadow: 0 0 40px 10px rgba(188,52,46, 0.15);
 }
 
 .ambient-glow-sapphire {

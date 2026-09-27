@@ -38,9 +38,9 @@ export default function FloatingContact() {
                     50% { transform: scale(1.1); }
                 }
                 @keyframes ripple {
-                    0% { box-shadow: 0 0 0 0 rgba(188, 52, 46, 0.7); }
-                    70% { box-shadow: 0 0 0 15px rgba(188, 52, 46, 0); }
-                    100% { box-shadow: 0 0 0 0 rgba(188, 52, 46, 0); }
+                    0% { box-shadow: 0 0 0 0 rgba(188,52,46, 0.7); }
+                    70% { box-shadow: 0 0 0 15px rgba(188,52,46, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(188,52,46, 0); }
                 }
                 .animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
                 .animate-zoom { animation: zoom 2s ease-in-out infinite; }

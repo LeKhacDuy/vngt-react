@@ -23,10 +23,10 @@ export default function TourCard({ tour }: { tour: TourProps }) {
     const isHot = tour.discount?.toLowerCase() === 'hot';
     const badgeBg = isHot 
         ? "bg-gradient-to-r from-orange-500 to-red-500 shadow-[0_4px_12px_rgba(239,68,68,0.25)]" 
-        : "bg-gradient-to-r from-brand to-brand-hover shadow-[0_4px_12px_rgba(188, 52, 46,0.25)]";
+        : "bg-gradient-to-r from-brand to-brand-hover shadow-[0_4px_12px_rgba(188,52,46,0.25)]";
 
     return (
-        <div className="group bg-white rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-brand/20 shadow-[0_12px_40px_rgba(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_48px_rgba(188, 52, 46,0.08)] transition-all duration-500 flex flex-col h-full">
+        <div className="group bg-white rounded-[24px] overflow-hidden border border-gray-100/60 hover:border-brand/20 shadow-[0_12px_40px_rgba(0,0,0,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_48px_rgba(188,52,46,0.08)] transition-all duration-500 flex flex-col h-full">
             {/* Image Container */}
             <div className="relative h-[215px] overflow-hidden">
                 <Image
@@ -84,7 +84,7 @@ export default function TourCard({ tour }: { tour: TourProps }) {
 
                     <Link
                         href={`/tours/${tour.slug}`}
-                        className="px-5 py-2.5 bg-gradient-to-r from-brand to-brand-hover text-white rounded-full text-xs font-extrabold uppercase tracking-wider hover:shadow-[0_8px_20px_rgba(188, 52, 46,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
+                        className="px-5 py-2.5 bg-gradient-to-r from-brand to-brand-hover text-white rounded-full text-xs font-extrabold uppercase tracking-wider hover:shadow-[0_8px_20px_rgba(188,52,46,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shimmer-btn"
                     >
                         Đặt ngay
                     </Link>

@@ -69,7 +69,7 @@ export default function TopProgressBar() {
                     height: '100%',
                     width: `${progress}%`,
                     background: 'linear-gradient(90deg, #BC342E, #00e6ac, #00f0b5)',
-                    boxShadow: '0 0 10px rgba(188, 52, 46, 0.7), 0 0 5px rgba(188, 52, 46, 0.5)',
+                    boxShadow: '0 0 10px rgba(188,52,46, 0.7), 0 0 5px rgba(188,52,46, 0.5)',
                     transition: progress === 0
                         ? 'none'
                         : progress === 100

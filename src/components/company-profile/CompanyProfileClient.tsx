@@ -201,7 +201,7 @@ export default function CompanyProfileClient() {
         <div className="min-h-screen bg-slate-50 font-sans selection:bg-brand/30 selection:text-slate-900 overflow-x-hidden">
             {/* Hero Section */}
             <section className="relative min-h-[70vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-gradient-to-br from-brand-tint via-cream to-brand-tint text-slate-900">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(188, 52, 46,0.06),transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(188,52,46,0.06),transparent_50%)]"></div>
                 <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_60%,#f8fafc_100%)]"></div>
                 
                 <div className="container mx-auto px-4 relative z-10 text-center max-w-5xl">
@@ -288,7 +288,7 @@ export default function CompanyProfileClient() {
 
             {/* Vision, Mission & ESG Section */}
             <section className="py-20 bg-slate-50 text-slate-950 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(188, 52, 46,0.03),transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(188,52,46,0.03),transparent_50%)]"></div>
                 <div className="container mx-auto px-4 relative z-10 max-w-6xl">
                     <div className="text-center mb-16">
                         <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Tầm nhìn & Sứ mệnh</span>
@@ -415,7 +415,7 @@ export default function CompanyProfileClient() {
 
             {/* Business Sectors Section */}
             <section className="py-24 bg-slate-50 text-slate-950 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(188, 52, 46,0.03),transparent_40%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(188,52,46,0.03),transparent_40%)]"></div>
                 <div className="container mx-auto px-4 max-w-6xl relative z-10">
                     <div className="text-center mb-16">
                         <span className="text-brand text-xs font-bold uppercase tracking-widest block mb-3">Lĩnh vực hoạt động</span>
@@ -688,7 +688,7 @@ export default function CompanyProfileClient() {
 
             {/* Download Bottom Banner */}
             <section className="py-20 bg-gradient-to-r from-brand-tint via-cream to-brand-tint text-slate-950 text-center relative overflow-hidden border-t border-slate-100">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(188, 52, 46,0.04),transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(188,52,46,0.04),transparent_50%)]"></div>
                 <div className="container mx-auto px-4 relative z-10 max-w-3xl">
                     <Building2 className="w-12 h-12 text-brand-hover mx-auto mb-6" />
                     <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-slate-950">Sở Hữu Bản In Hồ Sơ Năng Lực</h2>

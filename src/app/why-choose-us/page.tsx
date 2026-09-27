@@ -172,7 +172,7 @@ export default function WhyChooseUsPage() {
                             
                             <Link 
                                 href="/contact-page" 
-                                className="inline-flex items-center gap-2 px-10 py-5 bg-brand hover:bg-brand-hover text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(188, 52, 46,0.4)]"
+                                className="inline-flex items-center gap-2 px-10 py-5 bg-brand hover:bg-brand-hover text-white font-bold text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(188,52,46,0.4)]"
                             >
                                 <PhoneCall className="w-5 h-5" />
                                 INBOX NHẬN TƯ VẤN NGAY
