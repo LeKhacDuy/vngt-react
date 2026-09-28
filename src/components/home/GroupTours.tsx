@@ -22,11 +22,19 @@ export default function GroupTours() {
                         id: item.id.toString(),
                         name: item.name,
                         image: getImageUrl(item.thumbnail),
-                        price: new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.web_price),
-                        originalPrice: new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.web_price * 1.2), // Mock original price
+                        // Tour doan phan lon bao gia theo yeu cau nen chua nhap gia.
+                        // Truoc day nhung tour do hien "0 ₫" tren trang chu.
+                        price: item.web_price
+                            ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.web_price)
+                            : 'Liên hệ',
+                        // CAN XEM LAI: gia goc nay la gia that nhan 1,2 chu khong phai gia
+                        // niem yet that. Khach dang thay mot muc giam gia khong co that.
+                        originalPrice: item.web_price
+                            ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.web_price * 1.2)
+                            : null,
                         duration: `${item.duration} Ngày`,
                         departure: 'Theo yêu cầu',
-                        discount: 'Hot',
+                        discount: item.web_price ? 'Hot' : null,
                         slug: item.slug || item.tour_code || item.id
                     }));
                     setTours(mappedTours);
