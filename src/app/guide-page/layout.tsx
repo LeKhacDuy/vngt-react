@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd, { breadcrumbSchema } from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Cẩm Nang Du Lịch — Kinh Nghiệm & Bí Kíp',
@@ -14,5 +15,13 @@ export const metadata: Metadata = {
 };
 
 export default function GuideLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+        <>
+            <JsonLd data={breadcrumbSchema([
+                { name: 'Trang chủ', url: '/' },
+                { name: 'Cẩm nang du lịch', url: '/guide-page' },
+            ])} />
+            {children}
+        </>
+    );
 }

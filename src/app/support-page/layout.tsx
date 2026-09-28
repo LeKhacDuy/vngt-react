@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd, { breadcrumbSchema } from '@/components/common/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Hỗ Trợ Khách Hàng — VNGroup Tourist',
@@ -14,5 +15,13 @@ export const metadata: Metadata = {
 };
 
 export default function SupportLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+        <>
+            <JsonLd data={breadcrumbSchema([
+                { name: 'Trang chủ', url: '/' },
+                { name: 'Hỗ trợ khách hàng', url: '/support-page' },
+            ])} />
+            {children}
+        </>
+    );
 }

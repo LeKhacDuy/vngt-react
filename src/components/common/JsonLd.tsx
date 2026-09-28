@@ -16,7 +16,7 @@ export default function JsonLd({ data }: JsonLdProps) {
 
 // --- Pre-built schema helpers ---
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vngrouptourist.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vngrouptourist.vn';
 
 /** TravelAgency schema for the whole site */
 export const travelAgencySchema = {

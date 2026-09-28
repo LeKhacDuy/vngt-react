@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vngrouptourist.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vngrouptourist.vn';
 
 const staticPages: MetadataRoute.Sitemap = [
   { url: siteUrl, lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },

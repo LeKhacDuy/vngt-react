@@ -13,11 +13,11 @@ export const metadata: Metadata = {
         description: 'Đừng chỉ nghe chúng tôi nói, hãy xem khách hàng cảm nhận gì sau mỗi chuyến đi cùng VNGroup Tourist. Dịch vụ tận tâm, lịch trình chu đáo.',
         type: 'website',
         locale: 'vi_VN',
-        url: 'https://vngrouptourist.com/why-choose-us',
+        url: '/why-choose-us',
         siteName: 'VNGroup Tourist',
         images: [
             {
-                url: '/images/slider2.jpg', // Có thể thay bằng URL hình thật
+                url: '/images/og-default.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Khách hàng đánh giá VNGroup Tourist',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         description: 'Đừng chỉ nghe chúng tôi nói, hãy xem khách hàng cảm nhận gì sau mỗi chuyến đi cùng VNGroup Tourist.',
     },
     alternates: {
-        canonical: 'https://vngrouptourist.com/why-choose-us',
+        canonical: '/why-choose-us',
     }
 };
 

@@ -14,7 +14,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({ subsets: ["latin", "vietnamese"] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vngrouptourist.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vngrouptourist.vn';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
