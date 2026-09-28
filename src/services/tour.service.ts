@@ -134,8 +134,23 @@ export const tourService = {
     },
 
     getBySlug: async (slug: string) => {
-        // API doesn't support filtering by slug/tour_code and returns a fixed list (approx 100 items).
-        // We fetch all available tours and filter client-side.
+        // Đường chính: hỏi thẳng backend một tour theo mã.
+        // Trước đây hàm này tải toàn bộ danh sách tour rồi lọc ở trình duyệt.
+        // Next.js có prefetch các link tour trên trang chủ, nên mỗi lần khách
+        // vào trang chủ là vài lần tải cả trăm tour về chỉ để lấy một tour.
+        try {
+            const oneRes = await api.get<any, { data: any }>(
+                `/tours/by-code/${encodeURIComponent(decodeURIComponent(slug).trim())}`
+            );
+            if (oneRes?.data) {
+                return { data: transformTourData(oneRes.data) };
+            }
+        } catch {
+            // Không tìm thấy theo mã thì rơi xuống các cách bên dưới
+        }
+
+        // Đường lùi: tải danh sách rồi lọc. Danh sách là bản rút gọn nên sau
+        // khi tìm được phải gọi thêm /tours/{id} mới có lịch trình đầy đủ.
         const res = await api.get<any, { data: any[] }>('/tours', { params: { limit: 1000 } });
 
         if (res.data && res.data.length > 0) {
@@ -151,6 +166,12 @@ export const tourService = {
             });
 
             if (exactMatch) {
+                try {
+                    const fullRes = await api.get<any, { data: any }>(`/tours/${exactMatch.id}`);
+                    if (fullRes?.data) return { data: transformTourData(fullRes.data) };
+                } catch {
+                    // Lấy bản đầy đủ thất bại thì dùng tạm bản rút gọn
+                }
                 return { data: transformTourData(exactMatch) };
             }
 
