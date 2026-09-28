@@ -276,7 +276,11 @@ export default function HeroSection() {
                                 sizes="100vw"
                                 className="object-cover"
                                 priority={idx === 0}
-                                quality={100}
+                                // q=100 lam moi banner nang 1,1MB trong khi q=75
+                                // chi 263KB — mat thuong gan nhu khong phan biet
+                                // duoc voi anh JPEG. Trang chu truoc day tai
+                                // 4,25MB anh, gap 8 lan toan bo du lieu API.
+                                quality={75}
                             />
                         </div>
                     ))}
