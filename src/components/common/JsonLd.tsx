@@ -75,3 +75,23 @@ export function tourSchema(tour: {
     },
   };
 }
+
+/**
+ * BreadcrumbList — giúp Google hiện đường dẫn phân cấp dưới tiêu đề trong
+ * kết quả tìm kiếm thay vì URL trần.
+ *
+ * Truyền vào theo thứ tự từ ngoài vào trong, ví dụ:
+ *   [{ name: 'Trang chủ', url: '/' }, { name: 'Tour Quốc Tế', url: '/tours/international' }]
+ */
+export function breadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${siteUrl}${item.url === '/' ? '' : item.url}`,
+    })),
+  };
+}

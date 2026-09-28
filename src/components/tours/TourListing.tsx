@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import JsonLd, { breadcrumbSchema } from '@/components/common/JsonLd';
 import Link from 'next/link';
 import { tourService, Tour, getImageUrl } from '@/services/tour.service';
 import TourCard from '@/components/common/TourCard';
@@ -132,11 +134,38 @@ export default function TourListing({ category, title, description, introSection
         category: category
     });
 
+    const duongDan = usePathname();
+
+    // Tieu de trang. Truoc day khoi nay nam sau nhanh loading nen HTML do
+    // may chu tra ve chi co khung xuong, khong co the <h1> nao — chu de cua
+    // trang chi xuat hien sau khi JavaScript chay xong. Tach ra de no luon
+    // co mat ngay tu HTML dau tien.
+    const tieuDeTrang = (
+        <>
+        <JsonLd data={breadcrumbSchema([
+            { name: 'Trang chủ', url: '/' },
+            { name: title, url: duongDan || '/tours' },
+        ])} />
+        <section className="bg-white border-b border-gray-200 py-8 lg:py-12">
+            <div className="container mx-auto px-4">
+                <nav className="flex items-center text-sm text-gray-500 mb-4">
+                    <Link href="/" className="hover:text-brand transition-colors">Trang chủ</Link>
+                    <ChevronRight className="w-4 h-4 mx-2" />
+                    <span className="font-semibold text-gray-800">{title}</span>
+                </nav>
+                <h1 className="text-3xl lg:text-5xl font-normal text-gray-800">{title}</h1>
+                {description && <p className="mt-4 text-gray-500">{description}</p>}
+            </div>
+        </section>
+        </>
+    );
+
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-50 pb-20 animate-pulse">
-                {/* Breadcrumb Skeleton */}
-                <section className="bg-white border-b border-gray-200 py-8 lg:py-12">
+            <div className="min-h-screen bg-gray-50 pb-20">
+                {tieuDeTrang}
+                <div className="animate-pulse">
+                <section className="bg-white border-b border-gray-200 py-8 lg:py-12 hidden">
                     <div className="container mx-auto px-4">
                         <div className="flex items-center gap-2 mb-4">
                             <div className="h-4 w-16 bg-gray-200 rounded" />
@@ -183,24 +212,14 @@ export default function TourListing({ category, title, description, introSection
                         ))}
                     </div>
                 </div>
+                </div>
             </div>
         );
     }
 
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
-            {/* Breadcrumb / Page Header — always visible */}
-            <section className="bg-white border-b border-gray-200 py-8 lg:py-12">
-                <div className="container mx-auto px-4">
-                    <nav className="flex items-center text-sm text-gray-500 mb-4">
-                        <Link href="/" className="hover:text-brand transition-colors">Trang chủ</Link>
-                        <ChevronRight className="w-4 h-4 mx-2" />
-                        <span className="font-semibold text-gray-800">{title}</span>
-                    </nav>
-                    <h1 className="text-3xl lg:text-5xl font-normal text-gray-800">{title}</h1>
-                    {description && <p className="mt-4 text-gray-500">{description}</p>}
-                </div>
-            </section>
+            {tieuDeTrang}
 
             {/* Featured Destination Strip (Optional) */}
             {introSection}

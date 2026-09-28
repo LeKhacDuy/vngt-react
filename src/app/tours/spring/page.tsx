@@ -3,12 +3,12 @@ import TourListing from '@/components/tours/TourListing';
 import SubcategoryHero from '@/components/tours/SubcategoryHero';
 
 export const metadata: Metadata = {
-  title: 'Tour Mùa Xuân 2025 — Hành Trình Đầu Năm',
-  description: 'Tour du lịch mùa xuân 2025: những điểm đến đẹp nhất mùa hoa nở. Đặt tour mùa xuân ưu đãi cùng VNGroup Tourist ngay hôm nay!',
+  title: 'Tour Mùa Xuân — Hành Trình Đầu Năm',
+  description: 'Tour du lịch mùa xuân: những điểm đến đẹp nhất mùa hoa nở. Đặt tour mùa xuân ưu đãi cùng VNGroup Tourist ngay hôm nay!',
   alternates: { canonical: '/tours/spring' },
   openGraph: {
-    title: 'Tour Mùa Xuân 2025 | VNGroup Tourist',
-    description: 'Khám phá những hành trình đẹp nhất mùa xuân 2025.',
+    title: 'Tour Mùa Xuân | VNGroup Tourist',
+    description: 'Khám phá những hành trình đẹp nhất mùa xuân.',
     url: '/tours/spring',
   },
 };

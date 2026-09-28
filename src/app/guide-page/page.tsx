@@ -77,8 +77,21 @@ export default function GuidePage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-center">
+            <div className="min-h-screen bg-gray-50">
+                {/* Tieu de phai co ngay trong HTML dau tien, khong doi
+                    JavaScript chay xong. Truoc day nhanh loading chi co vong
+                    xoay nen trang khong he co the <h1> nao. */}
+                <section className="bg-white border-b border-gray-100">
+                    <div className="container mx-auto px-4 py-8">
+                        <nav className="text-sm text-gray-500 mb-2">
+                            <Link href="/" className="hover:text-gray-900 transition-colors">Trang chủ</Link>
+                            <span className="mx-2">/</span>
+                            <span className="text-gray-900 font-semibold">Cẩm nang</span>
+                        </nav>
+                        <h1 className="text-3xl font-bold text-gray-900">Tạp chí Du lịch</h1>
+                    </div>
+                </section>
+                <div className="text-center py-24">
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand mx-auto"></div>
                     <p className="mt-4 text-gray-500">Đang tải bài viết...</p>
                 </div>

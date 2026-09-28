@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { tourService } from '@/services/tour.service';
 import TourDetailView from '@/components/tours/TourDetailView';
-import JsonLd, { tourSchema } from '@/components/common/JsonLd';
+import JsonLd, { tourSchema, breadcrumbSchema } from '@/components/common/JsonLd';
 
 // Correctly type the params as a Promise for Next.js 15
 interface PageProps {
@@ -67,6 +67,13 @@ export default async function TourDetailsPage({ params }: PageProps) {
 
     return (
         <>
+            <JsonLd data={breadcrumbSchema([
+                { name: 'Trang chủ', url: '/' },
+                // tour.category sau khi chuyen doi chi con la ten (chuoi),
+                // ma danh muc da bi bo nen nac giua tro ve trang tour chung
+                { name: tour.category || 'Tour', url: '/tours' },
+                { name: tour.name, url: `/tours/${tour.slug || slug}` },
+            ])} />
             <JsonLd data={tourSchema({
                 name: tour.name,
                 description: tour.highlights?.replace(/<[^>]+>/g, '').slice(0, 300) || tour.name,

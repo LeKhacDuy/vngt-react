@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import TourListing from '@/components/tours/TourListing';
 
 export const metadata: Metadata = {
-  title: 'Tour Trong Nước Giá Rẻ Uy Tín 2025',
+  title: 'Tour Trong Nước Giá Rẻ Uy Tín',
   description: 'Tour du lịch trong nước: Đà Lạt, Phú Quốc, Hội An, Hạ Long và nhiều điểm đẹp. Dịch vụ tận tâm, giá cạnh tranh từ VNGroup Tourist.',
   alternates: { canonical: '/tours/domestic' },
   openGraph: {
