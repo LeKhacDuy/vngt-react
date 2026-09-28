@@ -61,6 +61,25 @@ export default function HeroSection() {
     const [selectedDate, setSelectedDate] = useState('');
     const [currentSlide, setCurrentSlide] = useState(0);
 
+    // Chi dung nhung tam banner da thuc su can den.
+    // Truoc day ca bay tam deu duoc dung ngay tu dau. Chung nam trong khung
+    // nhin voi opacity 0 nen trinh duyet van tai het — dat loading="lazy"
+    // cung khong cuu duoc, vi ve mat ky thuat chung dang o trong khung nhin.
+    // Khach chi nhin thay mot tam nhung phai tai ca bay.
+    const [tamMayTinh, setTamMayTinh] = useState<number[]>([0, 1]);
+    const [tamDienThoai, setTamDienThoai] = useState<number[]>([0, 1]);
+
+    useEffect(() => {
+        // Giu them tam ke tiep de luc chuyen anh da san sang, khong bi nhay
+        const them = (ds: number[], hienTai: number, tong: number) => {
+            const ke = (hienTai + 1) % tong;
+            if (ds.includes(hienTai) && ds.includes(ke)) return ds;
+            return Array.from(new Set([...ds, hienTai, ke]));
+        };
+        setTamMayTinh(ds => them(ds, currentSlide % HERO_IMAGES.length, HERO_IMAGES.length));
+        setTamDienThoai(ds => them(ds, currentSlide % MOBILE_HERO_IMAGES.length, MOBILE_HERO_IMAGES.length));
+    }, [currentSlide]);
+
     // New states for premium Vietravel-style search bar
     const [tourCategory, setTourCategory] = useState<'domestic' | 'international'>('domestic');
     const [activeTab, setActiveTab] = useState<'tours' | 'flight_hotel' | 'hotel' | 'flight' | 'visa'>('tours');
@@ -238,7 +257,7 @@ export default function HeroSection() {
 
                 {/* Điện thoại: ảnh điểm đến, khung dọc */}
                 <div className="lg:hidden">
-                    {MOBILE_HERO_IMAGES.map((src, idx) => (
+                    {MOBILE_HERO_IMAGES.map((src, idx) => tamDienThoai.includes(idx) && (
                         <div
                             key={src}
                             className={`absolute inset-0 transition-opacity duration-1000 ${
@@ -262,7 +281,7 @@ export default function HeroSection() {
 
                 {/* Máy tính: banner thiết kế sẵn */}
                 <div className="hidden lg:block">
-                    {HERO_IMAGES.map((src, idx) => (
+                    {HERO_IMAGES.map((src, idx) => tamMayTinh.includes(idx) && (
                         <div
                             key={src}
                             className={`absolute inset-0 transition-opacity duration-1000 ${
