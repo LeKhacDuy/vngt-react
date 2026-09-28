@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { tourService } from '@/services/tour.service';
+import { moTaTour } from '@/lib/mo-ta-seo';
 import TourDetailView from '@/components/tours/TourDetailView';
 import JsonLd, { tourSchema, breadcrumbSchema } from '@/components/common/JsonLd';
 
@@ -20,9 +21,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
-    const description = tour.highlights
-        ? tour.highlights.replace(/<[^>]+>/g, '').slice(0, 160)
-        : `Khám phá ${tour.name} cùng VNGroup Tourist. Đặt tour ngay với giá tốt nhất!`;
+    const description = moTaTour({
+        name: tour.name,
+        duration: tour.duration,
+        destination: tour.destination,
+        hotelRating: (tour as { hotel_rating?: string }).hotel_rating,
+        highlights: tour.highlights,
+        price: (tour as { web_price?: number }).web_price,
+    });
 
     return {
         title: tour.name,
