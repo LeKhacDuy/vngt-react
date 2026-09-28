@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Dịch Vụ Visa | VNGroup Tourist',
     description: 'Hỗ trợ visa du lịch, công tác, thăm thân. Tỷ lệ đậu cao, nhanh chóng.',
     url: '/visa-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

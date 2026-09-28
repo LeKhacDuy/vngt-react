@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       'Liên hệ ngay: 0931.867.376. Tư vấn tour miễn phí 24/7. Văn phòng tại Quận Tân Bình, TP.HCM.',
     url: '/contact-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

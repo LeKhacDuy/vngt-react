@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Lễ Tết | VNGroup Tourist',
     description: 'Tour lễ tết 30/4, 1/5, Quốc khánh, Tết. Đặt sớm giá tốt!',
     url: '/tours/holiday',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

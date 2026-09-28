@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Mùa Hè | VNGroup Tourist',
     description: 'Tour biển đảo mùa hè: Phú Quốc, Nỿ Hoàng, Đà Nẵng. Đặt ngay!',
     url: '/tours/summer',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

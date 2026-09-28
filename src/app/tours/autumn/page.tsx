@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Mùa Thu | VNGroup Tourist',
     description: 'Ngắm lá đỏ mùa thu Nhật Bản, Hàn Quốc cùng VNGroup Tourist.',
     url: '/tours/autumn',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

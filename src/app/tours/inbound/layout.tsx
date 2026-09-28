@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tour Inbound Việt Nam | VNGroup Tourist',
     description: 'Tour Việt Nam cho khách quốc tế: Hà Nội, Hội An, Hạ Long, TP.HCM.',
     url: '/tours/inbound',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

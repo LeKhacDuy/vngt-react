@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Mùa Đông | VNGroup Tourist',
     description: 'Khám phá xứ tuyết Đông Âu, Hàn Quốc, Nhật Bản mùa đông.',
     url: '/tours/winter',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

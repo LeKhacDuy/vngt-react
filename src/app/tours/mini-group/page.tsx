@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Mini Group | VNGroup Tourist',
     description: 'Tour nhóm nhỏ 6-15 người. Linh hoạt, cá nhân hóa, trải nghiệm sâu.',
     url: '/tours/mini-group',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tour Đoàn Doanh Nghiệp | VNGroup Tourist',
     description: 'Tour đoàn, MICE, teambuilding chuyên nghiệp cho doanh nghiệp.',
     url: '/tours/group',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tour Cao Cấp 5 Sao | VNGroup Tourist',
     description: 'Tour luxury 5 sao: khách sạn hạng sang, dịch vụ VIP, hành trình độc quyền.',
     url: '/tours/luxury',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

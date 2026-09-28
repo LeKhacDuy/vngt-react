@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tuyển Dụng | VNGroup Tourist',
     description: 'Tuyển dụng nhân sự du lịch: HDV, tư vấn tour, marketing. Thu nhập hấp dẫn.',
     url: '/careers-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

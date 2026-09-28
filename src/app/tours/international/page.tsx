@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tour Quốc Tế Giá Rẻ Uy Tín | VNGroup Tourist',
     description: 'Tour quốc tế: Hàn Quốc, Nhật Bản, Thái Lan, Trung Quốc. Đặt ngay!',
     url: '/tours/international',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

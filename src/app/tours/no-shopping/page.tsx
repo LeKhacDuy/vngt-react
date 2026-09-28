@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Không Mua Sắm | VNGroup Tourist',
     description: 'Tour thuần túy không dừng cửa hàng. Khám phá văn hóa đích thực.',
     url: '/tours/no-shopping',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

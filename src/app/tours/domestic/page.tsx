@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tour Trong Nước Giá Rẻ Uy Tín | VNGroup Tourist',
     description: 'Tour nội địa: Đà Lạt, Phú Quốc, Hội An, Hạ Long. Đặt ngay!',
     url: '/tours/domestic',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

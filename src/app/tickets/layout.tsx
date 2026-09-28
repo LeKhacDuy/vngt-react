@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Vé Tham Quan | VNGroup Tourist',
     description: 'Đặt vé tham quan Vinpearl, Bà Nà Hills và nhiều điểm du lịch nổi tiếng.',
     url: '/tickets',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

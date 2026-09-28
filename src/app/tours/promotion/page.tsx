@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Tour Khuyến Mãi Giá Sốc | VNGroup Tourist',
     description: 'Tour khuyến mãi giảm đến 30%. Đặt ngay kẻo hết!',
     url: '/tours/promotion',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

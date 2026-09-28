@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Cẩm Nang Du Lịch | VNGroup Tourist',
     description: 'Kinh nghiệm du lịch Hàn Quốc, Nhật Bản, Thái Lan, Việt Nam từ chuyên gia.',
     url: '/guide-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

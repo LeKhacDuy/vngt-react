@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description:
       'VNGroup Tourist — thành lập 2023, 3000+ khách hàng tin tưởng. Đội ngũ chuyên nghiệp, tận tâm.',
     url: '/about-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

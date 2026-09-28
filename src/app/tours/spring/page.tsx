@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Tour Mùa Xuân | VNGroup Tourist',
     description: 'Khám phá những hành trình đẹp nhất mùa xuân.',
     url: '/tours/spring',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

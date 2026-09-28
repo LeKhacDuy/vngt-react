@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Lịch Khởi Hành Tour | VNGroup Tourist',
     description: 'Xem lịch khởi hành tour đầy đủ và đặt ngay — cập nhật liên tục.',
     url: '/schedule-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

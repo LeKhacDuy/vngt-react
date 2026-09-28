@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Hỗ Trợ Khách Hàng | VNGroup Tourist',
     description: 'Hỗ trợ 24/7 — Giải đáp tour, đặt chỗ, hủy và hoàn tiền.',
     url: '/support-page',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 

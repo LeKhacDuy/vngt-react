@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Khuyến Mãi Du Lịch | VNGroup Tourist',
     description: 'Ưu đãi du lịch mới nhất — Tour giảm giá sốc trong và ngoài nước.',
     url: '/promotions',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
   },
 };
 
