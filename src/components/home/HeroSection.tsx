@@ -250,7 +250,7 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative w-full min-h-[580px] sm:min-h-[620px] lg:min-h-0 lg:h-auto lg:aspect-[3000/1039] flex flex-col justify-end py-10 lg:py-0 lg:block lg:mb-28 bg-gray-900">
+        <section className="relative w-full min-h-[580px] sm:min-h-[620px] lg:min-h-0 lg:h-auto lg:aspect-[3000/1039] flex flex-col justify-end py-10 lg:py-0 lg:block lg:mb-64 bg-gray-900">
             {/* Ảnh nền — điện thoại và máy tính dùng hai bộ ảnh khác nhau */}
             <div className="absolute inset-0 z-0 overflow-hidden bg-ink">
 
@@ -320,6 +320,13 @@ export default function HeroSection() {
                 </button>
             </div>
 
+            {/* Noi dung.
+                Khoi tim kiem duoc day xuong dung bang chieu cao cua no
+                (translate-y-full) de khong de len banner. Truoc day no day
+                75% nen thanh tab con phu len 54px day banner, cat ngang dai
+                thong tin lien he trong anh — phan bi che thay doi theo man
+                hinh, tu 7,8% tren man 1920px den 14,7% tren man 1024px.
+                mb-64 (256px) du cho khoi cao 215px va chua 41px khoang ho. */}
             {/* Content */}
             <div className="container mx-auto relative z-10 w-full px-4 flex flex-col justify-between h-full lg:h-full lg:flex lg:items-end lg:justify-center">
                 
@@ -338,7 +345,7 @@ export default function HeroSection() {
                     </p>
                 </div>
 
-                <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-[75%] z-20">
+                <div className="w-full lg:w-[980px] max-w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-full z-20">
 
                     {/* Thanh tab. Trên điện thoại cho trượt ngang và ẩn thanh
                         cuộn, dùng nhãn rút gọn để cả 5 tab cùng lọt màn hình. */}
