@@ -9,13 +9,12 @@ import { useRouter } from 'next/navigation';
 // Ảnh banner cho màn hình lớn. Đây là ảnh thiết kế sẵn, tỉ lệ 2,9:1 và đã có
 // sẵn chữ vẽ trong ảnh nên chỉ hợp với bố cục nằm ngang.
 const HERO_IMAGES = [
-    '/cover/cover1.jpg',
-    '/cover/cover2.jpg',
-    '/cover/cover_international.jpg',
-    '/cover/cover_domestic.jpg',
-    '/cover/cover_teambuilding.jpg',
-    '/cover/cover_thailand.jpg',
-    '/cover/cover_china.jpg'
+    '/cover/banner-mua-thu.jpg',
+    '/cover/banner-trong-nuoc.jpg',
+    '/cover/banner-trung-quoc.jpg',
+    '/cover/banner-thai-lan.jpg',
+    '/cover/banner-team-building.jpg',
+    '/cover/banner-mua-dong.jpg'
 ];
 
 // Ảnh riêng cho điện thoại. Nhét banner ngang 2,9:1 vào khung dọc của điện
