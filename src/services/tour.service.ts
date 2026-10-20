@@ -71,9 +71,12 @@ export const tourService = {
         return api.get<any, { data: Tour[] }>('/tours', { params: { category_code: 'domestic' } });
     },
 
-    getGroupTours: async (limit = 12) => {
-        // Trang chu chi hien 4 the. Truoc day goi nay keo ve ca 60 tour doan.
-        return api.get<any, { data: Tour[] }>('/tours', { params: { category_code: 'group', limit } });
+    getGroupTours: async (limit?: number) => {
+        // Khong truyen limit = lay tat ca (trang /tours/group can du danh sach).
+        // Trang chu chi hien 4 the nen truyen limit de khong keo ve ca 60 tour.
+        return api.get<any, { data: Tour[] }>('/tours', {
+            params: { category_code: 'group', ...(limit ? { limit } : {}) },
+        });
     },
 
     getInboundTours: async () => {

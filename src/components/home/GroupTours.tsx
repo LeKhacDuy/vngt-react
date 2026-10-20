@@ -16,7 +16,7 @@ export default function GroupTours() {
             try {
                 // Nạp dữ liệu sẵn có trước, API trả về thì ghi đè
                 setTours(getFallbackGroupTours(4));
-                const response = await tourService.getGroupTours();
+                const response = await tourService.getGroupTours(4);
                 if (response && response.data) {
                     const mappedTours = response.data.slice(0, 4).map((item: Tour) => ({
                         id: item.id.toString(),
